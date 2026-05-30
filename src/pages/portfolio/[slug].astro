@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const entries = await getCollection('portfolio');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { data } = entry;
+
+const statusLabel: Record<string, string> = {
+  active: 'Active',
+  building: 'Building',
+  concept: 'Concept',
+  archived: 'Archived',
+};
+
+// Related (everything else)
+const others = (await getCollection('portfolio'))
+  .filter((c) => c.id !== entry.id)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+---
+<Layout
+  title={`${data.name} — Sage CG Portfolio`}
+  description={data.summary}
+>
+  <article>
+    <!-- Header -->
+    <section class="border-b border-[var(--color-rule)]">
+      <div class="mx-auto max-w-4xl px-6 pt-16 pb-14">
+        <a href="/portfolio" class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)] hover:text-[var(--color-accent)]">
+          ← Portfolio
+        </a>
+
+        <div class="mt-6 flex items-center gap-3">
+          <span
+            class="inline-block h-2 w-2 rounded-full"
+            style={`background: ${data.accent ?? 'var(--color-accent)'}`}
+          ></span>
+          <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+            {statusLabel[data.status]} · {data.sector}
+          </span>
+        </div>
+
+        <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight">{data.name}</h1>
+        {data.legalName && data.legalName !== data.name && (
+          <p class="mt-2 text-sm text-[var(--color-muted)] font-mono">{data.legalName}</p>
+        )}
+        <p class="mt-6 font-display text-2xl text-[var(--color-ink)]/80 italic max-w-2xl">
+          {data.tagline}
+        </p>
+
+        <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-[var(--color-rule)] pt-8">
+          <div>
+            <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Status</dt>
+            <dd class="mt-1 text-sm">{statusLabel[data.status]}</dd>
+          </div>
+          {data.stage && (
+            <div>
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Stage</dt>
+              <dd class="mt-1 text-sm">{data.stage}</dd>
+            </div>
+          )}
+          {data.founded && (
+            <div>
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Founded</dt>
+              <dd class="mt-1 text-sm">{data.founded}</dd>
+            </div>
+          )}
+          <div>
+            <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Website</dt>
+            <dd class="mt-1 text-sm">
+              {data.url ? (
+                <a class="hover:text-[var(--color-accent)] underline underline-offset-4 decoration-[var(--color-rule)]" href={data.url} target="_blank" rel="noopener">
+                  Visit →
+                </a>
+              ) : (
+                <span class="text-[var(--color-muted)]">—</span>
+              )}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Body -->
+    <section class="mx-auto max-w-3xl px-6 py-16">
+      <div class="prose-content">
+        <Content />
+      </div>
+    </section>
+  </article>
+
+  <!-- Related -->
+  <section class="border-t border-[var(--color-rule)] bg-[var(--color-paper)]">
+    <div class="mx-auto max-w-6xl px-6 py-16">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">Also in the portfolio</p>
+      <div class="mt-6 grid gap-5 sm:grid-cols-3">
+        {others.map((c) => (
+          <a
+            href={`/portfolio/${c.id}/`}
+            class="block rounded-lg border border-[var(--color-rule)] p-5 hover:border-[var(--color-ink)]/40 transition-colors"
+          >
+            <h3 class="font-display text-xl">{c.data.name}</h3>
+            <p class="mt-1 text-sm text-[var(--color-muted)]">{c.data.tagline}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .prose-content {
+    color: var(--color-ink);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+  }
+  .prose-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-content p { margin: 1rem 0; }
+  .prose-content ul, .prose-content ol { margin: 1rem 0; padding-left: 1.25rem; }
+  .prose-content ul { list-style: disc; }
+  .prose-content ol { list-style: decimal; }
+  .prose-content li { margin: 0.25rem 0; }
+  .prose-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-rule);
+  }
+  .prose-content a:hover { text-decoration-color: var(--color-accent); }
+  .prose-content strong { font-weight: 600; }
+</style>

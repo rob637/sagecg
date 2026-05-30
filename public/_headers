@@ -1,0 +1,21 @@
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-XSS-Protection: 1; mode=block
+
+# Hashed Astro assets — cache forever
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static media — cache 1 day, revalidate
+*.svg
+  Cache-Control: public, max-age=86400
+*.png
+  Cache-Control: public, max-age=86400
+*.jpg
+  Cache-Control: public, max-age=86400
+*.webp
+  Cache-Control: public, max-age=86400

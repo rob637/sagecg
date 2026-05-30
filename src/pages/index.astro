@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PortfolioCard from '../components/PortfolioCard.astro';
+import { getCollection } from 'astro:content';
+
+const companies = (await getCollection('portfolio')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+const stats = [
+  { label: 'Companies', value: companies.length.toString() },
+  { label: 'Active', value: companies.filter((c) => c.data.status === 'active').length.toString() },
+  { label: 'In build', value: companies.filter((c) => c.data.status === 'building').length.toString() },
+  { label: 'Founded', value: '2003' },
+];
+---
+<Layout>
+  <!-- Hero -->
+  <section class="border-b border-[var(--color-rule)]">
+    <div class="mx-auto max-w-6xl px-6 pt-20 pb-20 sm:pt-28 sm:pb-28">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">
+        Sage Consulting Group · Venture Studio
+      </p>
+      <h1 class="mt-6 font-display text-5xl sm:text-7xl leading-[0.95] tracking-tight max-w-4xl">
+        We start, build, and operate
+        <span class="text-[var(--color-accent)] italic">useful</span>
+        software companies.
+      </h1>
+      <p class="mt-8 max-w-2xl text-lg text-[var(--color-ink)]/75 leading-relaxed">
+        Sage CG is a small venture studio. Instead of investing in other people's ideas, we build a focused portfolio of our own — across B2B SaaS, EdTech, healthcare, sports, and community.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a
+          href="/portfolio"
+          class="inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] text-[var(--color-paper)] px-5 py-3 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors"
+        >
+          See the portfolio
+          <span aria-hidden>→</span>
+        </a>
+        <a
+          href="/about"
+          class="inline-flex items-center gap-2 rounded-full border border-[var(--color-rule)] px-5 py-3 text-sm font-medium hover:border-[var(--color-ink)] transition-colors"
+        >
+          How the studio works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="border-b border-[var(--color-rule)]">
+    <div class="mx-auto max-w-6xl px-6 py-10 grid grid-cols-2 sm:grid-cols-4 gap-6">
+      {stats.map((s) => (
+        <div>
+          <div class="font-display text-4xl tracking-tight">{s.value}</div>
+          <div class="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="mx-auto max-w-6xl px-6 py-20">
+    <div class="flex items-end justify-between flex-wrap gap-4">
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">The Portfolio</p>
+        <h2 class="mt-3 font-display text-4xl tracking-tight">Companies we're building.</h2>
+      </div>
+      <a href="/portfolio" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)]">View all →</a>
+    </div>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {companies.map((entry) => <PortfolioCard entry={entry} />)}
+    </div>
+  </section>
+
+  <!-- Thesis -->
+  <section class="border-t border-[var(--color-rule)] bg-[var(--color-ink)] text-[var(--color-paper)]">
+    <div class="mx-auto max-w-6xl px-6 py-20 grid lg:grid-cols-3 gap-12">
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-paper)]/60">Our thesis</p>
+        <h2 class="mt-3 font-display text-4xl tracking-tight">Small bets. Long horizons.</h2>
+      </div>
+      <div class="lg:col-span-2 grid sm:grid-cols-2 gap-10 text-[var(--color-paper)]/85">
+        <div>
+          <h3 class="font-display text-xl">Operator-first</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">
+            Every company in the portfolio is one we'd want to run ourselves. We don't ship ideas we wouldn't show up to on a Monday.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-display text-xl">Built to last</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">
+            Profitable, durable, useful. We optimize for compounding over fundraising and for users over hype cycles.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-display text-xl">Shared infrastructure</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">
+            One studio, one back office, one set of tools. Companies ship faster because they share the boring parts.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-display text-xl">Independent brands</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">
+            Each company stands on its own — its own name, audience, and economics. The studio is the scaffolding, not the storefront.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

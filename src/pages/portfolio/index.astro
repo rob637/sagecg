@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PortfolioCard from '../../components/PortfolioCard.astro';
+import { getCollection } from 'astro:content';
+
+const companies = (await getCollection('portfolio')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+<Layout
+  title="Portfolio — Sage CG Venture Studio"
+  description="The full portfolio of companies built and operated by Sage CG: Leaderreps, CBR Labs, VoraPrep, ToothHound, Longest Table, Football Draft, and more."
+>
+  <section class="border-b border-[var(--color-rule)]">
+    <div class="mx-auto max-w-6xl px-6 pt-20 pb-12">
+      <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">Portfolio</p>
+      <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight max-w-3xl">
+        Every company we're building, in one place.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg text-[var(--color-ink)]/75 leading-relaxed">
+        Some are shipping revenue. Some are in private beta. One is still on the bench. They share a back office, a set of principles, and a long-term mindset.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {companies.map((entry) => <PortfolioCard entry={entry} />)}
+    </div>
+  </section>
+</Layout>
