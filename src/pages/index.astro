@@ -6,15 +6,6 @@ import { getCollection } from 'astro:content';
 const companies = (await getCollection('portfolio')).sort(
   (a, b) => a.data.order - b.data.order
 );
-const activeCount = companies.filter((c) => c.data.status === 'active').length;
-const buildingCount = companies.filter((c) => c.data.status === 'building').length;
-
-const stats = [
-  { label: 'Companies shipping', value: activeCount.toString() },
-  { label: 'Apps in build', value: buildingCount.toString() },
-  { label: 'Lab concepts', value: '3' },
-  { label: 'Years operating', value: (new Date().getFullYear() - 2003).toString() },
-];
 
 const labs = [
   {
@@ -111,15 +102,15 @@ const principles = [
     </div>
   </section>
 
-  <!-- Stats strip -->
-  <section class="border-y border-[var(--color-rule)] bg-white/30">
-    <div class="mx-auto max-w-6xl px-6 py-8 grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-8">
-      {stats.map((s) => (
-        <div>
-          <div class="font-display text-3xl sm:text-4xl tracking-tight leading-none">{s.value}</div>
-          <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{s.label}</div>
-        </div>
-      ))}
+  <!-- Manifesto strip -->
+  <section class="border-y border-[var(--color-rule)] bg-white/40">
+    <div class="mx-auto max-w-5xl px-6 py-14">
+      <p class="font-display text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-[1.2] text-[var(--color-ink)]/90">
+        We don’t chase markets. We pick problems we’d want to solve for the next decade, build the company that solves them, and run it ourselves.
+      </p>
+      <p class="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
+        Operating since 2003 · Virginia
+      </p>
     </div>
   </section>
 
