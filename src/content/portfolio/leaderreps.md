@@ -1,6 +1,6 @@
 ---
-name: "Leaderreps LLC"
-legalName: "Leaderreps LLC"
+name: "LeaderReps LLC"
+legalName: "LeaderReps LLC"
 tagline: "Cohort-based leadership reps, coached daily by AI."
 summary: "A cohort-based professional development platform for emerging and mid-level leaders. Participants run an 8-week program of daily AM/PM practice, live coaching, and short 'reps' — recorded leadership moments that an AI evaluator scores against a 16-behavior taxonomy."
 status: "active"
@@ -16,7 +16,7 @@ accent: "#1e6f5c"
 
 Leadership training is usually a two-day workshop followed by silence. Skills don't stick, managers don't practice, and HR can't see whether anything changed.
 
-Leaderreps replaces the workshop with a structured eight-week cohort: a daily rhythm, weekly live coaching, recorded practice reps that get graded, and a phase-gated curriculum that won't let a leader skip ahead. The whole thing is built around the principle that leadership is a skill earned through reps, not a concept absorbed in a slide deck.
+LeaderReps replaces the workshop with a structured eight-week cohort: a daily rhythm, weekly live coaching, recorded practice reps that get graded, and a phase-gated curriculum that won't let a leader skip ahead. The whole thing is built around the principle that leadership is a skill earned through reps, not a concept absorbed in a slide deck.
 
 ## What we ship
 

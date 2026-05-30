@@ -1,5 +1,5 @@
 ---
-name: "Toothhound"
+name: "ToothHound"
 tagline: "Know when the tide turns up teeth."
 summary: "A free web app for fossil shark-tooth hunters — a daily Hunt Score for every beach, a Gemini-backed tooth identifier, and a parcel-level land assessor for hunters who want to buy the dig site, not just visit it."
 status: "building"
@@ -15,7 +15,7 @@ accent: "#0891b2"
 
 Shark-tooth hunting is a $100M-adjacent hobby trapped in tribal knowledge: Facebook groups, gut feel, and "go after a nor'easter." Hunters drive hours on the wrong tide, misidentify a $4,000 megalodon as a common sand tiger, and — at the high end — pay seven figures for "fossil land" with no idea whether the parcel sits on the Calvert formation or a flood-zone bulkhead.
 
-The pain is wasted weekends, blown IDs, and unbounded risk on land purchases. Toothhound makes the hidden data — tide, geology, flood zone, depth-to-bed, prior sightings — show its work.
+The pain is wasted weekends, blown IDs, and unbounded risk on land purchases. ToothHound makes the hidden data — tide, geology, flood zone, depth-to-bed, prior sightings — show its work.
 
 ## What we ship
 
