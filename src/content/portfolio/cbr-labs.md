@@ -1,5 +1,5 @@
 ---
-name: "CBR Labs"
+name: "CBR Labs LLC"
 legalName: "CBR Labs LLC"
 tagline: "Permanent hardware redaction for government tablets."
 summary: "A US-based device lab that physically removes cameras, microphones, speakers, and radios from iPads and Android tablets, then ships each unit with a serial-numbered certificate, photo evidence, and a tamper-evident chain of custody — built for SCIFs, agencies, and prime contractors."

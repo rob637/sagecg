@@ -1,8 +1,8 @@
 ---
-name: "Football Draft"
+name: "Boys Football Draft"
 tagline: "The draft room, finally done right."
 summary: "A purpose-built draft companion for fantasy football leagues — fast cheat sheets, live values, and zero clutter."
-status: "active"
+status: "building"
 sector: "Consumer · Sports"
 stage: "Seasonal"
 founded: "2023"

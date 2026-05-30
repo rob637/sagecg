@@ -1,5 +1,5 @@
 ---
-name: "Longest Table"
+name: "The Longest Table"
 tagline: "Bring the neighborhood back to the table."
 summary: "A platform that helps communities organize and host long-table dinners — the kind that turn strangers into neighbors."
 status: "building"

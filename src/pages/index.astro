@@ -8,10 +8,37 @@ const companies = (await getCollection('portfolio')).sort(
 );
 
 const stats = [
-  { label: 'Companies', value: companies.length.toString() },
-  { label: 'Active', value: companies.filter((c) => c.data.status === 'active').length.toString() },
-  { label: 'In build', value: companies.filter((c) => c.data.status === 'building').length.toString() },
+  { label: 'Companies', value: companies.filter((c) => c.data.status === 'active').length.toString() },
+  { label: 'Apps in build', value: companies.filter((c) => c.data.status === 'building').length.toString() },
+  { label: 'Lab concepts', value: '3' },
   { label: 'Founded', value: '2003' },
+];
+
+const labs = [
+  {
+    name: 'Workshop',
+    tagline: 'Vibe-code your robot.',
+    summary:
+      'Talk to your hobby robot in plain English. Workshop compiles natural-language prompts into safe, testable firmware patches for Unitree, iRobot Create 3, and common 6-axis arms — no ROS required.',
+    tags: ['Robotics', 'Vibe coding', 'Concept'],
+    accent: '#0f766e',
+  },
+  {
+    name: 'Pickline',
+    tagline: 'A countertop pick-and-pack for small sellers.',
+    summary:
+      'A tabletop pick-and-pack robot for Etsy and Shopify operators shipping 20–200 orders a day. Configured by drag-and-drop in ten minutes. Replaces a part-time packer, not a warehouse.',
+    tags: ['Robotics', 'SMB ops', 'Concept'],
+    accent: '#b45309',
+  },
+  {
+    name: 'Riff',
+    tagline: 'Vibe-coded internal tools for non-coders.',
+    summary:
+      'Describe an internal tool in a sentence — a CRM view, an approvals workflow, a back-office form — and Riff builds, hosts, and shares it with your team in one click. Code is generated, editable, and yours.',
+    tags: ['Vibe coding', 'SaaS', 'Concept'],
+    accent: '#7c3aed',
+  },
 ];
 ---
 <Layout>
@@ -19,15 +46,15 @@ const stats = [
   <section class="border-b border-[var(--color-rule)]">
     <div class="mx-auto max-w-6xl px-6 pt-20 pb-20 sm:pt-28 sm:pb-28">
       <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">
-        Sage Consulting Group · Venture Studio
+        SageCG · Venture Studio
       </p>
       <h1 class="mt-6 font-display text-5xl sm:text-7xl leading-[0.95] tracking-tight max-w-4xl">
-        We start, build, and operate
+        We start, build, operate, and sell
         <span class="text-[var(--color-accent)] italic">useful</span>
-        software companies.
+        companies and apps.
       </h1>
       <p class="mt-8 max-w-2xl text-lg text-[var(--color-ink)]/75 leading-relaxed">
-        Sage CG is a small venture studio. Instead of investing in other people's ideas, we build a focused portfolio of our own — across B2B SaaS, EdTech, healthcare, sports, and community.
+        SageCG is a small venture studio. Instead of investing in other people's ideas, we build a focused portfolio of our own — companies and apps across B2B SaaS, EdTech, GovTech, sports, and community.
       </p>
       <div class="mt-10 flex flex-wrap items-center gap-3">
         <a
@@ -64,7 +91,7 @@ const stats = [
     <div class="flex items-end justify-between flex-wrap gap-4">
       <div>
         <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">The Portfolio</p>
-        <h2 class="mt-3 font-display text-4xl tracking-tight">Companies we're building.</h2>
+        <h2 class="mt-3 font-display text-4xl tracking-tight">Companies and apps we're building.</h2>
       </div>
       <a href="/portfolio" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)]">View all →</a>
     </div>
@@ -107,6 +134,52 @@ const stats = [
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- SageCG Labs -->
+  <section class="border-t border-[var(--color-rule)]">
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <div class="flex items-end justify-between flex-wrap gap-4">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">SageCG Labs</p>
+          <h2 class="mt-3 font-display text-4xl tracking-tight">What we're prototyping next.</h2>
+          <p class="mt-4 max-w-2xl text-[var(--color-ink)]/70 leading-relaxed">
+            Early-stage concepts at the intersection of robotics and vibe coding. If one of these earns its keep on the bench, it graduates into the portfolio.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {labs.map((idea) => (
+          <div
+            class="group relative rounded-xl border border-dashed border-[var(--color-rule)] bg-white/40 p-6"
+            style={`--card-accent: ${idea.accent}`}
+          >
+            <span
+              class="absolute left-0 top-6 bottom-6 w-[3px] rounded-full opacity-70"
+              style="background: var(--card-accent)"
+            ></span>
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="font-display text-2xl tracking-tight">{idea.name}</h3>
+              <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Concept</span>
+            </div>
+            <p class="mt-2 text-[15px] text-[var(--color-ink)]/80">{idea.tagline}</p>
+            <p class="mt-3 text-sm text-[var(--color-muted)] leading-relaxed">{idea.summary}</p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              {idea.tags.map((t) => (
+                <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] border border-[var(--color-rule)] px-2 py-0.5 rounded-sm">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-10 text-sm text-[var(--color-muted)]">
+        Working on something adjacent? <a href="/contact" class="text-[var(--color-ink)] underline-offset-4 hover:underline">Get in touch</a>.
+      </p>
     </div>
   </section>
 </Layout>

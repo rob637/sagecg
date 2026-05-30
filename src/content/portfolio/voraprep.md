@@ -1,5 +1,5 @@
 ---
-name: "VoraPrep"
+name: "VoraPrep LLC"
 legalName: "VoraPrep LLC"
 tagline: "Pass your CPA, EA, CMA, CIA, CISA, or CFP."
 summary: "An adaptive web and mobile prep platform for six US professional certification exams, combining a Prometric-style simulator, AI tutoring, and a personalized study plan that recalibrates as you practice."
