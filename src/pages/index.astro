@@ -6,12 +6,14 @@ import { getCollection } from 'astro:content';
 const companies = (await getCollection('portfolio')).sort(
   (a, b) => a.data.order - b.data.order
 );
+const activeCount = companies.filter((c) => c.data.status === 'active').length;
+const buildingCount = companies.filter((c) => c.data.status === 'building').length;
 
 const stats = [
-  { label: 'Companies', value: companies.filter((c) => c.data.status === 'active').length.toString() },
-  { label: 'Apps in build', value: companies.filter((c) => c.data.status === 'building').length.toString() },
+  { label: 'Companies shipping', value: activeCount.toString() },
+  { label: 'Apps in build', value: buildingCount.toString() },
   { label: 'Lab concepts', value: '3' },
-  { label: 'Founded', value: '2003' },
+  { label: 'Years operating', value: (new Date().getFullYear() - 2003).toString() },
 ];
 
 const labs = [
@@ -20,23 +22,23 @@ const labs = [
     tagline: 'Vibe-code your robot.',
     summary:
       'Talk to your hobby robot in plain English. Workshop compiles natural-language prompts into safe, testable firmware patches for Unitree, iRobot Create 3, and common 6-axis arms — no ROS required.',
-    tags: ['Robotics', 'Vibe coding', 'Concept'],
+    tags: ['Robotics', 'Vibe coding'],
     accent: '#0f766e',
   },
   {
     name: 'Pickline',
-    tagline: 'A countertop pick-and-pack for small sellers.',
+    tagline: 'Pick-and-pack for the kitchen counter.',
     summary:
       'A tabletop pick-and-pack robot for Etsy and Shopify operators shipping 20–200 orders a day. Configured by drag-and-drop in ten minutes. Replaces a part-time packer, not a warehouse.',
-    tags: ['Robotics', 'SMB ops', 'Concept'],
+    tags: ['Robotics', 'SMB ops'],
     accent: '#b45309',
   },
   {
     name: 'Riff',
-    tagline: 'Vibe-coded internal tools for non-coders.',
+    tagline: 'Internal tools, in a sentence.',
     summary:
-      'Describe an internal tool in a sentence — a CRM view, an approvals workflow, a back-office form — and Riff builds, hosts, and shares it with your team in one click. Code is generated, editable, and yours.',
-    tags: ['Vibe coding', 'SaaS', 'Concept'],
+      'Describe an internal tool — a CRM view, an approvals workflow, a back-office form — and Riff builds, hosts, and shares it with your team in one click. The code is generated, editable, and yours to keep.',
+    tags: ['Vibe coding', 'SaaS'],
     accent: '#7c3aed',
   },
 ];
@@ -45,45 +47,63 @@ const alumni = [
   {
     name: 'OraTemps LLC',
     summary:
-      'Staff augmentation for federal and commercial Oracle E-Business Suite programs. Placed experienced Oracle Applications users — functional leads, super-users, and module specialists — into short-cycle implementation and upgrade engagements.',
-    sector: 'Staff Augmentation · Oracle E-Business Suite',
+      'Staff augmentation for federal and commercial Oracle E-Business Suite programs — placing experienced functional leads, super-users, and module specialists into short-cycle implementations and upgrades.',
+    sector: 'Staff Augmentation · Oracle EBS',
     outcome: 'Wound down',
   },
   {
     name: 'OneTeam Consulting, LLC',
     summary:
-      'Help-desk and application support for the Defense Agencies Initiative (DAI), the DoD Oracle E-Business Suite ERP. Tier-1 through tier-3 support for end users and program offices across the DAI customer footprint.',
-    sector: 'GovTech · DoD DAI · Oracle Apps Support',
+      'Help-desk and application support for the Defense Agencies Initiative (DAI), the DoD’s Oracle E-Business Suite ERP. Tier-1 through tier-3 support for end users and program offices across the DAI footprint.',
+    sector: 'GovTech · DoD DAI',
     outcome: 'Wound down',
+  },
+];
+
+const principles = [
+  {
+    title: 'Operator-first',
+    body: 'Every company in the portfolio is one we’d want to run ourselves. We don’t ship ideas we wouldn’t show up to on a Monday.',
+  },
+  {
+    title: 'Built to last',
+    body: 'Profitable, durable, useful. We optimize for compounding over fundraising, and for users over hype cycles.',
+  },
+  {
+    title: 'Shared spine',
+    body: 'One studio, one back office, one set of tools. Companies ship faster because they share the boring parts.',
+  },
+  {
+    title: 'Independent brands',
+    body: 'Each company stands on its own — its own name, audience, and economics. The studio is the scaffolding, not the storefront.',
   },
 ];
 ---
 <Layout>
   <!-- Hero -->
-  <section class="border-b border-[var(--color-rule)]">
-    <div class="mx-auto max-w-6xl px-6 pt-20 pb-20 sm:pt-28 sm:pb-28">
-      <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">
-        SageCG · Venture Studio
+  <section>
+    <div class="mx-auto max-w-6xl px-6 pt-20 pb-20 sm:pt-24 sm:pb-24">
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
+        SageCG · Venture Studio · Est. 2003
       </p>
-      <h1 class="mt-6 font-display text-5xl sm:text-7xl leading-[0.95] tracking-tight max-w-4xl">
+      <h1 class="mt-5 font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight max-w-5xl">
         We start, build, operate, and sell
         <span class="text-[var(--color-accent)] italic">useful</span>
         companies and apps.
       </h1>
-      <p class="mt-8 max-w-2xl text-lg text-[var(--color-ink)]/75 leading-relaxed">
-        SageCG is a small venture studio. Instead of investing in other people's ideas, we build a focused portfolio of our own — companies and apps across B2B SaaS, EdTech, GovTech, sports, and community.
+      <p class="mt-7 max-w-2xl text-lg text-[var(--color-ink)]/75 leading-relaxed">
+        A small venture studio in Virginia. Instead of investing in other people’s ideas, we build a focused portfolio of our own — across B2B SaaS, EdTech, GovTech, sports, and community.
       </p>
-      <div class="mt-10 flex flex-wrap items-center gap-3">
+      <div class="mt-9 flex flex-wrap items-center gap-3">
         <a
           href="/portfolio"
-          class="inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] text-[var(--color-paper)] px-5 py-3 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors"
+          class="inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] text-[var(--color-paper)] px-5 py-2.5 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors"
         >
-          See the portfolio
-          <span aria-hidden>→</span>
+          See the portfolio <span aria-hidden>→</span>
         </a>
         <a
           href="/about"
-          class="inline-flex items-center gap-2 rounded-full border border-[var(--color-rule)] px-5 py-3 text-sm font-medium hover:border-[var(--color-ink)] transition-colors"
+          class="inline-flex items-center gap-2 rounded-full border border-[var(--color-rule)] px-5 py-2.5 text-sm font-medium text-[var(--color-ink)]/80 hover:text-[var(--color-ink)] hover:border-[var(--color-ink)]/40 transition-colors"
         >
           How the studio works
         </a>
@@ -91,26 +111,33 @@ const alumni = [
     </div>
   </section>
 
-  <!-- Stats -->
-  <section class="border-b border-[var(--color-rule)]">
-    <div class="mx-auto max-w-6xl px-6 py-10 grid grid-cols-2 sm:grid-cols-4 gap-6">
+  <!-- Stats strip -->
+  <section class="border-y border-[var(--color-rule)] bg-white/30">
+    <div class="mx-auto max-w-6xl px-6 py-8 grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-8">
       {stats.map((s) => (
         <div>
-          <div class="font-display text-4xl tracking-tight">{s.value}</div>
-          <div class="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{s.label}</div>
+          <div class="font-display text-3xl sm:text-4xl tracking-tight leading-none">{s.value}</div>
+          <div class="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{s.label}</div>
         </div>
       ))}
     </div>
   </section>
 
   <!-- Portfolio -->
-  <section class="mx-auto max-w-6xl px-6 py-20">
+  <section class="mx-auto max-w-6xl px-6 pt-20 pb-24">
     <div class="flex items-end justify-between flex-wrap gap-4">
-      <div>
-        <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">The Portfolio</p>
-        <h2 class="mt-3 font-display text-4xl tracking-tight">Companies and apps we're building.</h2>
+      <div class="max-w-2xl">
+        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Currently shipping</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">
+          Three companies. Three apps. One studio.
+        </h2>
       </div>
-      <a href="/portfolio" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)]">View all →</a>
+      <a
+        href="/portfolio"
+        class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
+      >
+        View all →
+      </a>
     </div>
 
     <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -118,59 +145,21 @@ const alumni = [
     </div>
   </section>
 
-  <!-- Thesis -->
-  <section class="border-t border-[var(--color-rule)] bg-[var(--color-ink)] text-[var(--color-paper)]">
-    <div class="mx-auto max-w-6xl px-6 py-20 grid lg:grid-cols-3 gap-12">
-      <div>
-        <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-paper)]/60">Our thesis</p>
-        <h2 class="mt-3 font-display text-4xl tracking-tight">Small bets. Long horizons.</h2>
-      </div>
-      <div class="lg:col-span-2 grid sm:grid-cols-2 gap-10 text-[var(--color-paper)]/85">
-        <div>
-          <h3 class="font-display text-xl">Operator-first</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">
-            Every company in the portfolio is one we'd want to run ourselves. We don't ship ideas we wouldn't show up to on a Monday.
-          </p>
-        </div>
-        <div>
-          <h3 class="font-display text-xl">Built to last</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">
-            Profitable, durable, useful. We optimize for compounding over fundraising and for users over hype cycles.
-          </p>
-        </div>
-        <div>
-          <h3 class="font-display text-xl">Shared infrastructure</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">
-            One studio, one back office, one set of tools. Companies ship faster because they share the boring parts.
-          </p>
-        </div>
-        <div>
-          <h3 class="font-display text-xl">Independent brands</h3>
-          <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">
-            Each company stands on its own — its own name, audience, and economics. The studio is the scaffolding, not the storefront.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- SageCG Labs -->
-  <section class="border-t border-[var(--color-rule)]">
-    <div class="mx-auto max-w-6xl px-6 py-20">
-      <div class="flex items-end justify-between flex-wrap gap-4">
-        <div>
-          <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">SageCG Labs</p>
-          <h2 class="mt-3 font-display text-4xl tracking-tight">What we're prototyping next.</h2>
-          <p class="mt-4 max-w-2xl text-[var(--color-ink)]/70 leading-relaxed">
-            Early-stage concepts at the intersection of robotics and vibe coding. If one of these earns its keep on the bench, it graduates into the portfolio.
-          </p>
-        </div>
+  <section class="border-t border-[var(--color-rule)] bg-white/40">
+    <div class="mx-auto max-w-6xl px-6 pt-20 pb-24">
+      <div class="max-w-2xl">
+        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">SageCG Labs</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">On the bench.</h2>
+        <p class="mt-4 text-[var(--color-ink)]/70 leading-relaxed">
+          Early concepts at the intersection of robotics and vibe coding. If one earns its keep on the bench, it graduates into the portfolio.
+        </p>
       </div>
 
       <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {labs.map((idea) => (
           <div
-            class="group relative rounded-xl border border-dashed border-[var(--color-rule)] bg-white/40 p-6"
+            class="relative rounded-xl border border-dashed border-[var(--color-rule)] bg-[var(--color-paper)] p-6"
             style={`--card-accent: ${idea.accent}`}
           >
             <span
@@ -178,14 +167,14 @@ const alumni = [
               style="background: var(--card-accent)"
             ></span>
             <div class="flex items-center justify-between gap-3">
-              <h3 class="font-display text-2xl tracking-tight">{idea.name}</h3>
+              <h3 class="font-display text-xl tracking-tight">{idea.name}</h3>
               <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Concept</span>
             </div>
-            <p class="mt-2 text-[15px] text-[var(--color-ink)]/80">{idea.tagline}</p>
+            <p class="mt-2 text-[15px] text-[var(--color-ink)]/85 italic font-display">{idea.tagline}</p>
             <p class="mt-3 text-sm text-[var(--color-muted)] leading-relaxed">{idea.summary}</p>
-            <div class="mt-5 flex flex-wrap gap-2">
+            <div class="mt-5 flex flex-wrap gap-1.5">
               {idea.tags.map((t) => (
-                <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] border border-[var(--color-rule)] px-2 py-0.5 rounded-sm">
+                <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-muted)] border border-[var(--color-rule)] px-2 py-0.5 rounded-sm">
                   {t}
                 </span>
               ))}
@@ -193,21 +182,38 @@ const alumni = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
-      <p class="mt-10 text-sm text-[var(--color-muted)]">
-        Working on something adjacent? <a href="/contact" class="text-[var(--color-ink)] underline-offset-4 hover:underline">Get in touch</a>.
-      </p>
+  <!-- Thesis -->
+  <section class="border-t border-[var(--color-rule)] bg-[var(--color-ink)] text-[var(--color-paper)]">
+    <div class="mx-auto max-w-6xl px-6 py-20 grid lg:grid-cols-3 gap-x-12 gap-y-10">
+      <div class="lg:pr-8">
+        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-paper)]/55">Our thesis</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">Small bets. Long horizons.</h2>
+        <p class="mt-4 text-sm text-[var(--color-paper)]/65 leading-relaxed">
+          The studio compounds patiently. The companies stand on their own.
+        </p>
+      </div>
+      <div class="lg:col-span-2 grid sm:grid-cols-2 gap-x-10 gap-y-8">
+        {principles.map((p) => (
+          <div>
+            <h3 class="font-display text-lg tracking-tight">{p.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">{p.body}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
   <!-- Alumni -->
   <section class="border-t border-[var(--color-rule)]">
-    <div class="mx-auto max-w-6xl px-6 py-20">
-      <div>
-        <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">Alumni</p>
-        <h2 class="mt-3 font-display text-4xl tracking-tight">Companies we built and retired.</h2>
-        <p class="mt-4 max-w-2xl text-[var(--color-ink)]/70 leading-relaxed">
-          Not every chapter stays open forever. These are the SageCG companies that served their customers, ran their course, and closed cleanly.
+    <div class="mx-auto max-w-6xl px-6 pt-20 pb-24">
+      <div class="max-w-2xl">
+        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Alumni</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">Companies that finished their run.</h2>
+        <p class="mt-4 text-[var(--color-ink)]/70 leading-relaxed">
+          Not every chapter stays open forever. These served their customers, ran their course, and closed cleanly.
         </p>
       </div>
 
@@ -216,11 +222,11 @@ const alumni = [
           <div class="relative rounded-xl border border-[var(--color-rule)] bg-white/40 p-6">
             <span class="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-[var(--color-muted)]/40"></span>
             <div class="flex items-center justify-between gap-3">
-              <h3 class="font-display text-2xl tracking-tight">{co.name}</h3>
+              <h3 class="font-display text-xl tracking-tight">{co.name}</h3>
               <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{co.outcome}</span>
             </div>
-            <p class="mt-3 text-sm text-[var(--color-muted)] leading-relaxed">{co.summary}</p>
-            <div class="mt-5 font-mono text-xs text-[var(--color-muted)]">{co.sector}</div>
+            <p class="mt-3 text-sm text-[var(--color-ink)]/75 leading-relaxed">{co.summary}</p>
+            <div class="mt-5 font-mono text-[11px] text-[var(--color-muted)]">{co.sector}</div>
           </div>
         ))}
       </div>

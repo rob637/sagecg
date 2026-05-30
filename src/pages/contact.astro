@@ -3,32 +3,39 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout
   title="Contact — SageCG Venture Studio"
-  description="Get in touch with Sage Consulting Group — partnerships, press, careers in the portfolio, or just to say hello."
+  description="Get in touch with SageCG — partnerships, press, careers across the portfolio, or just to say hello."
 >
-  <section class="mx-auto max-w-3xl px-6 pt-20 pb-24">
-    <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">Contact</p>
-    <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight">Say hello.</h1>
+  <section class="mx-auto max-w-4xl px-6 pt-20 pb-24">
+    <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Contact</p>
+    <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight leading-[1.02]">Say hello.</h1>
     <p class="mt-6 text-lg text-[var(--color-ink)]/75 leading-relaxed max-w-2xl">
-      The studio is small and we read everything that comes in. Tell us what you're working on and we'll point you to the right person — or write back ourselves.
+      The studio is small and we read everything that comes in. Tell us what you’re working on and we’ll point you to the right person — or write back ourselves.
     </p>
 
-    <div class="mt-12 grid sm:grid-cols-2 gap-6">
+    <div class="mt-12 grid sm:grid-cols-2 gap-5">
       <a
         href="mailto:hello@sagecg.com"
-        class="block rounded-xl border border-[var(--color-rule)] p-6 hover:border-[var(--color-ink)]/40 transition-colors"
+        class="group block rounded-xl border border-[var(--color-rule)] p-6 hover:border-[var(--color-ink)]/40 transition-colors"
       >
-        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">General</p>
-        <p class="mt-2 font-display text-2xl">hello@sagecg.com</p>
-        <p class="mt-2 text-sm text-[var(--color-muted)]">Partnerships, press, or a friendly note.</p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">General</p>
+        <p class="mt-2 font-display text-2xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">hello@sagecg.com</p>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Partnerships, press, or a friendly note.</p>
       </a>
       <a
         href="mailto:careers@sagecg.com"
-        class="block rounded-xl border border-[var(--color-rule)] p-6 hover:border-[var(--color-ink)]/40 transition-colors"
+        class="group block rounded-xl border border-[var(--color-rule)] p-6 hover:border-[var(--color-ink)]/40 transition-colors"
       >
-        <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Careers</p>
-        <p class="mt-2 font-display text-2xl">careers@sagecg.com</p>
-        <p class="mt-2 text-sm text-[var(--color-muted)]">Roles across the portfolio companies.</p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Careers</p>
+        <p class="mt-2 font-display text-2xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">careers@sagecg.com</p>
+        <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Roles across the portfolio companies.</p>
       </a>
+    </div>
+
+    <div class="mt-16 border-t border-[var(--color-rule)] pt-8">
+      <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Mailing</p>
+      <p class="mt-2 text-sm text-[var(--color-ink)]/80">
+        Sage Consulting Group · Virginia, USA
+      </p>
     </div>
   </section>
 </Layout>

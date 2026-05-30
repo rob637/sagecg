@@ -16,17 +16,24 @@ const { Content } = await render(entry);
 const { data } = entry;
 
 const statusLabel: Record<string, string> = {
-  active: 'Active',
-  building: 'Building',
+  active: 'Shipping',
+  building: 'In build',
   concept: 'Concept',
   archived: 'Archived',
 };
 
-// Related (everything else)
+// Related (everything else, max 3)
 const others = (await getCollection('portfolio'))
   .filter((c) => c.id !== entry.id)
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 3);
+
+// Only show meta fields that have values
+const meta = [
+  { label: 'Status', value: statusLabel[data.status] ?? data.status },
+  data.stage ? { label: 'Stage', value: data.stage } : null,
+  data.founded ? { label: 'Founded', value: data.founded } : null,
+].filter(Boolean) as { label: string; value: string }[];
 ---
 <Layout
   title={`${data.name} — SageCG Portfolio`}
@@ -35,64 +42,61 @@ const others = (await getCollection('portfolio'))
   <article>
     <!-- Header -->
     <section class="border-b border-[var(--color-rule)]">
-      <div class="mx-auto max-w-4xl px-6 pt-16 pb-14">
-        <a href="/portfolio" class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)] hover:text-[var(--color-accent)]">
+      <div class="mx-auto max-w-4xl px-6 pt-12 pb-14">
+        <a
+          href="/portfolio"
+          class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
+        >
           ← Portfolio
         </a>
 
-        <div class="mt-6 flex items-center gap-3">
+        <div class="mt-8 flex items-center gap-2.5">
           <span
             class="inline-block h-2 w-2 rounded-full"
             style={`background: ${data.accent ?? 'var(--color-accent)'}`}
           ></span>
-          <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
             {statusLabel[data.status]} · {data.sector}
           </span>
         </div>
 
-        <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight">{data.name}</h1>
+        <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight leading-[1.02]">{data.name}</h1>
         {data.legalName && data.legalName !== data.name && (
           <p class="mt-2 text-sm text-[var(--color-muted)] font-mono">{data.legalName}</p>
         )}
-        <p class="mt-6 font-display text-2xl text-[var(--color-ink)]/80 italic max-w-2xl">
+
+        <p class="mt-7 font-display text-2xl sm:text-3xl text-[var(--color-ink)]/85 italic max-w-2xl leading-snug">
           {data.tagline}
         </p>
 
-        <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-[var(--color-rule)] pt-8">
-          <div>
-            <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Status</dt>
-            <dd class="mt-1 text-sm">{statusLabel[data.status]}</dd>
-          </div>
-          {data.stage && (
+        <dl class="mt-10 flex flex-wrap gap-x-12 gap-y-6 border-t border-[var(--color-rule)] pt-8">
+          {meta.map((m) => (
             <div>
-              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Stage</dt>
-              <dd class="mt-1 text-sm">{data.stage}</dd>
+              <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">{m.label}</dt>
+              <dd class="mt-1.5 text-sm text-[var(--color-ink)]/85">{m.value}</dd>
             </div>
-          )}
-          {data.founded && (
+          ))}
+          {data.url && (
             <div>
-              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Founded</dt>
-              <dd class="mt-1 text-sm">{data.founded}</dd>
-            </div>
-          )}
-          <div>
-            <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Website</dt>
-            <dd class="mt-1 text-sm">
-              {data.url ? (
-                <a class="hover:text-[var(--color-accent)] underline underline-offset-4 decoration-[var(--color-rule)]" href={data.url} target="_blank" rel="noopener">
-                  Visit →
+              <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Website</dt>
+              <dd class="mt-1.5 text-sm">
+                <a
+                  class="text-[var(--color-ink)]/85 hover:text-[var(--color-accent)] underline underline-offset-4 decoration-[var(--color-rule)] hover:decoration-[var(--color-accent)] transition-colors"
+                  href={data.url}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Visit site →
                 </a>
-              ) : (
-                <span class="text-[var(--color-muted)]">—</span>
-              )}
-            </dd>
-          </div>
+              </dd>
+            </div>
+          )}
         </dl>
       </div>
     </section>
 
     <!-- Body -->
-    <section class="mx-auto max-w-3xl px-6 py-16">
+    <section class="mx-auto max-w-3xl px-6 pt-14 pb-20">
       <div class="prose-content">
         <Content />
       </div>
@@ -100,17 +104,17 @@ const others = (await getCollection('portfolio'))
   </article>
 
   <!-- Related -->
-  <section class="border-t border-[var(--color-rule)] bg-[var(--color-paper)]">
+  <section class="border-t border-[var(--color-rule)] bg-white/40">
     <div class="mx-auto max-w-6xl px-6 py-16">
-      <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">Also in the portfolio</p>
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Also in the portfolio</p>
       <div class="mt-6 grid gap-5 sm:grid-cols-3">
         {others.map((c) => (
           <a
             href={`/portfolio/${c.id}/`}
-            class="block rounded-lg border border-[var(--color-rule)] p-5 hover:border-[var(--color-ink)]/40 transition-colors"
+            class="group block rounded-lg border border-[var(--color-rule)] bg-[var(--color-paper)] p-5 hover:border-[var(--color-ink)]/40 transition-colors"
           >
-            <h3 class="font-display text-xl">{c.data.name}</h3>
-            <p class="mt-1 text-sm text-[var(--color-muted)]">{c.data.tagline}</p>
+            <h3 class="font-display text-xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">{c.data.name}</h3>
+            <p class="mt-1.5 text-sm text-[var(--color-muted)] leading-relaxed">{c.data.tagline}</p>
           </a>
         ))}
       </div>
@@ -131,17 +135,18 @@ const others = (await getCollection('portfolio'))
     margin-top: 2.5rem;
     margin-bottom: 0.75rem;
   }
+  .prose-content h2:first-child { margin-top: 0; }
   .prose-content h3 {
     font-family: var(--font-serif);
     font-size: 1.25rem;
-    margin-top: 2rem;
+    margin-top: 1.75rem;
     margin-bottom: 0.5rem;
   }
   .prose-content p { margin: 1rem 0; }
   .prose-content ul, .prose-content ol { margin: 1rem 0; padding-left: 1.25rem; }
   .prose-content ul { list-style: disc; }
   .prose-content ol { list-style: decimal; }
-  .prose-content li { margin: 0.25rem 0; }
+  .prose-content li { margin: 0.35rem 0; }
   .prose-content a {
     color: var(--color-accent);
     text-decoration: underline;
@@ -150,4 +155,5 @@ const others = (await getCollection('portfolio'))
   }
   .prose-content a:hover { text-decoration-color: var(--color-accent); }
   .prose-content strong { font-weight: 600; }
+  .prose-content em { font-family: var(--font-serif); font-style: italic; }
 </style>

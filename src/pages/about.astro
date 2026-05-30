@@ -3,21 +3,23 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout
   title="About — SageCG Venture Studio"
-  description="Sage Consulting Group is a venture studio that starts, builds, and operates a small portfolio of software companies. Here's how the studio works and what we believe."
+  description="SageCG is a venture studio that starts, builds, operates, and sells a small portfolio of useful companies and apps. Here's how the studio works and what we believe."
 >
+  <!-- Hero -->
   <section class="border-b border-[var(--color-rule)]">
-    <div class="mx-auto max-w-4xl px-6 pt-20 pb-12">
-      <p class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-muted)]">About</p>
-      <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight">
+    <div class="mx-auto max-w-4xl px-6 pt-20 pb-16">
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">About</p>
+      <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight leading-[1.02]">
         A studio, not a holding company.
       </h1>
-      <p class="mt-6 text-lg text-[var(--color-ink)]/75 leading-relaxed">
-        Sage Consulting Group started as a consultancy. Over time it became a workshop — a place where the ideas we kept seeing in the field became their own companies. Today, SageCG is the venture studio that owns and operates that portfolio.
+      <p class="mt-6 text-lg text-[var(--color-ink)]/75 leading-relaxed max-w-2xl">
+        Sage Consulting Group started as a consultancy in 2003. Over time it became a workshop — a place where the ideas we kept seeing in the field became their own companies. Today, SageCG is the venture studio that owns and operates that portfolio.
       </p>
     </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-6 py-16 prose-about">
+  <!-- Body -->
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 prose-about">
     <h2>What a venture studio is</h2>
     <p>
       An accelerator picks winners. A holding company buys them. A venture studio <em>builds</em> them — from the inside, using a shared team, shared infrastructure, and a long-term operator mindset.
@@ -28,7 +30,7 @@ import Layout from '../layouts/Layout.astro';
 
     <h2>How we decide what to build</h2>
     <ol>
-      <li><strong>Real pain.</strong> If we can't point to a specific person who's miserable about a specific problem, we don't ship.</li>
+      <li><strong>Real pain.</strong> If we can’t point to a specific person miserable about a specific problem, we don’t ship.</li>
       <li><strong>Fair market.</strong> Big enough to matter, small enough to be ignored by giants.</li>
       <li><strong>Operator advantage.</strong> Something about the team, the network, or the stack gives us a real edge.</li>
       <li><strong>Path to durability.</strong> A plausible road to a profitable, lasting business — not just a fundable one.</li>
@@ -42,29 +44,41 @@ import Layout from '../layouts/Layout.astro';
       <li>Hard-won playbooks for launch, growth, and support</li>
     </ul>
 
-    <h2>What we don't do</h2>
+    <h2>What we don’t do</h2>
     <ul>
       <li>Take outside capital for the studio itself</li>
-      <li>Chase trends we can't operate inside of</li>
+      <li>Chase trends we can’t operate inside of</li>
       <li>Pretend to be bigger than we are</li>
     </ul>
 
     <h2>Get in touch</h2>
     <p>
-      Working on something adjacent? Looking to collaborate, partner, or join one of the portfolio teams? <a href="/contact">Say hello</a>.
+      Working on something adjacent? Looking to partner, sell to us, or join one of the portfolio teams? <a href="/contact">Say hello</a>.
     </p>
   </section>
 </Layout>
 
 <style is:global>
   .prose-about { color: var(--color-ink); font-size: 1.0625rem; line-height: 1.75; }
-  .prose-about h2 { font-family: var(--font-serif); font-size: 2rem; letter-spacing: -0.02em; margin-top: 3rem; margin-bottom: 0.75rem; }
+  .prose-about h2 {
+    font-family: var(--font-serif);
+    font-size: 1.875rem;
+    letter-spacing: -0.02em;
+    margin-top: 2.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose-about h2:first-child { margin-top: 0; }
   .prose-about p { margin: 1rem 0; }
   .prose-about ul, .prose-about ol { margin: 1rem 0; padding-left: 1.25rem; }
   .prose-about ul { list-style: disc; }
   .prose-about ol { list-style: decimal; }
   .prose-about li { margin: 0.35rem 0; }
-  .prose-about a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--color-rule); }
+  .prose-about a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-rule);
+  }
   .prose-about a:hover { text-decoration-color: var(--color-accent); }
   .prose-about strong { font-weight: 600; }
   .prose-about em { font-family: var(--font-serif); font-style: italic; }
