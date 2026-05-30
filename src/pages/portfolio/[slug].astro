@@ -34,11 +34,34 @@ const meta = [
   data.stage ? { label: 'Stage', value: data.stage } : null,
   data.founded ? { label: 'Founded', value: data.founded } : null,
 ].filter(Boolean) as { label: string; value: string }[];
+
+const pageUrl = `https://www.sagecg.com/portfolio/${entry.id}/`;
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sagecg.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Portfolio', item: 'https://www.sagecg.com/portfolio/' },
+    { '@type': 'ListItem', position: 3, name: data.name, item: pageUrl },
+  ],
+};
+const companyLd: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: data.legalName || data.name,
+  alternateName: data.name,
+  description: data.summary,
+  url: data.url || pageUrl,
+  parentOrganization: { '@id': 'https://www.sagecg.com/#organization' },
+};
+if (data.founded) companyLd.foundingDate = String(data.founded);
 ---
 <Layout
   title={`${data.name} — SageCG Portfolio`}
   description={data.summary}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(companyLd)}></script>
   <article>
     <!-- Header -->
     <section class="border-b border-[var(--color-rule)]">
