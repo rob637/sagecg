@@ -1,8 +1,8 @@
 ---
-name: "CBR Labs LLC"
+name: "CBR Labs"
 legalName: "CBR Labs LLC"
-tagline: "Permanent hardware redaction for government tablets."
-summary: "A US-based device lab that physically removes cameras, microphones, speakers, and radios from iPads and Android tablets, then ships each unit with a serial-numbered certificate, photo evidence, and a tamper-evident chain of custody — built for SCIFs, agencies, and prime contractors."
+tagline: "SCIF-Compliant Hardware Redaction for Government Tablets."
+summary: "CBR Labs provides permanent hardware redaction (physical removal of cameras/mics) for iPads and Android tablets. NIST 800-171 compliant devices with serial-numbered certificates for US agencies, military SCIFs, and gov-contractors."
 status: "active"
 sector: "GovTech · Secure Hardware Services"
 stage: "Active production"
