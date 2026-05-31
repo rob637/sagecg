@@ -7,10 +7,10 @@ const data: CompanyData = {
   'id.legal':           'CBR Labs LLC',
   'id.type':            'Marketing site + internal admin / chain-of-custody app',
   'id.status':          'In production (marketing live; admin behind Access)',
-  'id.stage':           'Production (site relaunched 2026; admin app v1)',
+  'id.stage':           'Production (site relaunched 2025; admin app v1)',
   'id.sector':          'GovTech / Hardware redaction services (SCIFs, courts, hospitals, corrections)',
   'id.domain':          'www.cbr-labs.com',
-  'id.apex':            'www → apex 301 (Cloudflare _redirects + DNS)',
+  'id.apex':            'cbr-labs.com → www (301 via Cloudflare)',
   'id.tagline':         'Hardware Redaction for iPad & Android Tablets',
   'id.founder':         'Rob Pfleghardt (rob637)',
 

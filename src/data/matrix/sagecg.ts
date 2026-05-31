@@ -88,7 +88,7 @@ const data: CompanyData = {
   'an.jsonld':          'JSON-LD: Organization, WebSite, BreadcrumbList (per portfolio page)',
   'an.og':              '/og.png (generated via scripts/gen-og.mjs)',
   'an.meta':            'title + description + canonical + OG + Twitter wired through Layout.astro',
-  'an.gsc':             'Not yet submitted',
+  'an.gsc':             'Submitted',
 
   // AI / ML
   'ai.features':        'None on production site',

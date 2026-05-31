@@ -4,14 +4,14 @@ import type { CompanyData } from './_rows';
 const data: CompanyData = {
   // Identity
   'id.product':         'LeaderReps',
-  'id.legal':           'Sage Consulting Group LLC (operating brand)',
-  'id.type':            'PWA — cohort-based leadership development platform',
+  'id.legal':           'Sage Consulting Group, Inc. (operating brand)',
+  'id.type':            'PWA — leadership conditioning platform',
   'id.status':          'In market (active cohorts)',
-  'id.stage':           'Production (dev / test / prod environments)',
-  'id.sector':          'EdTech / Professional Development / Leadership Coaching',
+  'id.stage':           'Production (Foundation cohort live)',
+  'id.sector':          'EdTech / Leadership Development (HR Tech)',
   'id.domain':          'www.leaderreps.com',
   'id.apex':            'leaderreps.com → www (Firebase Hosting redirect)',
-  'id.tagline':         'Professional development platform for leaders — daily practice, not occasional events',
+  'id.tagline':         'Leadership conditioning for managers — built through reps, not slide decks.',
   'id.founder':         'Rob Pfleghardt (rob637)',
 
   // Repo & Source
@@ -21,7 +21,7 @@ const data: CompanyData = {
   'repo.language':      'JavaScript (JSX) — explicitly no TypeScript',
   'repo.pm':            'npm',
   'repo.node':          '>=20.x (currently v20.20.2)',
-  'repo.monorepo':      'Single repo, but hosts sub-apps (corporate, reppy, passcpa, kudos, etc.)',
+  'repo.monorepo':      'No',
 
   // Frontend
   'fe.framework':       'React 18.3 (functional components + hooks)',
@@ -88,6 +88,7 @@ const data: CompanyData = {
   'an.jsonld':          'None',
   'an.og':              'Generic brand OG in public/',
   'an.meta':            'SPA meta in index.html',
+  'an.gsc':             'Submitted',
 
   // AI
   'ai.features':        'Rep AI Coach, AI-scored reps, AI-recommended practice, transcript scoring',

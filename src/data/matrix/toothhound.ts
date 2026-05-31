@@ -9,7 +9,7 @@ const data: CompanyData = {
   'id.status':          'Live (shark-tooth-app.vercel.app + per-branch previews)',
   'id.stage':           'Production beta — actively iterating on identifier accuracy & land assessor',
   'id.sector':          'Outdoor / hobbyist / paleontology / real-estate intelligence',
-  'id.domain':          'shark-tooth-app.vercel.app (toothhound.app planned)',
+  'id.domain':          'toothhound.app',
   'id.apex':            'Vercel default (apex serves directly when custom domain added)',
   'id.tagline':         'Know when the tide turns up teeth.',
   'id.founder':         'Rob Pfleghardt (rob637)',
