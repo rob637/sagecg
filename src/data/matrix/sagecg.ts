@@ -67,13 +67,13 @@ const data: CompanyData = {
   'auth.sso':           'N/A',
 
   // Email
-  'email.provider':     'Cloudflare (Direct to Inbox)',
-  'email.records':      'MX/SPF/DKIM/DMARC configured in Cloudflare',
-  'email.primary':      'rob@sagecg.com',
-  'email.secondary':    'rob@sagecg.com',
+  'email.provider':     'Google Workspace',
+  'email.records':      'MX/SPF/DKIM/DMARC configured via Google + Cloudflare',
+  'email.primary':      'hello@sagecg.com',
+  'email.secondary':    'careers@sagecg.com',
   'email.founder':      'rob@sagecg.com',
   'email.transactional':'None',
-  'email.aliases':      'Direct',
+  'email.aliases':      'hello, careers, support, rpflegha (via Google Admin)',
 
   // Payments
   'pay.processor':      'None',
