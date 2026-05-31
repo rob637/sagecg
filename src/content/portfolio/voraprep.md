@@ -6,7 +6,7 @@ summary: "An adaptive web and mobile prep platform for six US professional certi
 status: "active"
 sector: "Consumer EdTech · Professional Certification Prep"
 stage: "Live in production"
-founded: "2023"
+founded: "2026"
 url: "https://voraprep.com"
 order: 3
 accent: "#7c3aed"

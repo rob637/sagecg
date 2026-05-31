@@ -6,7 +6,7 @@ summary: "CBR Labs provides permanent hardware redaction (physical removal of ca
 status: "active"
 sector: "GovTech · Secure Hardware Services"
 stage: "Active production"
-founded: "2024"
+founded: "2025"
 url: "https://www.cbr-labs.com"
 order: 2
 accent: "#1f2937"

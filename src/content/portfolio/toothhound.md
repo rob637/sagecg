@@ -5,7 +5,7 @@ summary: "A free web app for fossil shark-tooth hunters — a daily Hunt Score f
 status: "building"
 sector: "Consumer Outdoors · Fossil & Land Intelligence"
 stage: "Public beta"
-founded: "2024"
+founded: "2026"
 url: "https://shark-tooth-app.vercel.app"
 order: 4
 accent: "#0891b2"
