@@ -1,0 +1,214 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { companies, sections } from '../../data/matrix';
+
+const totalRows = sections.reduce((n, s) => n + s.rows.length, 0);
+---
+<Layout
+  title="Admin — Tech Matrix"
+  description="Internal admin view."
+  noindex={true}
+>
+  <!-- Password gate -->
+  <div id="gate" class="min-h-[70vh] flex items-center justify-center px-6">
+    <form id="gate-form" class="w-full max-w-sm border border-[var(--color-rule)] rounded-lg p-8 bg-white/60">
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Admin</p>
+      <h1 class="mt-3 font-display text-3xl tracking-tight">Restricted</h1>
+      <p class="mt-2 text-sm text-[var(--color-ink)]/70">
+        Enter the admin code to continue.
+      </p>
+      <label for="pw" class="sr-only">Code</label>
+      <input
+        id="pw"
+        name="pw"
+        type="password"
+        inputmode="numeric"
+        autocomplete="off"
+        autofocus
+        class="mt-6 w-full border border-[var(--color-rule)] rounded-md px-3 py-2 font-mono tracking-widest text-center text-lg focus:outline-none focus:border-[var(--color-accent)]"
+      />
+      <p id="gate-err" class="hidden mt-2 text-xs text-red-700 font-mono">Incorrect code.</p>
+      <button
+        type="submit"
+        class="mt-4 w-full bg-[var(--color-ink)] text-[var(--color-paper)] rounded-md py-2 text-sm font-medium hover:opacity-90 transition-opacity"
+      >
+        Unlock
+      </button>
+    </form>
+  </div>
+
+  <!-- Matrix (revealed after unlock) -->
+  <div id="matrix" class="hidden">
+    <section class="border-b border-[var(--color-rule)]">
+      <div class="mx-auto max-w-7xl px-6 pt-16 pb-8">
+        <div class="flex items-baseline justify-between gap-6 flex-wrap">
+          <div>
+            <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Admin · Tech Matrix</p>
+            <h1 class="mt-3 font-display text-4xl sm:text-5xl tracking-tight">Portfolio under the hood.</h1>
+            <p class="mt-3 text-[var(--color-ink)]/70 max-w-2xl">
+              Side-by-side technical inventory for every app in the portfolio.
+              {companies.length} columns · {sections.length} sections · {totalRows} rows.
+              SageCG is filled in — fill the rest from each company's codespace.
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              id="csv-btn"
+              class="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-ink)] border border-[var(--color-rule)] rounded-md px-3 py-2 hover:bg-[var(--color-ink)]/[0.03] transition-colors"
+            >
+              Export CSV
+            </button>
+            <button
+              id="lock-btn"
+              class="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)] hover:text-[var(--color-ink)] border border-[var(--color-rule)] rounded-md px-3 py-2"
+            >
+              Lock
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-[1600px] px-6 py-10">
+      <div class="overflow-x-auto border border-[var(--color-rule)] rounded-lg bg-white/40">
+        <table class="w-full border-collapse text-sm">
+          <thead class="sticky top-0 z-20">
+            <tr class="bg-[var(--color-paper)]">
+              <th class="sticky left-0 z-30 bg-[var(--color-paper)] text-left align-bottom px-4 py-3 border-b border-r border-[var(--color-rule)] font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)] min-w-[220px]">
+                Attribute
+              </th>
+              {companies.map((c) => (
+                <th class="text-left align-bottom px-4 py-3 border-b border-[var(--color-rule)] min-w-[260px]">
+                  <div class="flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 rounded-full" style={`background:${c.accent}`}></span>
+                    <span class="font-display text-base text-[var(--color-ink)]">{c.name}</span>
+                  </div>
+                  <div class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{c.id}</div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sections.map((section) => (
+              <>
+                <tr>
+                  <td
+                    colspan={companies.length + 1}
+                    class="sticky left-0 bg-[var(--color-ink)]/[0.04] px-4 py-2 border-b border-[var(--color-rule)] font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-ink)]/70"
+                  >
+                    {section.title}
+                  </td>
+                </tr>
+                {section.rows.map((row, i) => (
+                  <tr class={i % 2 === 0 ? 'bg-transparent' : 'bg-[var(--color-ink)]/[0.015]'}>
+                    <th
+                      scope="row"
+                      class="sticky left-0 bg-[var(--color-paper)] text-left align-top px-4 py-3 border-b border-r border-[var(--color-rule)] font-medium text-[var(--color-ink)]/85 min-w-[220px]"
+                    >
+                      {row.label}
+                    </th>
+                    {companies.map((c) => {
+                      const v = row.values[c.id];
+                      const empty = v === null || v === undefined || (Array.isArray(v) && v.length === 0);
+                      return (
+                        <td class="align-top px-4 py-3 border-b border-[var(--color-rule)] text-[var(--color-ink)]/85 min-w-[260px]">
+                          {empty ? (
+                            <span class="text-[var(--color-muted)]/60 font-mono">—</span>
+                          ) : Array.isArray(v) ? (
+                            <ul class="list-disc list-inside space-y-0.5">
+                              {v.map((item) => <li>{item}</li>)}
+                            </ul>
+                          ) : (
+                            <span>{v}</span>
+                          )}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-6 text-xs text-[var(--color-muted)] font-mono">
+        Edit data: <code>src/data/matrix/&lt;company-id&gt;.ts</code> · Add/rename rows: <code>src/data/matrix/_rows.ts</code>
+      </p>
+    </section>
+  </div>
+
+  <script define:vars={{ companies, sections }}>
+    (function () {
+      const KEY = 'sagecg-admin';
+      const CODE = '7777';
+      const gate = document.getElementById('gate');
+      const matrix = document.getElementById('matrix');
+      const form = document.getElementById('gate-form');
+      const input = document.getElementById('pw');
+      const err = document.getElementById('gate-err');
+      const lockBtn = document.getElementById('lock-btn');
+      const csvBtn = document.getElementById('csv-btn');
+
+      function unlock() {
+        gate.classList.add('hidden');
+        matrix.classList.remove('hidden');
+      }
+      function lock() {
+        sessionStorage.removeItem(KEY);
+        matrix.classList.add('hidden');
+        gate.classList.remove('hidden');
+        if (input) input.value = '';
+      }
+
+      if (sessionStorage.getItem(KEY) === '1') {
+        unlock();
+      }
+
+      form?.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (input && input.value.trim() === CODE) {
+          sessionStorage.setItem(KEY, '1');
+          err.classList.add('hidden');
+          unlock();
+        } else {
+          err.classList.remove('hidden');
+          if (input) {
+            input.value = '';
+            input.focus();
+          }
+        }
+      });
+
+      lockBtn?.addEventListener('click', lock);
+
+      csvBtn?.addEventListener('click', function() {
+        const rows = [['Attribute', ...companies.map(c => c.name)]];
+        sections.forEach(s => {
+          rows.push([`--- ${s.title.toUpperCase()} ---`, ...companies.map(() => '')]);
+          s.rows.forEach(r => {
+            const rowArr = [r.label];
+            companies.forEach(c => {
+               let val = r.values[c.id];
+               if (val === null || val === undefined) val = '—';
+               if (Array.isArray(val)) val = val.join('; ');
+               rowArr.push(val);
+            });
+            rows.push(rowArr);
+          });
+        });
+        
+        const csvContent = rows.map(r => r.map(v => `"${(v || '').toString().replace(/"/g, '""')}"`).join(',')).join('\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.setAttribute('href', url);
+        link.setAttribute('download', `sagecg-tech-matrix-${new Date().toISOString().split('T')[0]}.csv`);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+    })();
+  </script>
+</Layout>
