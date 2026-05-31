@@ -203,6 +203,21 @@ export const sectionDefs: SectionDef[] = [
       { key: 'misc.todos',        label: 'Open TODOs' },
     ],
   },
+  {
+    title: 'Manual Entry (Browser Only — No Git-Sync)',
+    rows: [
+      { key: 'manual.1',          label: 'Manual Row 1' },
+      { key: 'manual.2',          label: 'Manual Row 2' },
+      { key: 'manual.3',          label: 'Manual Row 3' },
+      { key: 'manual.4',          label: 'Manual Row 4' },
+      { key: 'manual.5',          label: 'Manual Row 5' },
+      { key: 'manual.6',          label: 'Manual Row 6' },
+      { key: 'manual.7',          label: 'Manual Row 7' },
+      { key: 'manual.8',          label: 'Manual Row 8' },
+      { key: 'manual.9',          label: 'Manual Row 9' },
+      { key: 'manual.10',         label: 'Manual Row 10' },
+    ],
+  },
 ];
 
 export type CompanyData = Record<string, Cell>;

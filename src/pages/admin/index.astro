@@ -105,14 +105,35 @@ const totalRows = sections.reduce((n, s) => n + s.rows.length, 0);
                       scope="row"
                       class="sticky left-0 bg-[var(--color-paper)] text-left align-top px-4 py-3 border-b border-r border-[var(--color-rule)] font-medium text-[var(--color-ink)]/85 min-w-[220px]"
                     >
-                      {row.label}
+                      {row.key.startsWith('manual.') ? (
+                        <div
+                          contenteditable="true"
+                          class="manual-label outline-none focus:bg-yellow-50 min-h-[1.5em]"
+                          data-key={row.key}
+                        >
+                          {row.label}
+                        </div>
+                      ) : (
+                        row.label
+                      )}
                     </th>
                     {companies.map((c) => {
                       const v = row.values[c.id];
+                      const isManual = row.key.startsWith('manual.');
                       const empty = v === null || v === undefined || (Array.isArray(v) && v.length === 0);
+                      
                       return (
                         <td class="align-top px-4 py-3 border-b border-[var(--color-rule)] text-[var(--color-ink)]/85 min-w-[260px]">
-                          {empty ? (
+                          {isManual ? (
+                            <div
+                              contenteditable="true"
+                              class="manual-value outline-none focus:bg-yellow-50 min-h-[1.5em] whitespace-pre-wrap"
+                              data-company={c.id}
+                              data-key={row.key}
+                            >
+                              {v || ''}
+                            </div>
+                          ) : empty ? (
                             <span class="text-[var(--color-muted)]/60 font-mono">—</span>
                           ) : Array.isArray(v) ? (
                             <ul class="list-disc list-inside space-y-0.5">
@@ -150,9 +171,48 @@ const totalRows = sections.reduce((n, s) => n + s.rows.length, 0);
       const lockBtn = document.getElementById('lock-btn');
       const csvBtn = document.getElementById('csv-btn');
 
+      function getManualValueKey(companyId, rowKey) {
+        return `sagecg-matrix-val-${companyId}-${rowKey}`;
+      }
+      function getManualLabelKey(rowKey) {
+        return `sagecg-matrix-lbl-${rowKey}`;
+      }
+
+      function loadManualEntries() {
+        document.querySelectorAll('.manual-label').forEach(el => {
+          const key = el.getAttribute('data-key');
+          const saved = localStorage.getItem(getManualLabelKey(key));
+          if (saved) el.innerText = saved;
+        });
+        document.querySelectorAll('.manual-value').forEach(el => {
+          const cid = el.getAttribute('data-company');
+          const rkey = el.getAttribute('data-key');
+          const saved = localStorage.getItem(getManualValueKey(cid, rkey));
+          if (saved) el.innerText = saved;
+        });
+      }
+
+      function setupManualPersistence() {
+        document.querySelectorAll('.manual-label').forEach(el => {
+          el.addEventListener('input', () => {
+            const key = el.getAttribute('data-key');
+            localStorage.setItem(getManualLabelKey(key), el.innerText);
+          });
+        });
+        document.querySelectorAll('.manual-value').forEach(el => {
+          el.addEventListener('input', () => {
+            const cid = el.getAttribute('data-company');
+            const rkey = el.getAttribute('data-key');
+            localStorage.setItem(getManualValueKey(cid, rkey), el.innerText);
+          });
+        });
+      }
+
       function unlock() {
         gate.classList.add('hidden');
         matrix.classList.remove('hidden');
+        loadManualEntries();
+        setupManualPersistence();
       }
       function lock() {
         sessionStorage.removeItem(KEY);
@@ -187,10 +247,17 @@ const totalRows = sections.reduce((n, s) => n + s.rows.length, 0);
         sections.forEach(s => {
           rows.push([`--- ${s.title.toUpperCase()} ---`, ...companies.map(() => '')]);
           s.rows.forEach(r => {
-            const rowArr = [r.label];
+            let label = r.label;
+            if (r.key.startsWith('manual.')) {
+              label = localStorage.getItem(getManualLabelKey(r.key)) || r.label;
+            }
+            const rowArr = [label];
             companies.forEach(c => {
                let val = r.values[c.id];
-               if (val === null || val === undefined) val = '—';
+               if (r.key.startsWith('manual.')) {
+                 val = localStorage.getItem(getManualValueKey(c.id, r.key)) || '';
+               }
+               if (val === null || val === undefined || val === '') val = '—';
                if (Array.isArray(val)) val = val.join('; ');
                rowArr.push(val);
             });
