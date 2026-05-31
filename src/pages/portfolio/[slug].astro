@@ -59,6 +59,7 @@ if (data.founded) companyLd.foundingDate = String(data.founded);
 <Layout
   title={`${data.name} — SageCG Portfolio`}
   description={data.summary}
+  ogImage={data.ogImage}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)}></script>
   <script type="application/ld+json" set:html={JSON.stringify(companyLd)}></script>

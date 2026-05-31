@@ -15,6 +15,7 @@ const portfolio = defineCollection({
     url: z.string().url().optional(),
     order: z.number().default(99),
     accent: z.string().optional(),
+    ogImage: z.string().optional(),
   }),
 });
 

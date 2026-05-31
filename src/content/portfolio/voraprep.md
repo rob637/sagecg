@@ -10,6 +10,7 @@ founded: "2023"
 url: "https://voraprep.com"
 order: 3
 accent: "#7c3aed"
+ogImage: "/portfolio/og-voraprep.png"
 ---
 
 ## The problem

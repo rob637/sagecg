@@ -1,0 +1,22 @@
+---
+/**
+ * StudioLink.astro
+ * 
+ * Instructions:
+ * 1. Copy this file into your other Astro portfolio apps (e.g. VoraPrep, CBR Labs).
+ * 2. Import and place it in the Footer.
+ * 3. It provides a high-authority backlink to the SageCG parent studio for SEO.
+ */
+interface Props {
+  light?: boolean;
+}
+const { light = false } = Astro.props;
+---
+<p class={`text-[11px] font-mono uppercase tracking-[0.2em] ${light ? 'text-white/40' : 'text-stone-400'}`}>
+  A <a 
+    href="https://www.sagecg.com" 
+    class={`hover:text-amber-600 underline underline-offset-4 decoration-current/20 transition-colors ${light ? 'text-white/60' : 'text-stone-600'}`}
+    target="_blank"
+    rel="noopener"
+  >SageCG</a> Venture Studio Company
+</p>
