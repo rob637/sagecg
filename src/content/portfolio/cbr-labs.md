@@ -8,6 +8,7 @@ sector: "GovTech · Secure Hardware Services"
 stage: "Active production"
 founded: "2025"
 url: "https://www.cbr-labs.com"
+secondaryUrl: "https://www.cbr-labs.com/admin"
 order: 2
 accent: "#1f2937"
 ---

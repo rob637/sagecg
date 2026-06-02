@@ -8,6 +8,7 @@ sector: "B2B SaaS · Leadership Development (HR Tech)"
 stage: "IN MARKET"
 founded: "2023"
 url: "https://www.leaderreps.com"
+secondaryUrl: "https://arena.leaderreps.com"
 order: 1
 accent: "#1e6f5c"
 ---

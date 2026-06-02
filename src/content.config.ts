@@ -13,6 +13,7 @@ const portfolio = defineCollection({
     sector: z.string(),
     founded: z.string().optional(),
     url: z.string().url().optional(),
+    secondaryUrl: z.string().url().optional(),
     order: z.number().default(99),
     accent: z.string().optional(),
     ogImage: z.string().optional(),

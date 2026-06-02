@@ -89,6 +89,37 @@ if (data.founded) companyLd.foundingDate = String(data.founded);
           <p class="mt-2 text-sm text-[var(--color-muted)] font-mono">{data.legalName}</p>
         )}
 
+        {(data.url || data.secondaryUrl) && (
+          <div class="mt-5 flex flex-wrap gap-x-8 gap-y-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+            {data.url && (
+              <div class="flex items-center gap-3">
+                {data.secondaryUrl && <span class="opacity-40">Public</span>}
+                <a 
+                  href={data.url} 
+                  target="_blank" 
+                  rel="noopener"
+                  class="text-[var(--color-ink)]/85 hover:text-[var(--color-accent)] transition-colors underline underline-offset-4 decoration-[var(--color-rule)]"
+                >
+                  {new URL(data.url).hostname.replace('www.', '')}
+                </a>
+              </div>
+            )}
+            {data.secondaryUrl && (
+              <div class="flex items-center gap-3">
+                <span class="opacity-40">{data.secondaryUrl.includes('admin') || data.secondaryUrl.includes('arena') ? 'Private' : 'Secondary'}</span>
+                <a 
+                  href={data.secondaryUrl} 
+                  target="_blank" 
+                  rel="noopener"
+                  class="text-[var(--color-ink)]/85 hover:text-[var(--color-accent)] transition-colors underline underline-offset-4 decoration-[var(--color-rule)]"
+                >
+                  {new URL(data.secondaryUrl).hostname.replace('www.', '')}{new URL(data.secondaryUrl).pathname !== '/' ? new URL(data.secondaryUrl).pathname : ''}
+                </a>
+              </div>
+            )}
+          </div>
+        )}
+
         <p class="mt-7 font-display text-2xl sm:text-3xl text-[var(--color-ink)]/85 italic max-w-2xl leading-snug">
           {data.tagline}
         </p>
