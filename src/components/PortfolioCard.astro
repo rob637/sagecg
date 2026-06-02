@@ -34,15 +34,29 @@ const statusLabel: Record<string, string> = {
     </span>
   </div>
 
-  {data.url && (
-    <a 
-      href={data.url}
-      target="_blank"
-      rel="noopener"
-      class="relative z-10 mt-0.5 inline-block font-mono text-[10px] text-[var(--color-muted)] tracking-wider opacity-60 hover:opacity-100 hover:text-[var(--color-accent)] transition-all"
-    >
-      {data.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
-    </a>
+  {(data.url || data.secondaryUrl) && (
+    <div class="relative z-10 mt-1 flex flex-wrap gap-x-4 gap-y-1">
+      {data.url && (
+        <a 
+          href={data.url}
+          target="_blank"
+          rel="noopener"
+          class="inline-block font-mono text-[10px] text-[var(--color-muted)] tracking-wider opacity-60 hover:opacity-100 hover:text-[var(--color-accent)] transition-all line-clamp-1"
+        >
+          {data.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+        </a>
+      )}
+      {data.secondaryUrl && (
+        <a 
+          href={data.secondaryUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-block font-mono text-[10px] text-[var(--color-muted)] tracking-wider opacity-60 hover:opacity-100 hover:text-[var(--color-accent)] transition-all line-clamp-1 border-l border-[var(--color-rule)] pl-4"
+        >
+          {data.secondaryUrl.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
+        </a>
+      )}
+    </div>
   )}
 
   <p class="mt-2 text-[15px] text-[var(--color-ink)]/85 italic font-display leading-snug">{data.tagline}</p>
