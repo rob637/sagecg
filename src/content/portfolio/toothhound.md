@@ -7,7 +7,7 @@ sector: "Consumer Outdoors · Fossil & Land Intelligence"
 stage: "Public beta"
 founded: "2026"
 url: "https://shark-tooth-app.vercel.app"
-order: 4
+order: 5
 accent: "#0891b2"
 ---
 

@@ -7,7 +7,7 @@ sector: "Community · Civic Tech"
 stage: "Pilot"
 founded: "2024"
 url: "https://longest-table-vienna-403607223387.us-east4.run.app/"
-order: 5
+order: 4
 accent: "#b45309"
 ---
 
