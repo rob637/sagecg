@@ -14,8 +14,7 @@ const statusLabel: Record<string, string> = {
   archived: 'Archived',
 };
 ---
-<a
-  href={`/portfolio/${entry.id}/`}
+<div
   class="group relative block rounded-xl border border-[var(--color-rule)] bg-[var(--color-paper)] p-6 transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-12px_rgba(12,10,9,0.18)] hover:border-[var(--color-ink)]/25"
   style={`--card-accent: ${data.accent ?? 'var(--color-accent)'}`}
 >
@@ -25,16 +24,25 @@ const statusLabel: Record<string, string> = {
   ></span>
 
   <div class="flex items-center justify-between gap-3">
-    <h3 class="font-display text-xl sm:text-2xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">{data.name}</h3>
+    <h3 class="font-display text-xl sm:text-2xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">
+      <a href={`/portfolio/${entry.id}/`} class="after:absolute after:inset-0">
+        {data.name}
+      </a>
+    </h3>
     <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)] whitespace-nowrap">
       {statusLabel[data.status] ?? data.status}
     </span>
   </div>
 
   {data.url && (
-    <div class="mt-0.5 font-mono text-[10px] text-[var(--color-muted)] tracking-wider opacity-60 group-hover:opacity-100 transition-opacity">
+    <a 
+      href={data.url}
+      target="_blank"
+      rel="noopener"
+      class="relative z-10 mt-0.5 inline-block font-mono text-[10px] text-[var(--color-muted)] tracking-wider opacity-60 hover:opacity-100 hover:text-[var(--color-accent)] transition-all"
+    >
       {data.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
-    </div>
+    </a>
   )}
 
   <p class="mt-2 text-[15px] text-[var(--color-ink)]/85 italic font-display leading-snug">{data.tagline}</p>
@@ -44,4 +52,4 @@ const statusLabel: Record<string, string> = {
     <span>{data.sector}</span>
     {data.founded && <span class="text-[var(--color-muted)]/70">est. {data.founded}</span>}
   </div>
-</a>
+</div>
