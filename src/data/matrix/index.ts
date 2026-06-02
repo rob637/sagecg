@@ -26,7 +26,7 @@ export const companies: Company[] = [
   { id: 'voraprep',      name: 'VoraPrep',       accent: '#7c3aed', data: voraprep },
   { id: 'toothhound',    name: 'ToothHound',     accent: '#0ea5e9', data: toothhound },
   { id: 'longest-table', name: 'Longest Table',  accent: '#c2410c', data: longestTable },
-  { id: 'football-draft',name: 'Football Draft', accent: '#166534', data: footballDraft },
+  { id: 'football-draft',name: 'NFL Fantasy Auction Draft', accent: '#166534', data: footballDraft },
 ];
 
 export interface ResolvedRow {

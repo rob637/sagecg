@@ -137,7 +137,7 @@ const data: CompanyData = {
   // Misc
   'misc.editorial':     'Editorial-minimal, light cream paper + amber accent',
   'misc.conventions':   'Per-company accent color; Fraunces italic on emphasized words',
-  'misc.todos':         'Founder headshot; Longest Table + Football Draft copy; submit sitemap to Search Console',
+  'misc.todos':         'Founder headshot; Longest Table + NFL Fantasy Auction Draft copy; submit sitemap to Search Console',
 };
 
 export default data;

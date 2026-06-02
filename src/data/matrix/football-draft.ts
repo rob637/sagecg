@@ -1,17 +1,17 @@
-// Football Draft — casual fantasy football draft tool.
+// NFL Fantasy Auction Draft — casual fantasy football draft tool.
 import type { CompanyData } from './_rows';
 
 const data: CompanyData = {
   // Identity
-  'id.product':         'Football Draft',
+  'id.product':         'NFL Fantasy Auction Draft',
   'id.legal':           '(none — under SageCG)',
-  'id.type':            'React PWA — casual fantasy football draft tool',
+  'id.type':            'React PWA — NFL team auction draft tool',
   'id.status':          'Live in production / maintenance',
   'id.stage':           'Production (site relaunched 2024; legacy code maintenance)',
   'id.sector':          'Sports / Entertainment / Fantasy Football',
-  'id.domain':          'footballdraft.app',
-  'id.apex':            'footballdraft.app → www (301 via Cloudflare)',
-  'id.tagline':         'Start the draft already.',
+  'id.domain':          'annual-auction-nfl-draft-608a4.web.app',
+  'id.apex':            'annual-auction-nfl-draft-608a4.web.app (Firebase)',
+  'id.tagline':         'The auction room, finally done right.',
   'id.founder':         'Rob Pfleghardt (rob637)',
 
   // Repo & Source
