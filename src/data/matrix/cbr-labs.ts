@@ -72,7 +72,7 @@ const data: CompanyData = {
   'email.primary':      'rob@cbr-labs.com',
   'email.secondary':    '—',
   'email.founder':      'rob@cbr-labs.com',
-  'email.transactional':'Resend (pending DNS + secret set)',
+  'email.transactional':'None (not needed; no automated outbound)',
   'email.aliases':      'Google Workspace',
 
   // Payments
