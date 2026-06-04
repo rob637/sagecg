@@ -6,7 +6,7 @@ status: "building"
 sector: "Consumer Outdoors · Fossil & Land Intelligence"
 stage: "Public beta"
 founded: "2026"
-url: "https://shark-tooth-app.vercel.app"
+url: "https://shark-tooth-app.pages.dev/"
 order: 5
 accent: "#0891b2"
 ---
@@ -34,4 +34,4 @@ The pain is wasted weekends, blown IDs, and unbounded risk on land purchases. To
 
 ## How we built it
 
-TypeScript on Next.js 14 (App Router) and React 18, deployed on Vercel. Data lives in SQLite (better-sqlite3) with Upstash Redis for feedback capture and rate limits. Identification runs on Google Gemini 2.5 Flash. Public data sources include NOAA Tides & Currents, NHC, USGS, Macrostrat, FEMA NFHL, USFWS CBRS, Paleobiology DB, and iNaturalist; live land listings come from RapidAPI. Maps are rendered with Leaflet.
+TypeScript on Next.js 14 (App Router) and React 18, deployed on Cloudflare Pages. Data lives in SQLite (better-sqlite3) with Upstash Redis for feedback capture and rate limits. Identification runs on Google Gemini 2.5 Flash. Public data sources include NOAA Tides & Currents, NHC, USGS, Macrostrat, FEMA NFHL, USFWS CBRS, Paleobiology DB, and iNaturalist; live land listings come from RapidAPI. Maps are rendered with Leaflet.

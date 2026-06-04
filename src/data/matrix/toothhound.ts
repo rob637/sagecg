@@ -6,11 +6,11 @@ const data: CompanyData = {
   'id.product':         'Toothhound',
   'id.legal':           '(none — under SageCG)',
   'id.type':            'Next.js PWA — shark-tooth & beach-fossil hunting companion (East Coast US)',
-  'id.status':          'Live (shark-tooth-app.vercel.app + per-branch previews)',
+  'id.status':          'Live (https://shark-tooth-app.pages.dev/ + per-branch previews)',
   'id.stage':           'Production beta — actively iterating on identifier accuracy & land assessor',
   'id.sector':          'Outdoor / hobbyist / paleontology / real-estate intelligence',
   'id.domain':          'toothhound.app',
-  'id.apex':            'Vercel default (apex serves directly when custom domain added)',
+  'id.apex':            'Cloudflare Pages default (apex serves directly when custom domain added)',
   'id.tagline':         'Know when the tide turns up teeth.',
   'id.founder':         'Rob Pfleghardt (rob637)',
 
@@ -36,7 +36,7 @@ const data: CompanyData = {
   'fe.darkmode':        'No (intentional bright-beach editorial)',
 
   // Backend
-  'be.runtime':         'Next.js Node 20 serverless functions on Vercel',
+  'be.runtime':         'Next.js Node 20 serverless functions on Cloudflare Pages',
   'be.api':             'Next.js Route Handlers (/api/identify /api/identify-feedback /api/parcel-intel)',
   'be.jobs':            'None',
   'be.functions':       '/api/* route handlers (Node runtime for parcel-intel & feedback)',
@@ -46,20 +46,20 @@ const data: CompanyData = {
   'data.orm':           'None — direct SDK calls',
   'data.source':        'src/data/locations.ts, species.ts, realEstateZones.ts + tests/identify-eval/ fixtures',
   'data.schema':        'TypeScript interfaces + deterministic scorer logic',
-  'data.storage':       'public/ via Vercel CDN + reference-photos/ for ID exemplars',
+  'data.storage':       'public/ via Cloudflare CDN + reference-photos/ for ID exemplars',
   'data.cms':           'None (TypeScript data files are the CMS)',
 
   // Hosting
-  'host.hosting':       'Vercel (Next.js native; production + preview deploys per branch)',
-  'host.build':         'next build (Vercel default)',
+  'host.hosting':       'Cloudflare Pages (Next.js support; production + preview deploys per branch)',
+  'host.build':         'next build (Cloudflare default)',
   'host.output':        '.next/',
-  'host.cache':         'Enabled (Vercel default)',
-  'host.cdn':           'Vercel global edge',
-  'host.dns':           'Vercel default (Cloudflare planned when toothhound.app registered)',
+  'host.cache':         'Enabled (Cloudflare default)',
+  'host.cdn':           'Cloudflare global edge',
+  'host.dns':           'Cloudflare default',
   'host.registrar':     'TBD (toothhound.app not yet purchased)',
-  'host.ssl':           'Vercel managed certs',
-  'host.deploy':        'Push to main (Vercel git integration) + per-branch previews',
-  'host.preview':       'Per-branch Vercel previews',
+  'host.ssl':           'Cloudflare managed certs',
+  'host.deploy':        'Push to main (GitHub integration) + per-branch previews',
+  'host.preview':       'Per-branch Cloudflare previews',
 
   // Auth
   'auth.user':          'None — fully client-side / anonymous',
@@ -81,7 +81,7 @@ const data: CompanyData = {
   'pay.pricing':        'N/A',
 
   // Analytics
-  'an.web':             'Vercel Analytics + Vercel Speed Insights',
+  'an.web':             'Cloudflare Web Analytics',
   'an.product':         'Upstash Redis feedback list (toothhound:identify-feedback) capped at 50k',
   'an.sitemap':         'Not yet generated',
   'an.robots':          'Default Next.js (allow all)',
@@ -98,34 +98,34 @@ const data: CompanyData = {
   // Integrations
   'int.apis':           'NOAA CO-OPS, Open-Meteo, SunCalc, Nominatim, Macrostrat, FEMA NFHL, USFWS CBRS, Paleobiology DB, iNaturalist, Wikimedia Commons',
   'int.webhooks':       'None',
-  'int.sdks':           '@upstash/redis / @vercel/analytics / @vercel/speed-insights / leaflet / react-leaflet / suncalc / better-sqlite3',
+  'int.sdks':           '@upstash/redis / leaflet / react-leaflet / suncalc / better-sqlite3',
 
   // DevOps
-  'dev.ci':             'Vercel build on push',
-  'dev.actions':        'None yet (Vercel handles build)',
+  'dev.ci':             'Cloudflare build on push',
+  'dev.actions':        'None yet (Cloudflare handles build)',
   'dev.env':            'GEMINI_API_KEY, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN, EVAL_BASE (eval harness)',
-  'dev.secrets':        'Vercel project env vars',
+  'dev.secrets':        'Cloudflare project env vars',
   'dev.localdev':       'npm run dev → :3000',
   'dev.lint':           'next lint (default)',
   'dev.tests':          'Vitest 4 (unit) + identify-eval harness (Gemini-backed accuracy test)',
   'dev.types':          'tsconfig.json (strict Next.js TS)',
 
   // Monitoring
-  'mon.uptime':         'Vercel native',
-  'mon.errors':         'None (Vercel runtime logs only)',
-  'mon.logs':           'Vercel function logs + Upstash Redis tail (feedback)',
+  'mon.uptime':         'Cloudflare native',
+  'mon.errors':         'None',
+  'mon.logs':           'Cloudflare function logs + Upstash Redis tail (feedback)',
   'mon.alerts':         'None',
 
   // Security
-  'sec.https':          'Forced (Vercel)',
-  'sec.hsts':           'Vercel default (no custom HSTS header yet)',
+  'sec.https':          'Forced (Cloudflare)',
+  'sec.hsts':           'Cloudflare default (no custom HSTS header yet)',
   'sec.frame':          'Not set (TODO — add via next.config.js headers)',
   'sec.nosniff':        'Not set (TODO)',
   'sec.permissions':    'Not set — geolocation is requested on /map for nearest-location feature',
   'sec.csp':            'Not set',
-  'sec.cache':          'Vercel default (immutable for _next/static/*)',
-  'sec.bot':            'Vercel default (no WAF rules)',
-  'sec.ddos':           'Vercel platform',
+  'sec.cache':          'Cloudflare default',
+  'sec.bot':            'Cloudflare default',
+  'sec.ddos':           'Cloudflare platform',
 
   // Legal
   'leg.privacy':        'Not yet published — needed before any account/sync features ship',
