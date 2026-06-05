@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  nofollow?: boolean;
 }
 
 const {
@@ -15,9 +16,13 @@ const {
   description = 'Operating since 1998, SageCG is a national boutique venture studio building companies that earn their keep. A focused portfolio across GovTech, EdTech, and B2B SaaS in Virginia and South Carolina.',
   ogImage = '/og.png',
   noindex = false,
+  nofollow = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const robots: string[] = [];
+if (noindex) robots.push('noindex');
+if (nofollow) robots.push('nofollow');
 ---
 <!doctype html>
 <html lang="en">
@@ -26,8 +31,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {robots.length > 0 && <meta name="robots" content={robots.join(', ')} />}
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J0FWODC6W"></script>
@@ -107,6 +115,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       url: 'https://www.sagecg.com',
       name: 'SageCG',
       publisher: { '@id': 'https://www.sagecg.com/#organization' },
+      inLanguage: 'en-US',
+    })}></script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      isPartOf: { '@id': 'https://www.sagecg.com/#website' },
+      about: { '@id': 'https://www.sagecg.com/#organization' },
       inLanguage: 'en-US',
     })}></script>
   </head>

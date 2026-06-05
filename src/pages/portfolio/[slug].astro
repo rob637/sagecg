@@ -55,6 +55,18 @@ const companyLd: Record<string, unknown> = {
   parentOrganization: { '@id': 'https://www.sagecg.com/#organization' },
 };
 if (data.founded) companyLd.foundingDate = String(data.founded);
+
+const softwareLd: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: data.name,
+  applicationCategory: data.sector,
+  operatingSystem: 'Web',
+  description: data.summary,
+  url: data.url || pageUrl,
+  publisher: { '@id': 'https://www.sagecg.com/#organization' },
+};
+if (data.founded) softwareLd.datePublished = `${data.founded}-01-01`;
 ---
 <Layout
   title={`${data.name} — SageCG Portfolio`}
@@ -63,6 +75,7 @@ if (data.founded) companyLd.foundingDate = String(data.founded);
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)}></script>
   <script type="application/ld+json" set:html={JSON.stringify(companyLd)}></script>
+  <script type="application/ld+json" set:html={JSON.stringify(softwareLd)}></script>
   <article>
     <!-- Header -->
     <section class="border-b border-[var(--color-rule)]">

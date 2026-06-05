@@ -9,11 +9,24 @@ const companies = (await getCollection('portfolio')).sort(
 
 const active = companies.filter((c) => c.data.status === 'active');
 const building = companies.filter((c) => c.data.status === 'building');
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  numberOfItems: companies.length,
+  itemListElement: companies.map((entry, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: `https://www.sagecg.com/portfolio/${entry.id}/`,
+    name: entry.data.name,
+  })),
+};
 ---
 <Layout
   title="Portfolio — SageCG Venture Studio"
   description="The full SageCG portfolio: LeaderReps LLC, CBR Labs LLC, VoraPrep LLC, ToothHound, The Longest Table, and NFL Fantasy Auction Draft."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(itemListLd)}></script>
   <!-- Hero -->
   <section class="border-b border-[var(--color-rule)]">
     <div class="mx-auto max-w-6xl px-6 pt-20 pb-16">
