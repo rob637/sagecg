@@ -36,6 +36,13 @@ const labs = [
 
 const alumni = [
   {
+    name: 'Sage Consulting Group Inc.',
+    summary:
+      'The longest-running company in the portfolio. It began with commercial Oracle application implementations, shifted into government Oracle implementations, and later supported the same DoD DAI Oracle E-Business Suite footprint served by OneTeam. After completing that run, it was revived as the SageCG Venture Studio.',
+    sector: 'Commercial Oracle -> Gov Oracle -> DoD DAI',
+    outcome: 'Revived as studio',
+  },
+  {
     name: 'OraTemps LLC',
     summary:
       'Staff augmentation for federal and commercial Oracle E-Business Suite programs — placing experienced functional leads, super-users, and module specialists into short-cycle implementations and upgrades.',
@@ -230,13 +237,13 @@ const principles = [
     <div class="mx-auto max-w-6xl px-6 pt-20 pb-24">
       <div class="max-w-2xl">
         <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Alumni</p>
-        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">Companies that finished their run.</h2>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">Companies that closed a chapter.</h2>
         <p class="mt-4 text-[var(--color-ink)]/70 leading-relaxed">
-          Not every chapter stays open forever. These served their customers, ran their course, and closed cleanly.
+          Not every chapter stays open forever. These companies served their customers, ran their course, and either closed cleanly or evolved into the next chapter.
         </p>
       </div>
 
-      <div class="mt-10 grid gap-5 sm:grid-cols-2">
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {alumni.map((co) => (
           <div class="relative rounded-xl border border-[var(--color-rule)] bg-white/40 p-6">
             <span class="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-[var(--color-muted)]/40"></span>
