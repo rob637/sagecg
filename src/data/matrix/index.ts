@@ -8,6 +8,7 @@ import sagecg from './sagecg';
 import leaderreps from './leaderreps';
 import cbrLabs from './cbr-labs';
 import voraprep from './voraprep';
+import kindkudos from './kindkudos';
 import toothhound from './toothhound';
 import longestTable from './longest-table';
 import footballDraft from './football-draft';
@@ -24,6 +25,7 @@ export const companies: Company[] = [
   { id: 'leaderreps',    name: 'LeaderReps',     accent: '#0f766e', data: leaderreps },
   { id: 'cbr-labs',      name: 'CBR Labs',       accent: '#1e3a8a', data: cbrLabs },
   { id: 'voraprep',      name: 'VoraPrep',       accent: '#7c3aed', data: voraprep },
+  { id: 'kindkudos',     name: 'KindKudos',      accent: '#0f2a44', data: kindkudos },
   { id: 'toothhound',    name: 'ToothHound',     accent: '#0ea5e9', data: toothhound },
   { id: 'longest-table', name: 'Longest Table',  accent: '#c2410c', data: longestTable },
   { id: 'football-draft',name: 'NFL Fantasy Auction Draft', accent: '#166534', data: footballDraft },

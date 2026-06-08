@@ -24,7 +24,7 @@ const itemListLd = {
 ---
 <Layout
   title="Portfolio — SageCG Venture Studio"
-  description="The full SageCG portfolio: LeaderReps LLC, CBR Labs LLC, VoraPrep LLC, ToothHound, The Longest Table, and NFL Fantasy Auction Draft."
+  description="The full SageCG portfolio of operating companies and in-build apps."
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListLd)}></script>
   <!-- Hero -->
@@ -35,7 +35,7 @@ const itemListLd = {
         Everything we’re building, in one place.
       </h1>
       <p class="mt-6 max-w-2xl text-lg text-[var(--color-ink)]/75 leading-relaxed">
-        Three companies are in market. Three apps are in build. All of them share a back office, a set of principles, and a long-term mindset.
+        {active.length} companies are in market. {building.length} apps are in build. All of them share a back office, a set of principles, and a long-term mindset.
       </p>
     </div>
   </section>

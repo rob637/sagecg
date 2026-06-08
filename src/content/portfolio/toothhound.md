@@ -7,7 +7,7 @@ sector: "Consumer Outdoors · Fossil & Land Intelligence"
 stage: "Public beta"
 founded: "2026"
 url: "https://shark-tooth-app.pages.dev/"
-order: 5
+order: 6
 accent: "#0891b2"
 ---
 
