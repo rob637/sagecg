@@ -73,3 +73,9 @@ This site is a fully static build. Recommended hosts:
 
 Point `www.sagecg.com` (and apex `sagecg.com`) at the host of your choice.
 
+### Production safety
+
+- `PUBLIC_ENABLE_ADMIN` must be unset or `false` in production.
+- A prebuild guard now blocks production builds when `PUBLIC_ENABLE_ADMIN=true`.
+- If admin is enabled in a non-production environment, protect `/admin` at the edge (for example, Cloudflare Access).
+

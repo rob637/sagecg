@@ -63,7 +63,7 @@ const data: CompanyData = {
 
   // Auth
   'auth.user':          'None (public marketing site)',
-  'auth.admin':         'Client-side password gate on /admin (sessionStorage, non-sensitive)',
+  'auth.admin':         'Build-gated admin route (PUBLIC_ENABLE_ADMIN=true) intended for edge-protected internal access',
   'auth.sso':           'N/A',
 
   // Email

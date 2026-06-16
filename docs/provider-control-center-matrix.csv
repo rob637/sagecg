@@ -1,0 +1,10 @@
+Provider,Keys or secrets URL,Budget or spend controls URL,Notes
+Google Cloud / Firebase,"https://console.cloud.google.com/apis/credentials ; https://console.firebase.google.com/",https://console.cloud.google.com/billing/budgets,Firebase budget alerts are managed in Google Cloud Billing budgets.
+Cloudflare,"https://dash.cloudflare.com/?to=/:account/pages ; https://dash.cloudflare.com/?to=/:account/workers",https://dash.cloudflare.com/?to=/:account/billing,Use account-level billing notifications and per-project environment variables/secrets.
+Stripe,https://dashboard.stripe.com/apikeys,https://dashboard.stripe.com/settings/billing,Also configure alerts in dashboard notifications.
+Telnyx,https://portal.telnyx.com/#/app/api-keys,https://portal.telnyx.com/#/app/billing,Configure usage thresholds to avoid overages.
+Resend,https://resend.com/api-keys,https://resend.com/billing,Set sending limits per environment where possible.
+Upstash,https://console.upstash.com/,https://console.upstash.com/billing,Track request and storage usage by database.
+Anthropic,https://console.anthropic.com/settings/keys,https://console.anthropic.com/settings/plans,Confirm spend caps and workspace limits.
+RapidAPI,https://rapidapi.com/developer/dashboard,https://rapidapi.com/developer/dashboard/billing,Costs vary by each subscribed API plan.
+Google Analytics,https://analytics.google.com/,N/A (generally free for GA4 standard),Measurement IDs are public identifiers not secrets.
