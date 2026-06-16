@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import AppMockup from '../../components/AppMockup.astro';
 import { getCollection, render } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 
@@ -160,6 +161,10 @@ if (data.founded) softwareLd.datePublished = `${data.founded}-01-01`;
             </div>
           )}
         </dl>
+
+        <div class="mt-12">
+          <AppMockup id={entry.id} name={data.name} accent={data.accent} url={data.url} />
+        </div>
       </div>
     </section>
 

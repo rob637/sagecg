@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const companies = (await getCollection('portfolio')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const inMarket = companies.filter((c) => c.data.status === 'active').length;
+
+// The studio operating model, stage by stage.
+const lifecycle = [
+  {
+    tag: '01',
+    title: 'Thesis',
+    body: 'We start from a problem we can name a person who hates. No deck, no demo — just a sharp, specific pain and an angle the giants ignore.',
+  },
+  {
+    tag: '02',
+    title: 'Bench',
+    body: 'Concepts live on the bench, sharing one spine of tools and infrastructure. They get built cheaply and tested honestly before anyone calls them a company.',
+  },
+  {
+    tag: '03',
+    title: 'Build',
+    body: 'When a bench concept earns conviction, we staff it, ship it, and put it in front of real users. The studio operates it directly — we are the first operators, not the investors.',
+  },
+  {
+    tag: '04',
+    title: 'In market',
+    body: 'A company graduates when it stands on its own: its own brand, its own users, its own economics. The spine stays underneath; the storefront is entirely its own.',
+  },
+];
+
+const spine = [
+  { label: 'Design', body: 'One brand toolkit and component library, so every product looks considered on day one.' },
+  { label: 'Engineering', body: 'Shared platform, CI/CD, and observability. Companies inherit the boring, hard-won parts.' },
+  { label: 'AI engine', body: 'A common core that turns messy documents into compliant, submission-ready work — reused across ventures.' },
+  { label: 'Back office', body: 'Legal, finance, HR, and vendor relationships handled once, for everyone.' },
+];
+
+const criteria = [
+  { title: 'Real pain', body: 'A specific person is miserable about a specific problem — and would pay to make it stop.' },
+  { title: 'Fair market', body: 'Big enough to matter, small enough that the incumbents won’t bother.' },
+  { title: 'Operator edge', body: 'Something about our team, network, or stack gives us an unfair head start.' },
+  { title: 'Durable shape', body: 'A believable path to profit and longevity — not just a path to the next round.' },
+];
+---
+<Layout
+  title="The Studio — How SageCG Works"
+  description="SageCG is a venture studio, not a fund or a holding company. We pick problems, build companies on a shared spine, operate them ourselves, and let each one earn its independence."
+>
+  <!-- Hero -->
+  <section class="border-b border-[var(--color-rule)]">
+    <div class="mx-auto max-w-5xl px-6 pt-14 pb-14">
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
+        The Studio · How we work
+      </p>
+      <h1 class="mt-5 font-display text-5xl sm:text-6xl tracking-tight leading-[1.02] max-w-3xl">
+        We don’t pick winners.<br />We build them.
+      </h1>
+      <p class="mt-7 text-lg text-[var(--color-ink)]/75 leading-relaxed max-w-2xl">
+        A fund places bets. A holding company collects them. A venture studio
+        <em class="font-display italic">builds</em> companies from the inside — on a shared spine of people,
+        tools, and infrastructure — and operates them until each one can stand on its own.
+      </p>
+      <dl class="mt-10 flex flex-wrap gap-x-12 gap-y-6 border-t border-[var(--color-rule)] pt-8">
+        <div>
+          <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Operating since</dt>
+          <dd class="mt-1.5 font-display text-2xl">1998</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">In the portfolio</dt>
+          <dd class="mt-1.5 font-display text-2xl">{companies.length}</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">In market</dt>
+          <dd class="mt-1.5 font-display text-2xl">{inMarket}</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Outside capital</dt>
+          <dd class="mt-1.5 font-display text-2xl">None</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Lifecycle -->
+  <section class="border-b border-[var(--color-rule)]">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
+        The path · thesis to independence
+      </p>
+      <h2 class="mt-4 font-display text-3xl sm:text-4xl tracking-tight">How a company gets built</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {lifecycle.map((s, i) => (
+          <div class="relative rounded-xl border border-[var(--color-rule)] bg-[var(--color-paper)] p-6">
+            <span class="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-[var(--color-accent)] opacity-70"></span>
+            <span class="font-mono text-[11px] tracking-[0.22em] text-[var(--color-accent)]">{s.tag}</span>
+            <h3 class="mt-3 font-display text-xl tracking-tight">{s.title}</h3>
+            <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">{s.body}</p>
+            {i < lifecycle.length - 1 && (
+              <span class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-[var(--color-rule)] text-xl">→</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared spine -->
+  <section class="border-b border-[var(--color-rule)] bg-white/40">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+        <div>
+          <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">The shared spine</p>
+          <h2 class="mt-4 font-display text-3xl sm:text-4xl tracking-tight">One studio underneath every brand</h2>
+          <p class="mt-5 text-[var(--color-ink)]/75 leading-relaxed">
+            Each company ships faster because it doesn’t rebuild the boring parts. The studio is the spine;
+            the companies are the body. Brands stay independent — the scaffolding does not.
+          </p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {spine.map((s) => (
+            <div class="rounded-xl border border-[var(--color-rule)] bg-[var(--color-paper)] p-5">
+              <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">{s.label}</p>
+              <p class="mt-2 text-sm text-[var(--color-ink)]/80 leading-relaxed">{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Earns its keep -->
+  <section class="border-b border-[var(--color-rule)]">
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
+        What “earns its keep” means
+      </p>
+      <h2 class="mt-4 font-display text-3xl sm:text-4xl tracking-tight max-w-2xl">
+        A concept only graduates when it clears four bars
+      </h2>
+      <div class="mt-10 grid gap-px overflow-hidden rounded-xl border border-[var(--color-rule)] bg-[var(--color-rule)] sm:grid-cols-2">
+        {criteria.map((c, i) => (
+          <div class="bg-[var(--color-paper)] p-7">
+            <div class="flex items-baseline gap-3">
+              <span class="font-mono text-[11px] text-[var(--color-accent)]">0{i + 1}</span>
+              <h3 class="font-display text-xl tracking-tight">{c.title}</h3>
+            </div>
+            <p class="mt-2.5 text-sm text-[var(--color-muted)] leading-relaxed">{c.body}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 text-[var(--color-ink)]/70 leading-relaxed max-w-2xl">
+        Miss a bar and the concept stays on the bench — or gets retired honestly. We’d rather kill a good
+        idea early than operate a company we don’t believe in.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="mx-auto max-w-5xl px-6 py-16">
+      <div class="rounded-2xl border border-[var(--color-rule)] bg-[var(--color-paper)] p-8 sm:p-12">
+        <h2 class="font-display text-3xl sm:text-4xl tracking-tight">See the spine at work</h2>
+        <p class="mt-4 text-[var(--color-ink)]/75 leading-relaxed max-w-2xl">
+          The portfolio is the proof. Browse the companies we’ve built and operate, or get in touch if you’re
+          working on something adjacent.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-4">
+          <a
+            href="/portfolio"
+            class="inline-flex items-center gap-2 rounded-lg bg-[var(--color-ink)] px-5 py-3 text-sm font-medium text-[var(--color-paper)] hover:bg-[var(--color-accent)] transition-colors"
+          >
+            View the portfolio →
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 rounded-lg border border-[var(--color-rule)] px-5 py-3 text-sm font-medium text-[var(--color-ink)] hover:border-[var(--color-ink)]/40 transition-colors"
+          >
+            Say hello
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
