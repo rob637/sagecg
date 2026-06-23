@@ -82,7 +82,6 @@ const data: CompanyData = {
 
   // Misc
   'misc.editorial':     'Chalkboard/coach-voice teaching; campaign map, drill minigames, deterministic scrimmage engine, shareable Coach Cards (/u/[handle])',
-  'misc.todos':         'GM Mode + Head Coach shown as placeholder campaign-map nodes (roadmap in levels.ts); add SEO/meta, legal pages, analytics',
 };
 
 export default data;
