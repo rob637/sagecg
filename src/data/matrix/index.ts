@@ -12,6 +12,7 @@ import kindkudos from './kindkudos';
 import toothhound from './toothhound';
 import longestTable from './longest-table';
 import footballDraft from './football-draft';
+import gridironXo from './gridiron-xo';
 
 export interface Company {
   id: string;
@@ -29,6 +30,7 @@ export const companies: Company[] = [
   { id: 'toothhound',    name: 'ToothHound',     accent: '#0ea5e9', data: toothhound },
   { id: 'longest-table', name: 'Longest Table',  accent: '#c2410c', data: longestTable },
   { id: 'football-draft',name: 'NFL Fantasy Auction Draft', accent: '#166534', data: footballDraft },
+  { id: 'gridiron-xo',   name: 'Gridiron X&O',    accent: '#1a3a2a', data: gridironXo },
 ];
 
 export interface ResolvedRow {
