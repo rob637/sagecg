@@ -2,7 +2,7 @@
 name: "ToothHound"
 tagline: "Know when the tide turns up teeth."
 summary: "A free web app for fossil shark-tooth hunters — a daily Hunt Score for every beach, a Gemini-backed tooth identifier, and a parcel-level land assessor for hunters who want to buy the dig site, not just visit it."
-status: "building"
+status: "active"
 sector: "Consumer Outdoors · Fossil & Land Intelligence"
 stage: "Public beta"
 founded: "2026"

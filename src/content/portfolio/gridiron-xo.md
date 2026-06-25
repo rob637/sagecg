@@ -7,7 +7,7 @@ sector: "Consumer · Sports EdTech"
 stage: "Live in production"
 founded: "2026"
 url: "https://gridiron-xo.pages.dev"
-order: 8
+order: 5
 accent: "#1a3a2a"
 ---
 

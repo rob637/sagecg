@@ -7,7 +7,7 @@ status: "building"
 sector: "Consumer · Sports"
 stage: "Seasonal"
 founded: "2023"
-order: 7
+order: 8
 accent: "#15803d"
 ---
 
