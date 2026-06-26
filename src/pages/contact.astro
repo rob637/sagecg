@@ -34,10 +34,15 @@ import Layout from '../layouts/Layout.astro';
     <div id="founder" class="mt-16 border-t border-[var(--color-rule)] pt-12 scroll-mt-24">
       <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Founder</p>
       <div class="mt-6 grid sm:grid-cols-[auto_1fr] gap-x-8 gap-y-6 items-start">
-        <!-- Portrait placeholder -->
-        <div class="h-28 w-28 rounded-full bg-gradient-to-br from-[var(--color-accent)]/20 to-[var(--color-ink)]/10 border border-[var(--color-rule)] flex items-center justify-center font-display text-3xl text-[var(--color-ink)]/70">
-          RP
-        </div>
+        <img
+          src="/founder.jpg"
+          alt="Rob Pfleghardt, Founder & Operator of SageCG"
+          width="112"
+          height="112"
+          loading="lazy"
+          decoding="async"
+          class="h-28 w-28 rounded-full object-cover border border-[var(--color-rule)]"
+        />
         <div>
           <h2 class="font-display text-3xl sm:text-4xl tracking-tight leading-[1.05]">Rob Pfleghardt</h2>
           <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
