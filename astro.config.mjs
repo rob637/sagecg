@@ -7,6 +7,9 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.sagecg.com',
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [
     mdx(),
     sitemap({
