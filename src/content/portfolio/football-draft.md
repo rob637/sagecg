@@ -1,14 +1,22 @@
 ---
 name: "NFL Fantasy Auction Draft"
 tagline: "The auction room, finally done right."
-summary: "A purpose-built draft room for fantasy football auctions where managers bid on full NFL teams with real-time projections and suggested bids."
+summary: "A purpose-built real-time draft room for fantasy football leagues that auction full NFL teams — featuring live ESPN FPI projections, transparent suggested bids, budget pressure modeling, and a multi-season archive."
 url: "https://annual-auction-nfl-draft-608a4.web.app/"
-status: "building"
-sector: "Consumer · Sports"
-stage: "Seasonal"
+status: "hobby"
+sector: "Consumer · Sports Analytics"
+stage: "Annual League Tool"
 founded: "2023"
-order: 8
-accent: "#15803d"
+order: 6
+accent: "#16a34a"
+metrics:
+  - "32-Team Live Auction Room"
+  - "ESPN FPI Bid Valuation"
+  - "Multi-Year League Archive"
+stack:
+  - "Real-Time Web App"
+  - "Firebase Hosting"
+  - "Live Valuation Engine"
 ---
 
 A purpose-built draft room for fantasy leagues that auction full NFL teams instead of individual players. One shared, real-time view for every manager — with live projections, transparent suggested bids, and the full multi-year price history at your fingertips while you're on the clock.

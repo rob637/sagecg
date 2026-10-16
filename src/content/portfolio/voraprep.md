@@ -12,6 +12,16 @@ secondaryUrl: "https://voraprep.com/admin"
 order: 3
 accent: "#7c3aed"
 ogImage: "/portfolio/og-voraprep.png"
+metrics:
+  - "6 Certification Exams"
+  - "Prometric-Style Simulator"
+  - "Pass-Probability Engine"
+  - "Web + iOS & Android"
+stack:
+  - "TypeScript · React 18"
+  - "Firebase Gen 2"
+  - "Google Gemini Tutor"
+  - "Stripe & Capacitor"
 ---
 
 ## The problem

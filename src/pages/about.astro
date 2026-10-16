@@ -3,17 +3,18 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout
   title="About — SageCG Venture Studio"
-  description="Operating since 1998, SageCG is a national boutique venture studio with dual anchors in Virginia and South Carolina. We build, operate, and own a focused portfolio across B2B SaaS, EdTech, GovTech, and Community."
+  description="Operating since 1998, SageCG is a national boutique venture studio with dual anchors in Virginia and South Carolina. We build, operate, and own a focused portfolio across Global Trade, GovTech, EdTech, and B2B SaaS."
 >
   <!-- Hero -->
-  <section class="border-b border-[var(--color-rule)]">
-    <div class="mx-auto max-w-4xl px-6 pt-12 pb-12">
+  <section class="relative overflow-hidden border-b border-[var(--color-rule)] bg-studio-grid">
+    <div class="pointer-events-none absolute inset-0 bg-radial-fade"></div>
+    <div class="relative mx-auto max-w-4xl px-6 pt-16 pb-14">
       <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">About</p>
       <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight leading-[1.02]">
         A national studio, <br />driven by operator experience.
       </h1>
-      <p class="mt-6 text-lg text-[var(--color-ink)]/75 leading-relaxed max-w-2xl">
-        Sage Consulting Group started as a consultancy in 1998 in Virginia. Today, we are a national boutique venture studio with dual anchors in Virginia and South Carolina. We aren't just investors—we are the original operators of every company we start.
+      <p class="mt-6 text-lg text-[var(--color-ink)]/80 leading-relaxed max-w-2xl">
+        Sage Consulting Group started as a consultancy in 1998 in Virginia. Today, we are a national boutique venture studio with dual anchors in Virginia and South Carolina. We aren't passive investors — we are the original architects and operators of every company we start.
       </p>
     </div>
   </section>
@@ -59,28 +60,28 @@ import Layout from '../layouts/Layout.astro';
     <div class="mt-20 border-t border-[var(--color-rule)] pt-12">
       <h2 class="!mt-0">The Sage Stack</h2>
       <p class="text-sm text-[var(--color-muted)] mb-8">
-        We maintain a "shared spine" of technology across all portfolio companies. This allows us to move from concept to production in days, not months.
+        We maintain a shared engineering spine across all portfolio companies — allowing us to move from statutory or domain model to production software with high reliability.
       </p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-8">
-        <div>
-          <h4 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Frontend</h4>
-          <p class="mt-2 text-sm font-medium">Astro / React</p>
-          <p class="text-xs text-[var(--color-muted)] mt-1">Tailwind CSS</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 not-prose">
+        <div class="rounded-2xl studio-panel p-5">
+          <h4 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">Frontend</h4>
+          <p class="mt-2 text-sm font-medium text-[var(--color-ink)]">Astro 5 · React 18 · Next.js</p>
+          <p class="text-xs text-[var(--color-muted)] mt-1">Tailwind CSS · PWA &amp; Capacitor</p>
         </div>
-        <div>
-          <h4 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Backend</h4>
-          <p class="mt-2 text-sm font-medium">Node.js / Python</p>
-          <p class="text-xs text-[var(--color-muted)] mt-1">Cloud Functions</p>
+        <div class="rounded-2xl studio-panel p-5">
+          <h4 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">Compute &amp; Edge</h4>
+          <p class="mt-2 text-sm font-medium text-[var(--color-ink)]">Cloudflare · Firebase · Python</p>
+          <p class="text-xs text-[var(--color-muted)] mt-1">Workers · Gen 2 Functions · Cloud Run</p>
         </div>
-        <div>
-          <h4 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Data</h4>
-          <p class="mt-2 text-sm font-medium">Firebase / SQLite</p>
-          <p class="text-xs text-[var(--color-muted)] mt-1">Firestore / D1</p>
+        <div class="rounded-2xl studio-panel p-5">
+          <h4 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">Data &amp; Storage</h4>
+          <p class="mt-2 text-sm font-medium text-[var(--color-ink)]">D1 SQLite · Firestore · R2</p>
+          <p class="text-xs text-[var(--color-muted)] mt-1">Bi-Temporal Statutory JSON Vaults</p>
         </div>
-        <div>
-          <h4 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Intelligence</h4>
-          <p class="mt-2 text-sm font-medium">Google Gemini</p>
-          <p class="text-xs text-[var(--color-muted)] mt-1">Vibe Coding</p>
+        <div class="rounded-2xl studio-panel p-5">
+          <h4 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">Intelligence</h4>
+          <p class="mt-2 text-sm font-medium text-[var(--color-ink)]">Deterministic Rules + AI</p>
+          <p class="text-xs text-[var(--color-muted)] mt-1">Google Gemini · Anthropic Claude</p>
         </div>
       </div>
     </div>

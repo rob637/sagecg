@@ -51,7 +51,7 @@ npm run preview
 3. Write the body in Markdown — it renders on `/portfolio/your-company/`
 4. Set `order` to control its position on the home page and portfolio index
 
-Valid `status` values: `active`, `building`, `concept`, `archived`.
+Valid `status` values: `active`, `hobby`, `building`, `concept`, `archived`.
 
 ## SEO notes
 

@@ -5,17 +5,22 @@ import Layout from '../layouts/Layout.astro';
   title="Contact — SageCG Venture Studio"
   description="Get in touch with SageCG — partnerships, press, careers across the portfolio, or just to say hello."
 >
-  <section class="mx-auto max-w-4xl px-6 pt-12 pb-16">
-    <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Contact</p>
-    <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight leading-[1.02]">Say hello.</h1>
-    <p class="mt-6 text-lg text-[var(--color-ink)]/75 leading-relaxed max-w-2xl">
-      The studio is small and we read everything that comes in. Tell us what you’re working on and we’ll point you to the right person — or write back ourselves.
-    </p>
+  <section class="relative overflow-hidden border-b border-[var(--color-rule)] bg-studio-grid">
+    <div class="pointer-events-none absolute inset-0 bg-radial-fade"></div>
+    <div class="relative mx-auto max-w-4xl px-6 pt-16 pb-14">
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Contact</p>
+      <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight leading-[1.02]">Say hello.</h1>
+      <p class="mt-6 text-lg text-[var(--color-ink)]/80 leading-relaxed max-w-2xl">
+        The studio is small and we read everything that comes in. Tell us what you’re working on and we’ll point you to the right person — or write back ourselves.
+      </p>
+    </div>
+  </section>
 
-    <div class="mt-12 grid sm:grid-cols-2 gap-5">
+  <section class="mx-auto max-w-4xl px-6 pt-12 pb-16">
+    <div class="grid sm:grid-cols-2 gap-5">
       <a
         href="mailto:hello@sagecg.com"
-        class="group block rounded-xl border border-[var(--color-rule)] p-6 hover:border-[var(--color-ink)]/40 transition-colors"
+        class="studio-card group block rounded-2xl p-6"
       >
         <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">General</p>
         <p class="mt-2 font-display text-2xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">hello@sagecg.com</p>
@@ -23,7 +28,7 @@ import Layout from '../layouts/Layout.astro';
       </a>
       <a
         href="mailto:careers@sagecg.com"
-        class="group block rounded-xl border border-[var(--color-rule)] p-6 hover:border-[var(--color-ink)]/40 transition-colors"
+        class="studio-card group block rounded-2xl p-6"
       >
         <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Careers</p>
         <p class="mt-2 font-display text-2xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">careers@sagecg.com</p>
@@ -41,7 +46,7 @@ import Layout from '../layouts/Layout.astro';
           height="112"
           loading="lazy"
           decoding="async"
-          class="h-28 w-28 rounded-full object-cover border border-[var(--color-rule)]"
+          class="h-28 w-28 rounded-full object-cover border border-[var(--color-rule)] shadow-sm"
         />
         <div>
           <h2 class="font-display text-3xl sm:text-4xl tracking-tight leading-[1.05]">Rob Pfleghardt</h2>
@@ -49,13 +54,13 @@ import Layout from '../layouts/Layout.astro';
             Founder &amp; Operator · SageCG
           </p>
           <p class="mt-5 text-[var(--color-ink)]/80 leading-relaxed max-w-2xl">
-            Rob founded Sage Consulting Group in 1998 and has spent the years since starting, building, and operating companies — first in Oracle E-Business Suite consulting (Sage Consulting Group, Inc., OraTemps LLC, OneTeam Consulting LLC) and now across a focused portfolio of SaaS, EdTech, GovTech, Sports, and Community products.
+            Rob founded Sage Consulting Group in 1998 and has spent nearly three decades starting, building, and operating companies — first in Oracle E-Business Suite consulting (Sage Consulting Group, Inc., OraTemps LLC, OneTeam Consulting LLC) and now across a focused software portfolio spanning Global Trade, GovTech, EdTech, and B2B SaaS.
           </p>
           <p class="mt-4 text-[var(--color-ink)]/80 leading-relaxed max-w-2xl">
-            He’s an operator-builder by temperament: hands-on with product, deeply involved in design and engineering decisions, and skeptical of anything that can’t earn its keep. SageCG’s seven active companies and apps — and the Labs concepts on the bench — all started from problems he kept watching real people struggle with.
+            He’s an operator-builder by temperament: hands-on with product, deeply involved in architecture and engineering decisions, and skeptical of anything that can’t earn its keep. SageCG’s four commercial ventures — LeaderReps, CBR Labs, VoraPrep, and Borderless OS — along with its after-hours community and sports hobby builds, all started from real problems he kept watching operators struggle with.
           </p>
           <p class="mt-4 text-[var(--color-ink)]/80 leading-relaxed max-w-2xl">
-            Based in Virginia.
+            Based in Virginia and South Carolina.
           </p>
 
           <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">

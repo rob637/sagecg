@@ -8,7 +8,8 @@ const companies = (await getCollection('portfolio')).sort(
 );
 
 const active = companies.filter((c) => c.data.status === 'active');
-const building = companies.filter((c) => c.data.status === 'building');
+const hobby = companies.filter((c) => c.data.status === 'hobby');
+
 const itemListLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -24,41 +25,103 @@ const itemListLd = {
 ---
 <Layout
   title="Portfolio — SageCG Venture Studio"
-  description="The full SageCG portfolio of operating companies and in-build apps."
+  description="The SageCG portfolio of operating commercial software companies and after-hours hobby projects."
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListLd)}></script>
+
   <!-- Hero -->
-  <section class="border-b border-[var(--color-rule)]">
-    <div class="mx-auto max-w-6xl px-6 pt-20 pb-16">
-      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Portfolio</p>
+  <section class="relative overflow-hidden border-b border-[var(--color-rule)] bg-studio-grid">
+    <div class="pointer-events-none absolute inset-0 bg-radial-fade"></div>
+    <div class="relative mx-auto max-w-6xl px-6 pt-16 pb-14 sm:pt-20 sm:pb-16">
+      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Portfolio Index</p>
       <h1 class="mt-4 font-display text-5xl sm:text-6xl tracking-tight leading-[1.02] max-w-3xl">
-        Everything we’re building, in one place.
+        Everything we build &amp; operate, in one place.
       </h1>
-      <p class="mt-6 max-w-2xl text-lg text-[var(--color-ink)]/75 leading-relaxed">
-        {active.length} companies are in market. {building.length} apps are in build. All of them share a back office, a set of principles, and a long-term mindset.
+      <p class="mt-6 max-w-2xl text-lg text-[var(--color-ink)]/80 leading-relaxed">
+        {active.length} commercial ventures are live in market. {hobby.length} passion builds run as hobby &amp; community projects. All of them share an engineering spine, a set of principles, and a long-term operator mindset.
       </p>
+
+      <!-- Filter Tabs -->
+      <div class="mt-9 flex flex-wrap items-center gap-2" role="tablist" aria-label="Filter portfolio">
+        <button
+          type="button"
+          data-filter="all"
+          class="portfolio-filter-btn rounded-full bg-[var(--color-ink)] text-[var(--color-paper)] px-4 py-1.5 font-mono text-xs uppercase tracking-[0.16em] transition-all cursor-pointer"
+        >
+          All ({companies.length})
+        </button>
+        <button
+          type="button"
+          data-filter="active"
+          class="portfolio-filter-btn rounded-full studio-pill text-[var(--color-muted)] hover:text-[var(--color-ink)] px-4 py-1.5 font-mono text-xs uppercase tracking-[0.16em] transition-all cursor-pointer"
+        >
+          In Market ({active.length})
+        </button>
+        <button
+          type="button"
+          data-filter="hobby"
+          class="portfolio-filter-btn rounded-full studio-pill text-[var(--color-muted)] hover:text-[var(--color-ink)] px-4 py-1.5 font-mono text-xs uppercase tracking-[0.16em] transition-all cursor-pointer"
+        >
+          Hobby Projects ({hobby.length})
+        </button>
+      </div>
     </div>
   </section>
 
-  <!-- Active -->
-  <section class="mx-auto max-w-6xl px-6 pt-12 pb-12">
-    <div class="flex items-baseline justify-between">
-      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">In Market</p>
-      <p class="font-mono text-[11px] text-[var(--color-muted)]">{active.length} / {companies.length}</p>
+  <!-- Active Commercial Ventures -->
+  <section id="section-active" class="mx-auto max-w-6xl px-6 pt-14 pb-12">
+    <div class="flex items-baseline justify-between flex-wrap gap-3 border-b border-[var(--color-rule)] pb-4">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+        <h2 class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-ink)]">In Market · Commercial Ventures</h2>
+      </div>
+      <p class="font-mono text-xs text-[var(--color-muted)]">{active.length} operating companies</p>
     </div>
-    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
       {active.map((entry) => <PortfolioCard entry={entry} />)}
     </div>
   </section>
 
-  <!-- Building -->
-  <section class="mx-auto max-w-6xl px-6 pt-12 pb-24">
-    <div class="flex items-baseline justify-between">
-      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">In build</p>
-      <p class="font-mono text-[11px] text-[var(--color-muted)]">{building.length} / {companies.length}</p>
+  <!-- Hobby & Community Projects -->
+  <section id="section-hobby" class="mx-auto max-w-6xl px-6 pt-10 pb-24">
+    <div class="flex items-baseline justify-between flex-wrap gap-3 border-b border-[var(--color-rule)] pb-4">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-2 rounded-full bg-amber-500"></span>
+        <h2 class="font-mono text-xs uppercase tracking-[0.22em] text-[var(--color-ink)]">After Hours · Hobby &amp; Community Projects</h2>
+      </div>
+      <p class="font-mono text-xs text-[var(--color-muted)]">{hobby.length} passion builds</p>
     </div>
-    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {building.map((entry) => <PortfolioCard entry={entry} />)}
+    <p class="mt-4 max-w-2xl text-sm text-[var(--color-muted)] leading-relaxed">
+      Built for our neighborhood and our annual fantasy football league — engineered with the same craft as our commercial software, kept purely for the joy of running them.
+    </p>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      {hobby.map((entry) => <PortfolioCard entry={entry} />)}
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  (function () {
+    const buttons = document.querySelectorAll('.portfolio-filter-btn');
+    const secActive = document.getElementById('section-active');
+    const secHobby = document.getElementById('section-hobby');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        buttons.forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle('bg-[var(--color-ink)]', active);
+          b.classList.toggle('text-[var(--color-paper)]', active);
+          b.classList.toggle('studio-pill', !active);
+          b.classList.toggle('text-[var(--color-muted)]', !active);
+        });
+
+        if (secActive && secHobby) {
+          secActive.style.display = filter === 'hobby' ? 'none' : '';
+          secHobby.style.display = filter === 'active' ? 'none' : '';
+        }
+      });
+    });
+  })();
+</script>

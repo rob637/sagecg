@@ -13,7 +13,7 @@ interface Props {
 
 const {
   title = 'SageCG — Boutique Venture Studio & Startup Operators',
-  description = 'Operating since 1998, SageCG is a national boutique venture studio building companies that earn their keep. A focused portfolio across GovTech, EdTech, and B2B SaaS in Virginia and South Carolina.',
+  description = 'Operating since 1998, SageCG is a national boutique venture studio building companies that earn their keep. A focused portfolio across Global Trade, GovTech, EdTech, and B2B SaaS in Virginia and South Carolina.',
   ogImage = '/og.png',
   noindex = false,
   nofollow = false,
@@ -36,6 +36,20 @@ if (nofollow) robots.push('nofollow');
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonical} />
     {robots.length > 0 && <meta name="robots" content={robots.join(', ')} />}
+
+    <!-- Zero-flash theme initialization -->
+    <script is:inline>
+      (function () {
+        try {
+          const saved = localStorage.getItem('sagecg_theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else if (saved === 'light') {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J0FWODC6W"></script>

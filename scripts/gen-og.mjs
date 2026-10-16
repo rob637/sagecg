@@ -12,7 +12,7 @@ const accent = '#b45309';
 const rule = '#e7e5e4';
 
 // Portfolio accent dots (matches src/content/portfolio/*.md accent values)
-const dots = ['#b45309', '#0f766e', '#7c3aed', '#0369a1', '#be123c', '#15803d', '#a3a3a3'];
+const dots = ['#0f766e', '#1e3a8a', '#7c3aed', '#0284c7', '#d97706', '#16a34a'];
 
 const svg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
@@ -34,7 +34,7 @@ const svg = `
   </text>
   <!-- subhead -->
   <text x="80" y="460" font-family="Inter, sans-serif" font-size="24" fill="${ink}" opacity="0.7">
-    A focused portfolio of seven companies — SaaS, EdTech, healthcare, sports, community.
+    A focused portfolio across Global Trade, GovTech, EdTech, and B2B SaaS.
   </text>
   <!-- bottom hairline -->
   <rect x="80" y="520" width="1040" height="1" fill="${rule}"/>

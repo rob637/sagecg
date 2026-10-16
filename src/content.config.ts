@@ -8,7 +8,7 @@ const portfolio = defineCollection({
     legalName: z.string().optional(),
     tagline: z.string(),
     summary: z.string(),
-    status: z.enum(['active', 'building', 'concept', 'archived']),
+    status: z.enum(['active', 'hobby', 'building', 'concept', 'archived']),
     stage: z.string().optional(),
     sector: z.string(),
     founded: z.string().optional(),
@@ -17,6 +17,8 @@ const portfolio = defineCollection({
     order: z.number().default(99),
     accent: z.string().optional(),
     ogImage: z.string().optional(),
+    metrics: z.array(z.string()).optional(),
+    stack: z.array(z.string()).optional(),
   }),
 });
 

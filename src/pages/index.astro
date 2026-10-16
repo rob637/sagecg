@@ -3,36 +3,40 @@ import Layout from '../layouts/Layout.astro';
 import PortfolioCard from '../components/PortfolioCard.astro';
 import { getCollection } from 'astro:content';
 
-const companies = (await getCollection('portfolio')).sort(
+const allEntries = (await getCollection('portfolio')).sort(
   (a, b) => a.data.order - b.data.order
 );
-const activeCount = companies.filter((c) => c.data.status === 'active').length;
-const buildingCount = companies.filter((c) => c.data.status === 'building').length;
+const activeCompanies = allEntries.filter((c) => c.data.status === 'active');
+const hobbyProjects = allEntries.filter((c) => c.data.status === 'hobby');
 
-const labs = [
+const shipLog = [
   {
-    name: 'ProcureIQ Local',
-    tagline: 'Win local government work.',
-    summary:
-      'A revenue engine for the long tail of city, county, and school-district vendors. ProcureIQ Local surfaces the right bids, scores them against your win history, and drafts a first-pass response — turning public procurement into a repeatable pipeline.',
-    tags: ['GovTech', 'AI'],
+    date: 'OCT 2026',
+    company: 'Borderless OS',
+    url: '/portfolio/borderless-os/',
+    accent: '#0284c7',
+    event: 'Live across 50 countries (~91% of global trade) with 133-page sovereign customs hubs & SHA-256 statutory receipts.',
+  },
+  {
+    date: 'JAN 2026',
+    company: 'VoraPrep',
+    url: '/portfolio/voraprep/',
+    accent: '#7c3aed',
+    event: 'Adaptive exam simulator, pass-probability engine, and Gemini AI tutor live across CPA, EA, CMA, CIA, CISA & CFP.',
+  },
+  {
+    date: 'NOV 2025',
+    company: 'CBR Labs',
+    url: '/portfolio/cbr-labs/',
     accent: '#1e3a8a',
+    event: 'SCIF-compliant board-level tablet redaction with append-only chain of custody and cryptographic cert verifier.',
   },
   {
-    name: 'PermitPilot',
-    tagline: 'Permits, expedited.',
-    summary:
-      'An AI permit expeditor for contractors and developers. PermitPilot reads local code, assembles submission-ready packets, predicts blockers before they happen, and tracks every application to approval — collapsing weeks of back-and-forth into a clean workflow.',
-    tags: ['GovTech', 'Construction'],
-    accent: '#b45309',
-  },
-  {
-    name: 'ClaimsForge',
-    tagline: 'Photos in, claims out.',
-    summary:
-      'An AI claims copilot for independent adjusters and restoration contractors. ClaimsForge turns field photos, notes, and invoices into carrier-ready narratives and supplements — recovering claim dollars that manual write-ups leave on the table.',
-    tags: ['InsurTech', 'AI'],
+    date: 'ACTIVE',
+    company: 'LeaderReps',
+    url: '/portfolio/leaderreps/',
     accent: '#0f766e',
+    event: 'Foundation leadership conditioning cohorts and The Arena PWA operating in market.',
   },
 ];
 
@@ -41,7 +45,7 @@ const alumni = [
     name: 'Sage Consulting Group Inc.',
     summary:
       'The longest-running company in the portfolio. It began with commercial Oracle application implementations, shifted into government Oracle implementations, and later supported the same DoD DAI Oracle E-Business Suite footprint served by OneTeam. After completing that run, it was revived as the SageCG Venture Studio.',
-    sector: 'Commercial Oracle -> Gov Oracle -> DoD DAI',
+    sector: 'Commercial Oracle → Gov Oracle → DoD DAI',
     outcome: 'Revived as studio',
   },
   {
@@ -62,176 +66,203 @@ const alumni = [
 
 const principles = [
   {
+    tag: '01',
     title: 'Operator-first',
     body: 'Every company in the portfolio is one we’d want to run ourselves. We don’t ship ideas we wouldn’t show up to on a Monday.',
   },
   {
+    tag: '02',
     title: 'Built to last',
-    body: 'Profitable, durable, useful. We optimize for compounding over fundraising, and for users over hype cycles.',
+    body: 'Profitable, durable, useful. We optimize for compounding over fundraising, and for real users over hype cycles.',
   },
   {
+    tag: '03',
     title: 'Shared spine',
-    body: 'One studio, one back office, one set of tools. Companies ship faster because they share the boring parts.',
+    body: 'One studio, one back office, one modern engineering stack. Companies ship in days because they share the hard-won infrastructure.',
   },
   {
+    tag: '04',
     title: 'Independent brands',
-    body: 'Each company stands on its own — its own name, audience, and economics. The studio is the scaffolding, not the storefront.',
+    body: 'Each company stands on its own — its own domain, audience, and unit economics. The studio is the scaffolding, not the storefront.',
   },
 ];
 ---
 <Layout>
-  <!-- Hero -->
-  <section>
-    <div class="mx-auto max-w-6xl px-6 pt-16 pb-12 sm:pt-20 sm:pb-16">
-      <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
-        SageCG · Venture Studio · Est. 1998
-      </p>
-      <h1 class="mt-5 font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight max-w-5xl">
+  <!-- Hero with architectural grid -->
+  <section class="relative overflow-hidden border-b border-[var(--color-rule)] bg-studio-grid">
+    <div class="pointer-events-none absolute inset-0 bg-radial-fade"></div>
+    <div class="relative mx-auto max-w-6xl px-6 pt-16 pb-14 sm:pt-24 sm:pb-20">
+      <div class="inline-flex items-center gap-2.5 rounded-full studio-pill px-3.5 py-1.5">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+          SageCG · Boutique Venture Studio · Est. 1998
+        </span>
+      </div>
+
+      <h1 class="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tight max-w-4xl">
         We build the companies
         <span class="text-[var(--color-accent)] italic">we&rsquo;d</span>
         want to run.
       </h1>
-      <p class="mt-7 max-w-2xl text-lg text-[var(--color-ink)]/75 leading-relaxed">
-        Operating since 1998, SageCG is a national boutique venture studio with a presence in Virginia and South Carolina. We start, operate, and own a focused portfolio across B2B SaaS, EdTech, GovTech, and Community.
+
+      <p class="mt-7 max-w-2xl text-lg sm:text-xl text-[var(--color-ink)]/80 leading-relaxed">
+        Operating since 1998 with dual anchors in Virginia and South Carolina, SageCG starts, engineers, and operates a focused portfolio of commercial software companies across Global Trade, GovTech, EdTech, and B2B SaaS — plus a handful of after-hours hobby builds.
       </p>
-      <div class="mt-9 flex flex-wrap items-center gap-3">
+
+      <div class="mt-9 flex flex-wrap items-center gap-3.5">
         <a
           href="/portfolio"
-          class="inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] text-[var(--color-paper)] px-5 py-2.5 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors"
+          class="inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] text-[var(--color-paper)] px-6 py-3 text-sm font-medium hover:bg-[var(--color-accent)] hover:text-white transition-all shadow-sm"
         >
-          See the portfolio <span aria-hidden>→</span>
+          Explore the portfolio <span aria-hidden="true">→</span>
         </a>
         <a
-          href="/about"
-          class="inline-flex items-center gap-2 rounded-full border border-[var(--color-rule)] px-5 py-2.5 text-sm font-medium text-[var(--color-ink)]/80 hover:text-[var(--color-ink)] hover:border-[var(--color-ink)]/40 transition-colors"
+          href="/studio"
+          class="inline-flex items-center gap-2 rounded-full studio-panel px-6 py-3 text-sm font-medium text-[var(--color-ink)]/85 hover:text-[var(--color-ink)] hover:border-[var(--color-ink)]/40 transition-all"
         >
           How the studio works
         </a>
       </div>
+
+      <!-- Studio Telemetry Strip -->
+      <dl class="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-[var(--color-rule)]">
+        <div>
+          <dt class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Operating History</dt>
+          <dd class="mt-1 font-display text-2xl sm:text-3xl tracking-tight">Since 1998</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Commercial Ventures</dt>
+          <dd class="mt-1 font-display text-2xl sm:text-3xl tracking-tight">{activeCompanies.length} In Market</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Hobby Projects</dt>
+          <dd class="mt-1 font-display text-2xl sm:text-3xl tracking-tight">{hobbyProjects.length} Live Builds</dd>
+        </div>
+        <div>
+          <dt class="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">Outside Capital</dt>
+          <dd class="mt-1 font-display text-2xl sm:text-3xl tracking-tight">100% Independent</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
   <!-- Ship Log strip -->
-  <section class="border-y border-[var(--color-rule)] bg-[var(--color-ink)]/[0.015]">
-    <div class="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 overflow-hidden">
-      <div class="flex items-center gap-2.5 shrink-0">
+  <section class="border-b border-[var(--color-rule)] bg-[var(--color-surface-subtle)]">
+    <div class="mx-auto max-w-6xl px-6 py-6">
+      <div class="flex items-center gap-2.5 mb-4">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-accent)] opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-accent)]"></span>
         </span>
-        <h2 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Recent Ship Log</h2>
+        <h2 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Live Telemetry &amp; Recent Ship Log</h2>
       </div>
-      <div class="h-6 w-px bg-[var(--color-rule)] hidden sm:block"></div>
-      <div class="flex flex-wrap gap-x-10 gap-y-2">
-        <div class="flex gap-2.5 items-baseline">
-          <span class="font-mono text-[10px] text-[var(--color-muted)]">JUN 2026</span>
-          <span class="text-sm font-medium">Gridiron X&O live — football strategy, layman to mastery.</span>
-        </div>
-        <div class="flex gap-2.5 items-baseline">
-          <span class="font-mono text-[10px] text-[var(--color-muted)]">JUN 2026</span>
-          <span class="text-sm font-medium">Toothhound PWA live for collectors.</span>
-        </div>
-        <div class="flex gap-2.5 items-baseline">
-          <span class="font-mono text-[10px] text-[var(--color-muted)]">JAN 2026</span>
-          <span class="text-sm font-medium">VoraPrep integrates Gemini Flash AI.</span>
-        </div>
-        <div class="flex gap-2.5 items-baseline">
-          <span class="font-mono text-[10px] text-[var(--color-muted)]">NOV 2025</span>
-          <span class="text-sm font-medium">CBR Labs SCIF-compliant iPad launch.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Manifesto strip -->
-  <section class="border-y border-[var(--color-rule)] bg-white/40">
-    <div class="mx-auto max-w-5xl px-6 py-16">
-      <p class="font-display text-2xl sm:text-3xl lg:text-[2.25rem] tracking-tight leading-[1.2] text-[var(--color-ink)]/90">
-        We don&rsquo;t chase markets. We pick problems we&rsquo;d want to solve for the next decade, build the company that solves them, and run it ourselves.
-      </p>
-      <p class="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
-        — Rob Pfleghardt, Founder
-      </p>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section class="mx-auto max-w-6xl px-6 pt-12 pb-16">
-    <div class="flex items-end justify-between flex-wrap gap-4">
-      <div class="max-w-2xl">
-        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">In Market</p>
-        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">
-          {activeCount} companies. {buildingCount} apps in build. One studio.
-        </h2>
-      </div>
-      <a
-        href="/portfolio"
-        class="text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
-      >
-        View all →
-      </a>
-    </div>
-
-    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {companies.map((entry) => <PortfolioCard entry={entry} />)}
-    </div>
-  </section>
-
-  <!-- SageCG Labs -->
-  <section class="border-t border-[var(--color-rule)] bg-white/40">
-    <div class="mx-auto max-w-6xl px-6 pt-12 pb-16">
-      <div class="max-w-2xl">
-        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">SageCG Labs</p>
-        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">On the bench.</h2>
-        <p class="mt-4 text-[var(--color-ink)]/70 leading-relaxed">
-          Three concepts on one shared spine: an AI engine that turns documents into compliant, submission-ready work across permits, public procurement, and insurance claims. If one earns its keep on the bench, it graduates into the portfolio.
-        </p>
-      </div>
-
-      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {labs.map((idea) => (
-          <div
-            class="relative rounded-xl border border-dashed border-[var(--color-rule)] bg-[var(--color-paper)] p-6"
-            style={`--card-accent: ${idea.accent}`}
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {shipLog.map((item) => (
+          <a
+            href={item.url}
+            class="group rounded-xl studio-panel p-3.5 hover:border-[var(--color-ink)]/30 transition-all flex flex-col justify-between"
           >
-            <span
-              class="absolute left-0 top-6 bottom-6 w-[3px] rounded-full opacity-70"
-              style="background: var(--card-accent)"
-            ></span>
-            <div class="flex items-center justify-between gap-3">
-              <h3 class="font-display text-xl tracking-tight">{idea.name}</h3>
-              <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">Concept</span>
-            </div>
-            <p class="mt-2 text-[15px] text-[var(--color-ink)]/85 italic font-display">{idea.tagline}</p>
-            <p class="mt-3 text-sm text-[var(--color-muted)] leading-relaxed">{idea.summary}</p>
-            <div class="mt-5 flex flex-wrap gap-1.5">
-              {idea.tags.map((t) => (
-                <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-muted)] border border-[var(--color-rule)] px-2 py-0.5 rounded-sm">
-                  {t}
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <span class="inline-flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-[var(--color-ink)]">
+                  <span class="h-1.5 w-1.5 rounded-full" style={`background: ${item.accent}`}></span>
+                  {item.company}
                 </span>
-              ))}
+                <span class="font-mono text-[10px] text-[var(--color-muted)]">{item.date}</span>
+              </div>
+              <p class="mt-2 text-xs text-[var(--color-muted)] leading-relaxed group-hover:text-[var(--color-ink)]/85 transition-colors">
+                {item.event}
+              </p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- Commercial Portfolio: In Market -->
+  <section class="mx-auto max-w-6xl px-6 pt-16 pb-16">
+    <div class="flex items-end justify-between flex-wrap gap-4">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">In Market · Commercial Ventures</p>
+        </div>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight">
+          {activeCompanies.length} operating companies. One shared spine.
+        </h2>
+        <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+          Standalone commercial platforms built, owned, and operated directly by the studio.
+        </p>
+      </div>
+      <a
+        href="/portfolio"
+        class="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
+      >
+        Full portfolio index →
+      </a>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {activeCompanies.map((entry) => <PortfolioCard entry={entry} />)}
+    </div>
+  </section>
+
+  <!-- Hobby & Community Projects -->
+  <section class="border-t border-[var(--color-rule)] bg-[var(--color-surface-subtle)]">
+    <div class="mx-auto max-w-6xl px-6 pt-16 pb-16">
+      <div class="flex items-end justify-between flex-wrap gap-4">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-amber-500"></span>
+            <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">After Hours · Hobby Projects</p>
+          </div>
+          <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">
+            Built for the love of the game &amp; neighborhood.
+          </h2>
+          <p class="mt-3 text-[var(--color-muted)] leading-relaxed">
+            Not everything needs a pricing tier. These are passion builds we run for our own community table and our annual fantasy football league.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
+        {hobbyProjects.map((entry) => <PortfolioCard entry={entry} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifesto strip -->
+  <section class="border-t border-[var(--color-rule)]">
+    <div class="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+      <blockquote class="font-display text-2xl sm:text-3xl lg:text-[2.35rem] tracking-tight leading-[1.22] text-[var(--color-ink)]/90">
+        &ldquo;We don&rsquo;t chase markets. We pick problems we&rsquo;d want to solve for the next decade, build the software that solves them with mathematical clarity, and run the company ourselves.&rdquo;
+      </blockquote>
+      <p class="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
+        — Rob Pfleghardt, Founder &amp; Operator
+      </p>
+    </div>
+  </section>
+
   <!-- Thesis -->
-  <section class="border-t border-[var(--color-rule)] bg-[var(--color-ink)] text-[var(--color-paper)]">
+  <section class="border-t border-[var(--color-rule)] bg-[#0c0a09] text-[#faf9f6]">
     <div class="mx-auto max-w-6xl px-6 py-20 grid lg:grid-cols-3 gap-x-12 gap-y-10">
       <div class="lg:pr-8">
-        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-paper)]/55">Our thesis</p>
-        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">Small bets. Long horizons.</h2>
-        <p class="mt-4 text-sm text-[var(--color-paper)]/65 leading-relaxed">
-          The studio compounds patiently. The companies stand on their own.
+        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[#faf9f6]/55">Our Operating Thesis</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">Focused bets. Long horizons.</h2>
+        <p class="mt-4 text-sm text-[#faf9f6]/65 leading-relaxed">
+          The studio compounds patiently across decades. Each company stands on its own economics.
         </p>
       </div>
       <div class="lg:col-span-2 grid sm:grid-cols-2 gap-x-10 gap-y-8">
         {principles.map((p) => (
-          <div>
-            <h3 class="font-display text-lg tracking-tight">{p.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-[var(--color-paper)]/70">{p.body}</p>
+          <div class="border-l border-white/15 pl-5">
+            <span class="font-mono text-[10px] tracking-[0.2em] text-amber-400">{p.tag}</span>
+            <h3 class="mt-1 font-display text-xl tracking-tight">{p.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[#faf9f6]/70">{p.body}</p>
           </div>
         ))}
       </div>
@@ -242,23 +273,26 @@ const principles = [
   <section class="border-t border-[var(--color-rule)]">
     <div class="mx-auto max-w-6xl px-6 pt-20 pb-24">
       <div class="max-w-2xl">
-        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Alumni</p>
-        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">Companies that closed a chapter.</h2>
-        <p class="mt-4 text-[var(--color-ink)]/70 leading-relaxed">
-          Not every chapter stays open forever. These companies served their customers, ran their course, and either closed cleanly or evolved into the next chapter.
+        <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Studio Heritage · 1998–Present</p>
+        <h2 class="mt-3 font-display text-3xl sm:text-4xl tracking-tight">Alumni &amp; prior chapters.</h2>
+        <p class="mt-4 text-[var(--color-muted)] leading-relaxed">
+          Before evolving into a software venture studio, SageCG spent over two decades building and operating enterprise and defense Oracle E-Business Suite practices.
         </p>
       </div>
 
       <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {alumni.map((co) => (
-          <div class="relative rounded-xl border border-[var(--color-rule)] bg-white/40 p-6">
-            <span class="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-[var(--color-muted)]/40"></span>
-            <div class="flex items-center justify-between gap-3">
+          <div class="relative rounded-2xl studio-panel p-6">
+            <div class="flex items-start justify-between gap-3">
               <h3 class="font-display text-xl tracking-tight">{co.name}</h3>
-              <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-muted)]">{co.outcome}</span>
+              <span class="rounded-full studio-pill px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-muted)] shrink-0">
+                {co.outcome}
+              </span>
             </div>
-            <p class="mt-3 text-sm text-[var(--color-ink)]/75 leading-relaxed">{co.summary}</p>
-            <div class="mt-5 font-mono text-[11px] text-[var(--color-muted)]">{co.sector}</div>
+            <p class="mt-3 text-sm text-[var(--color-muted)] leading-relaxed">{co.summary}</p>
+            <div class="mt-5 pt-4 border-t border-[var(--color-rule)] font-mono text-[11px] text-[var(--color-muted)]">
+              {co.sector}
+            </div>
           </div>
         ))}
       </div>
@@ -266,12 +300,12 @@ const principles = [
   </section>
 
   <!-- Founder CTA -->
-  <section class="border-t border-[var(--color-rule)] bg-white/40">
+  <section class="border-t border-[var(--color-rule)] bg-[var(--color-surface-subtle)]">
     <div class="mx-auto max-w-6xl px-6 py-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
       <div>
         <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Behind the studio</p>
         <p class="mt-2 font-display text-2xl sm:text-3xl tracking-tight">
-          One operator. Twenty-eight years. A focused portfolio.
+          One operator. Twenty-eight years. Four commercial ventures &amp; two hobby builds.
         </p>
       </div>
       <a

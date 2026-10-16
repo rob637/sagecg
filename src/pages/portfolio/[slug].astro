@@ -17,6 +17,7 @@ const { data } = entry;
 
 const statusLabel: Record<string, string> = {
   active: 'In Market',
+  hobby: 'Hobby Project',
   building: 'In build',
   concept: 'Concept',
   archived: 'Archived',
@@ -78,22 +79,35 @@ if (data.founded) softwareLd.datePublished = `${data.founded}-01-01`;
   <script type="application/ld+json" set:html={JSON.stringify(softwareLd)}></script>
   <article>
     <!-- Header -->
-    <section class="border-b border-[var(--color-rule)]">
-      <div class="mx-auto max-w-4xl px-6 pt-12 pb-14">
+    <section class="relative overflow-hidden border-b border-[var(--color-rule)] bg-studio-grid">
+      <div class="pointer-events-none absolute inset-0 bg-radial-fade"></div>
+      <div class="relative mx-auto max-w-4xl px-6 pt-12 pb-14">
         <a
           href="/portfolio"
-          class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
+          class="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
         >
-          ← Portfolio
+          ← Back to Portfolio
         </a>
 
-        <div class="mt-8 flex items-center gap-2.5">
+        <div class="mt-8 flex flex-wrap items-center gap-3">
           <span
-            class="inline-block h-2 w-2 rounded-full"
-            style={`background: ${data.accent ?? 'var(--color-accent)'}`}
-          ></span>
-          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">
-            {statusLabel[data.status]} · {data.sector}
+            class:list={[
+              'inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] border',
+              data.status === 'active'
+                ? 'border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300'
+                : data.status === 'hobby'
+                ? 'border-amber-500/25 bg-amber-500/10 text-amber-800 dark:text-amber-300'
+                : 'border-[var(--color-rule)] bg-[var(--color-surface-subtle)] text-[var(--color-muted)]',
+            ]}
+          >
+            <span
+              class="inline-block h-2 w-2 rounded-full"
+              style={`background: ${data.accent ?? 'var(--color-accent)'}`}
+            ></span>
+            {statusLabel[data.status] ?? data.status}
+          </span>
+          <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--color-muted)]">
+            {data.sector}
           </span>
         </div>
 
@@ -102,64 +116,61 @@ if (data.founded) softwareLd.datePublished = `${data.founded}-01-01`;
           <p class="mt-2 text-sm text-[var(--color-muted)] font-mono">{data.legalName}</p>
         )}
 
+        <p class="mt-6 font-display text-2xl sm:text-3xl text-[var(--color-ink)]/85 italic max-w-2xl leading-snug">
+          {data.tagline}
+        </p>
+
         {(data.url || data.secondaryUrl) && (
-          <div class="mt-5 flex flex-wrap gap-x-8 gap-y-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+          <div class="mt-7 flex flex-wrap items-center gap-3">
             {data.url && (
-              <div class="flex items-center gap-3">
-                {data.secondaryUrl && <span class="opacity-40">Public</span>}
-                <a 
-                  href={data.url} 
-                  target="_blank" 
-                  rel="noopener"
-                  class="text-[var(--color-ink)]/85 hover:text-[var(--color-accent)] transition-colors underline underline-offset-4 decoration-[var(--color-rule)]"
-                >
-                  {new URL(data.url).hostname.replace('www.', '')}
-                </a>
-              </div>
+              <a
+                href={data.url}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 rounded-full bg-[var(--color-ink)] text-[var(--color-paper)] px-5 py-2.5 text-sm font-medium hover:bg-[var(--color-accent)] hover:text-white transition-all"
+              >
+                <span>Launch {new URL(data.url).hostname.replace('www.', '')}</span>
+                <span aria-hidden="true">↗</span>
+              </a>
             )}
             {data.secondaryUrl && (
-              <div class="flex items-center gap-3">
-                <span class="opacity-40">{data.secondaryUrl.includes('admin') || data.secondaryUrl.includes('arena') ? 'Private' : 'Secondary'}</span>
-                <a 
-                  href={data.secondaryUrl} 
-                  target="_blank" 
-                  rel="noopener"
-                  class="text-[var(--color-ink)]/85 hover:text-[var(--color-accent)] transition-colors underline underline-offset-4 decoration-[var(--color-rule)]"
-                >
-                  {new URL(data.secondaryUrl).hostname.replace('www.', '')}{new URL(data.secondaryUrl).pathname !== '/' ? new URL(data.secondaryUrl).pathname : ''}
-                </a>
-              </div>
+              <a
+                href={data.secondaryUrl}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 rounded-full studio-panel px-4 py-2.5 font-mono text-xs text-[var(--color-ink)]/80 hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]/40 transition-all"
+              >
+                <span>{new URL(data.secondaryUrl).hostname.replace('www.', '')}{new URL(data.secondaryUrl).pathname !== '/' ? new URL(data.secondaryUrl).pathname : ''}</span>
+                <span aria-hidden="true">↗</span>
+              </a>
             )}
           </div>
         )}
 
-        <p class="mt-7 font-display text-2xl sm:text-3xl text-[var(--color-ink)]/85 italic max-w-2xl leading-snug">
-          {data.tagline}
-        </p>
-
-        <dl class="mt-10 flex flex-wrap gap-x-12 gap-y-6 border-t border-[var(--color-rule)] pt-8">
+        <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-[var(--color-rule)] pt-8">
           {meta.map((m) => (
             <div>
               <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">{m.label}</dt>
-              <dd class="mt-1.5 text-sm text-[var(--color-ink)]/85">{m.value}</dd>
+              <dd class="mt-1.5 text-sm font-medium text-[var(--color-ink)]/90">{m.value}</dd>
             </div>
           ))}
-          {data.url && (
-            <div>
-              <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Website</dt>
-              <dd class="mt-1.5 text-sm">
-                <a
-                  class="text-[var(--color-ink)]/85 hover:text-[var(--color-accent)] underline underline-offset-4 decoration-[var(--color-rule)] hover:decoration-[var(--color-accent)] transition-colors"
-                  href={data.url}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Visit site →
-                </a>
-              </dd>
+          {data.stack && data.stack.length > 0 && (
+            <div class="col-span-2 sm:col-span-1">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Core Stack</dt>
+              <dd class="mt-1.5 text-sm font-medium text-[var(--color-ink)]/90">{data.stack.slice(0, 2).join(' · ')}</dd>
             </div>
           )}
         </dl>
+
+        {data.metrics && data.metrics.length > 0 && (
+          <div class="mt-6 flex flex-wrap gap-2">
+            {data.metrics.map((metric) => (
+              <span class="rounded-lg studio-panel px-3 py-1 font-mono text-[11px] text-[var(--color-ink)]/85">
+                {metric}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </section>
 
@@ -172,17 +183,23 @@ if (data.founded) softwareLd.datePublished = `${data.founded}-01-01`;
   </article>
 
   <!-- Related -->
-  <section class="border-t border-[var(--color-rule)] bg-white/40">
+  <section class="border-t border-[var(--color-rule)] bg-[var(--color-surface-subtle)]">
     <div class="mx-auto max-w-6xl px-6 py-16">
       <p class="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Also in the portfolio</p>
       <div class="mt-6 grid gap-5 sm:grid-cols-3">
         {others.map((c) => (
           <a
             href={`/portfolio/${c.id}/`}
-            class="group block rounded-lg border border-[var(--color-rule)] bg-[var(--color-paper)] p-5 hover:border-[var(--color-ink)]/40 transition-colors"
+            class="studio-card group block rounded-xl p-5"
+            style={`--card-accent: ${c.data.accent ?? 'var(--color-accent)'}`}
           >
-            <h3 class="font-display text-xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">{c.data.name}</h3>
-            <p class="mt-1.5 text-sm text-[var(--color-muted)] leading-relaxed">{c.data.tagline}</p>
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="font-display text-xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">{c.data.name}</h3>
+              <span class="font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-muted)]">
+                {statusLabel[c.data.status] ?? c.data.status}
+              </span>
+            </div>
+            <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">{c.data.tagline}</p>
           </a>
         ))}
       </div>

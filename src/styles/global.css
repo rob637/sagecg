@@ -7,39 +7,117 @@
 
   --color-ink: #0c0a09;
   --color-paper: #faf9f6;
-  --color-muted: #6b6660;
-  --color-rule: #e7e3dc;
-  --color-accent: #b45309; /* warm sage-adjacent amber */
+  --color-surface: #ffffff;
+  --color-surface-subtle: rgba(12, 10, 9, 0.025);
+  --color-muted: #68635d;
+  --color-rule: #e5e0d8;
+  --color-accent: #c2510c;
+  --color-accent-glow: rgba(194, 81, 12, 0.14);
 }
 
 :root {
   color-scheme: light;
 }
 
+html.dark {
+  color-scheme: dark;
+  --color-ink: #f4f3ef;
+  --color-paper: #090b10;
+  --color-surface: #11151f;
+  --color-surface-subtle: rgba(255, 255, 255, 0.03);
+  --color-muted: #9499a6;
+  --color-rule: #1e2433;
+  --color-accent: #f59e0b;
+  --color-accent-glow: rgba(245, 158, 11, 0.16);
+}
+
 html {
   background: var(--color-paper);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 body {
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
+  position: relative;
+  overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: var(--color-accent);
+  color: #ffffff;
 }
 
 .font-display {
   font-family: var(--font-serif);
   font-optical-sizing: auto;
   font-variation-settings: "SOFT" 50, "WONK" 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .font-mono {
   font-family: var(--font-mono);
+}
+
+/* Architectural grid & atmospheric backdrop */
+.bg-studio-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, color-mix(in srgb, var(--color-rule) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-rule) 45%, transparent) 1px, transparent 1px);
+}
+
+.bg-radial-fade {
+  background: radial-gradient(
+    900px circle at 50% 0%,
+    var(--color-accent-glow),
+    transparent 70%
+  );
+}
+
+/* Modern Studio Card with dynamic accent spotlight */
+.studio-card {
+  background: color-mix(in srgb, var(--color-surface) 82%, var(--color-paper));
+  border: 1px solid var(--color-rule);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease,
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.28s ease;
+}
+
+.studio-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--card-accent, var(--color-accent)) 55%, var(--color-rule));
+  box-shadow: 
+    0 20px 45px -15px rgba(0, 0, 0, 0.12),
+    0 0 0 1px color-mix(in srgb, var(--card-accent, var(--color-accent)) 22%, transparent);
+}
+
+html.dark .studio-card {
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .studio-card:hover {
+  box-shadow: 
+    0 24px 50px -12px rgba(0, 0, 0, 0.65),
+    0 0 32px -8px color-mix(in srgb, var(--card-accent, var(--color-accent)) 28%, transparent);
+}
+
+/* Surface utility for panels */
+.studio-panel {
+  background: color-mix(in srgb, var(--color-surface) 75%, var(--color-paper));
+  border: 1px solid var(--color-rule);
+}
+
+/* Subtle glass pill */
+.studio-pill {
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-rule);
 }

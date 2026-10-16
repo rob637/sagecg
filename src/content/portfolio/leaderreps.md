@@ -10,7 +10,17 @@ founded: "2023"
 url: "https://www.leaderreps.com"
 secondaryUrl: "https://arena.leaderreps.com"
 order: 1
-accent: "#1e6f5c"
+accent: "#0f766e"
+metrics:
+  - "Foundation Cohort Live"
+  - "The Arena Conditioning PWA"
+  - "170+ Cloud Functions"
+  - "Gemini + Claude Coaching"
+stack:
+  - "React 18 · Vite PWA"
+  - "Firebase & Firestore"
+  - "Google Gemini 2.5"
+  - "Telnyx SMS"
 ---
 
 ## The problem

@@ -10,7 +10,17 @@ founded: "2025"
 url: "https://www.cbr-labs.com"
 secondaryUrl: "https://www.cbr-labs.com/admin"
 order: 2
-accent: "#1f2937"
+accent: "#1e3a8a"
+metrics:
+  - "NIST 800-171 Compliant"
+  - "Board-Level Redaction"
+  - "Append-Only Custody Log"
+  - "Public Cert Verifier"
+stack:
+  - "Next.js 14"
+  - "Cloudflare D1 & R2"
+  - "Cloudflare Access"
+  - "Cryptographic PDF Certs"
 ---
 
 ## The problem
