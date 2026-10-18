@@ -1,16 +1,16 @@
-// Borderless OS — Global Customs, Tariff & Landed-Cost Engine.
+// BorderSage — Global Customs, Tariff & Landed-Cost Engine.
 import type { CompanyData } from './_rows';
 
 const data: CompanyData = {
   // Identity
-  'id.product':         'Borderless OS',
+  'id.product':         'BorderSage',
   'id.legal':           'Sage Consulting Group, Inc. (operating brand)',
   'id.type':            'B2B SaaS — Deterministic Global Customs, Tariff & Landed-Cost Engine',
   'id.status':          'Live in production',
   'id.stage':           'Production (50 countries / 133-page customs hubs)',
   'id.sector':          'Global Trade / Customs & Regulatory Intelligence',
-  'id.domain':          'borderless-os.com',
-  'id.apex':            'borderless-os.com canonical (Cloudflare CDN)',
+  'id.domain':          'bordersage.com',
+  'id.apex':            'bordersage.com canonical (Cloudflare CDN)',
   'id.tagline':         'Clear global customs with mathematical certainty.',
   'id.founder':         'Rob Pfleghardt (rob637)',
 
@@ -37,7 +37,7 @@ const data: CompanyData = {
 
   // Backend
   'be.runtime':         'Python 3.12 HTTP/API service behind Cloudflare',
-  'be.api':             'REST endpoints (/api/auth, /api/v1/calculate) with X-Borderless-Key auth',
+  'be.api':             'REST endpoints (/api/auth, /api/v1/calculate) with X-BorderSage-Key auth',
   'be.jobs':            'Statutory feed monitoring & SHA-256 verification pipeline',
   'be.functions':       'Landed-cost calculator, Active Interrogation HS classifier, 4-form PDF packet generator',
 
@@ -62,7 +62,7 @@ const data: CompanyData = {
   'host.preview':       'Staging environment',
 
   // Auth
-  'auth.user':          'Token-based session auth (/api/auth) + Enterprise API keys (X-Borderless-Key)',
+  'auth.user':          'Token-based session auth (/api/auth) + Enterprise API keys (X-BorderSage-Key)',
   'auth.admin':         'Role-based admin gate (rob@sagecg.com)',
   'auth.sso':           'None',
 
@@ -98,7 +98,7 @@ const data: CompanyData = {
   // Integrations
   'int.apis':           'Stripe, Sovereign Customs & Tariff Feeds (USITC, Skatturinn, TARIC, HMRC, etc.)',
   'int.webhooks':       'Enterprise outbound calculation webhooks + Stripe webhooks',
-  'int.sdks':           'REST API (X-Borderless-Key)',
+  'int.sdks':           'REST API (X-BorderSage-Key)',
 
   // DevOps
   'dev.ci':             'Automated build & audit verification (BOS build IDs)',

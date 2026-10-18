@@ -11,7 +11,6 @@ url: "https://voraprep.com"
 secondaryUrl: "https://voraprep.com/admin"
 order: 3
 accent: "#7c3aed"
-ogImage: "/portfolio/og-voraprep.png"
 metrics:
   - "6 Certification Exams"
   - "Prometric-Style Simulator"

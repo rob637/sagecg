@@ -32,8 +32,8 @@ const data: CompanyData = {
   'fe.fonts':           ['Fraunces (display serif)', 'Inter (UI)', 'JetBrains Mono (mono)'],
   'fe.fontdelivery':    'Google Fonts (preconnect)',
   'fe.icons':           'Inline SVG, no icon library',
-  'fe.palette':         'Cream #faf9f6, ink #0c0a09, amber #b45309 + per-company accents',
-  'fe.darkmode':        'No (intentional editorial light)',
+  'fe.palette':         'Cream #faf9f6 / dark #0c0a09, amber #b45309 + per-company accents',
+  'fe.darkmode':        'Yes (light/dark toggle persisted in localStorage)',
 
   // Backend
   'be.runtime':         'None — fully static build',
@@ -81,7 +81,7 @@ const data: CompanyData = {
   'pay.pricing':        'N/A',
 
   // Analytics & SEO
-  'an.web':             'None yet (Cloudflare Web Analytics planned)',
+  'an.web':             'Google Analytics 4 (G-4J0FWODC6W)',
   'an.product':         'N/A',
   'an.sitemap':         '@astrojs/sitemap → /sitemap-index.xml',
   'an.robots':          'public/robots.txt (allow all except /admin, points to sitemap-index.xml)',
@@ -122,8 +122,8 @@ const data: CompanyData = {
   'sec.frame':          'DENY (public/_headers)',
   'sec.nosniff':        'nosniff (public/_headers)',
   'sec.permissions':    'Set (public/_headers)',
-  'sec.csp':            'Not set (deferred until forms ship)',
-  'sec.cache':          'immutable cache for /_astro/* in public/_headers',
+  'sec.csp':            'Configured (public/_headers)',
+  'sec.cache':          'Inline CSS + immutable cache for /_astro/* in public/_headers',
   'sec.bot':            'Cloudflare defaults',
   'sec.ddos':           'Cloudflare',
 
@@ -135,9 +135,9 @@ const data: CompanyData = {
   'leg.gdpr':           'No personal data collected',
 
   // Misc
-  'misc.editorial':     'Editorial-minimal, light cream paper + amber accent',
+  'misc.editorial':     'Editorial-minimal, light cream paper + dark mode + amber accent',
   'misc.conventions':   'Per-company accent color; Fraunces italic on emphasized words',
-  'misc.todos':         'Founder headshot; Longest Table + NFL Fantasy Auction Draft copy; submit sitemap to Search Console',
+  'misc.todos':         '—',
 };
 
 export default data;

@@ -1,14 +1,14 @@
 ---
-name: "Borderless OS"
-legalName: "Borderless OS"
+name: "BorderSage"
+legalName: "BorderSage"
 tagline: "Clear global customs with mathematical certainty."
 summary: "A deterministic global customs, tariff, and landed-cost engine covering 50 countries (~91% of global merchandise trade). Synthesizes primary sovereign customs legislation across 7 regulatory layers into searchable Country Blueprints, Active Interrogation HS classification, FTA duty savings, and ready-to-file 4-form official customs packets."
 status: "active"
 sector: "Global Trade · Customs & Tariff Intelligence"
 stage: "Live in production"
 founded: "2026"
-url: "https://borderless-os.com"
-secondaryUrl: "https://borderless-os.com/calculator.html"
+url: "https://bordersage.com"
+secondaryUrl: "https://bordersage.com/calculator.html"
 order: 4
 accent: "#0284c7"
 metrics:
@@ -27,7 +27,7 @@ stack:
 
 Cross-border commerce is still run on guesswork, stale tariff PDFs, and black-box broker estimates. Shippers discover Partner Government Agency (PGA) holds, suspended *de minimis* rules, anti-dumping duties, or missed 0% Free Trade Agreement exemptions only after freight is detained at the port of entry.
 
-**Borderless OS** replaces customs guesswork and surprise port holds with date-tracked primary statutory blueprints across 7 regulatory layers — covering 50 countries and roughly 91% of global merchandise trade.
+**BorderSage** replaces customs guesswork and surprise port holds with date-tracked primary statutory blueprints across 7 regulatory layers — covering 50 countries and roughly 91% of global merchandise trade.
 
 ## What we ship
 

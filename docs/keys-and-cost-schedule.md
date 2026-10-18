@@ -39,10 +39,7 @@ They are useful for governance and budgeting, but they are not active secrets in
 | `VITE_ADMIN_EMAILS` | LeaderReps | Sensitive config | Server env / config store |
 | `VITE_ENVIRONMENT` | VoraPrep | Non-secret config | Standard env var |
 | `RESEND_API_KEY` | CBR Labs | Secret | Cloudflare/Firebase/GCP secrets manager |
-| `GEMINI_API_KEY` | ToothHound | Secret | Cloudflare environment secret / workers secret |
-| `UPSTASH_REDIS_REST_URL` | ToothHound | Sensitive endpoint | Server env |
-| `UPSTASH_REDIS_REST_TOKEN` | ToothHound | Secret | Server env secret |
-| `EVAL_BASE` | ToothHound | Non-secret config | Standard env var |
+| `X-BorderSage-Key` | BorderSage | Enterprise API key header | Server-side verification & Stripe-provisioned key vault |
 | `GOOGLE_APPLICATION_CREDENTIALS` | Longest Table | Secret (service account path/credential) | Workload identity or secret manager; avoid JSON files in repos |
 
 ## Potential cost schedule (planning ranges)
@@ -51,15 +48,13 @@ All ranges are rough order-of-magnitude planning values. Verify with current ven
 
 | Service / key family | Where referenced | Typical pricing model | Planning range |
 |---|---|---|---|
-| Google Analytics (`G-...`) | This repo (`Layout.astro`) | Free web analytics | $0/month |
-| Google Gemini API (`*_GEMINI_API_KEY`) | VoraPrep, LeaderReps, ToothHound metadata | Per-token model usage | ~$10 to $2,000+/month depending on volume and model |
+| Google Analytics (`G-...`) | This repo (`Layout.astro`), BorderSage metadata | Free web analytics | $0/month |
+| Google Gemini API (`*_GEMINI_API_KEY`) | VoraPrep, LeaderReps metadata | Per-token model usage | ~$10 to $2,000+/month depending on volume and model |
 | Resend (`RESEND_API_KEY`) | CBR Labs, VoraPrep metadata | Per email / monthly tiers | $0 to $100+/month early stage; scales with email volume |
-| Stripe (secret/publishable keys implied) | VoraPrep metadata | Transaction fee based | ~2.9% + $0.30 per successful charge (region-dependent) |
-| Upstash Redis (`UPSTASH_*`) | ToothHound metadata | Request/throughput/storage tiers | $0 to $200+/month depending on traffic and retention |
+| Stripe (secret/publishable keys implied) | BorderSage, VoraPrep metadata | Transaction fee based | ~2.9% + $0.30 per successful charge (region-dependent) |
 | Firebase (API keys + service accounts implied) | VoraPrep, LeaderReps metadata | Usage-based (Auth, Firestore, Functions, Storage) | $0 to $500+/month typical startup band; can exceed with heavy usage |
-| Cloudflare Pages/Workers secrets | CBR Labs, ToothHound metadata | Hosting/request based | $0 to $20+/month for small projects; higher at scale |
+| Cloudflare Pages/Workers & Render | CBR Labs, BorderSage metadata | Hosting/request based | $0 to $50+/month for small projects; higher at scale |
 | Telnyx (API key implied) | VoraPrep, LeaderReps markdown metadata | Per SMS/MMS/minute | Usually cents per message; ~$10 to $500+/month volume-dependent |
-| RapidAPI (API key implied) | ToothHound markdown metadata | API-specific plans | $0 to $300+/month depending on selected API plan |
 
 ## Protection standards checklist
 
@@ -87,11 +82,10 @@ This matrix distinguishes what is used by the SageCG website code in this reposi
 | Integration | Used by SageCG site runtime in this repo? | Mentioned in this repo? | Scope of mention | Evidence source |
 |---|---|---|---|---|
 | Google Analytics (GA4) | Yes | Yes | SageCG runtime layout script | `src/layouts/Layout.astro` |
-| Stripe | No | Yes | Portfolio apps only (mostly VoraPrep live, LeaderReps planned) | `src/data/matrix/voraprep.ts`, `src/data/matrix/leaderreps.ts`, `src/content/portfolio/voraprep.md` |
+| Stripe | No | Yes | Portfolio apps only (BorderSage & VoraPrep live, LeaderReps planned) | `src/data/matrix/bordersage.ts`, `src/data/matrix/voraprep.ts`, `src/data/matrix/leaderreps.ts`, `src/content/portfolio/bordersage.md`, `src/content/portfolio/voraprep.md` |
 | Telnyx | No | Yes | Portfolio apps only (VoraPrep + LeaderReps content) | `src/content/portfolio/voraprep.md`, `src/content/portfolio/leaderreps.md` |
 | Resend | No | Yes | Portfolio apps only | `src/data/matrix/cbr-labs.ts`, `src/data/matrix/voraprep.ts` |
-| Gemini API | No | Yes | Portfolio apps only | `src/data/matrix/voraprep.ts`, `src/data/matrix/leaderreps.ts`, `src/data/matrix/toothhound.ts` |
-| Upstash Redis | No | Yes | Portfolio apps only (ToothHound) | `src/data/matrix/toothhound.ts` |
+| Gemini API | No | Yes | Portfolio apps only | `src/data/matrix/voraprep.ts`, `src/data/matrix/leaderreps.ts` |
 
 ### Direct answer: Stripe and Telnyx for SageCG
 

@@ -1,3 +1,8 @@
 # Cloudflare Pages redirects
 # Force apex → www (canonical host)
 https://sagecg.com/*  https://www.sagecg.com/:splat  301!
+
+# Legacy portfolio slug redirect (Borderless OS → BorderSage)
+/portfolio/borderless-os   /portfolio/bordersage/  301
+/portfolio/borderless-os/  /portfolio/bordersage/  301
+

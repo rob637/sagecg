@@ -8,7 +8,7 @@ import sagecg from './sagecg';
 import leaderreps from './leaderreps';
 import cbrLabs from './cbr-labs';
 import voraprep from './voraprep';
-import borderlessOs from './borderless-os';
+import bordersage from './bordersage';
 import longestTable from './longest-table';
 import footballDraft from './football-draft';
 
@@ -24,7 +24,7 @@ export const companies: Company[] = [
   { id: 'leaderreps',    name: 'LeaderReps',                accent: '#0f766e', data: leaderreps },
   { id: 'cbr-labs',      name: 'CBR Labs',                  accent: '#1e3a8a', data: cbrLabs },
   { id: 'voraprep',      name: 'VoraPrep',                  accent: '#7c3aed', data: voraprep },
-  { id: 'borderless-os', name: 'Borderless OS',             accent: '#0284c7', data: borderlessOs },
+  { id: 'bordersage',    name: 'BorderSage',                accent: '#0284c7', data: bordersage },
   { id: 'longest-table', name: 'The Longest Table',         accent: '#d97706', data: longestTable },
   { id: 'football-draft',name: 'NFL Fantasy Auction Draft', accent: '#16a34a', data: footballDraft },
 ];
