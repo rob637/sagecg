@@ -12,6 +12,13 @@ const hobbyProjects = allEntries.filter((c) => c.data.status === 'hobby');
 const shipLog = [
   {
     date: 'OCT 2026',
+    company: 'FoundInAnswers',
+    url: '/portfolio/foundinanswers/',
+    accent: '#c85a32',
+    event: 'Live 6-stage SEO & AI Answer Engine (AEO) edge audit, custom Topic Hub showrooms, and 2-gate founder approval portal.',
+  },
+  {
+    date: 'OCT 2026',
     company: 'BorderSage',
     url: '/portfolio/bordersage/',
     accent: '#0284c7',
@@ -159,7 +166,7 @@ const principles = [
         </span>
         <h2 class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Live Telemetry &amp; Recent Ship Log</h2>
       </div>
-      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {shipLog.map((item) => (
           <a
             href={item.url}
@@ -305,7 +312,7 @@ const principles = [
       <div>
         <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-muted)]">Behind the studio</p>
         <p class="mt-2 font-display text-2xl sm:text-3xl tracking-tight">
-          One operator. Twenty-eight years. Four commercial ventures &amp; two hobby builds.
+          One operator. Twenty-eight years. Five commercial ventures &amp; two hobby builds.
         </p>
       </div>
       <a

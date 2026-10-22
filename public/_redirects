@@ -6,3 +6,8 @@ https://sagecg.com/*  https://www.sagecg.com/:splat  301!
 /portfolio/borderless-os   /portfolio/bordersage/  301
 /portfolio/borderless-os/  /portfolio/bordersage/  301
 
+# Singular alias redirect (FoundInAnswer → FoundInAnswers)
+/portfolio/foundinanswer   /portfolio/foundinanswers/  301
+/portfolio/foundinanswer/  /portfolio/foundinanswers/  301
+
+

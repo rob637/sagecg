@@ -7,7 +7,7 @@ status: "hobby"
 sector: "Consumer · Sports Analytics"
 stage: "Annual League Tool"
 founded: "2023"
-order: 6
+order: 7
 accent: "#16a34a"
 metrics:
   - "32-Team Live Auction Room"

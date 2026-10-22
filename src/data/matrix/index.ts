@@ -9,6 +9,7 @@ import leaderreps from './leaderreps';
 import cbrLabs from './cbr-labs';
 import voraprep from './voraprep';
 import bordersage from './bordersage';
+import foundinanswers from './foundinanswers';
 import longestTable from './longest-table';
 import footballDraft from './football-draft';
 
@@ -25,6 +26,7 @@ export const companies: Company[] = [
   { id: 'cbr-labs',      name: 'CBR Labs',                  accent: '#1e3a8a', data: cbrLabs },
   { id: 'voraprep',      name: 'VoraPrep',                  accent: '#7c3aed', data: voraprep },
   { id: 'bordersage',    name: 'BorderSage',                accent: '#0284c7', data: bordersage },
+  { id: 'foundinanswers',name: 'FoundInAnswers',            accent: '#c85a32', data: foundinanswers },
   { id: 'longest-table', name: 'The Longest Table',         accent: '#d97706', data: longestTable },
   { id: 'football-draft',name: 'NFL Fantasy Auction Draft', accent: '#16a34a', data: footballDraft },
 ];

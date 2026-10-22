@@ -53,7 +53,7 @@ All ranges are rough order-of-magnitude planning values. Verify with current ven
 | Resend (`RESEND_API_KEY`) | CBR Labs, VoraPrep metadata | Per email / monthly tiers | $0 to $100+/month early stage; scales with email volume |
 | Stripe (secret/publishable keys implied) | BorderSage, VoraPrep metadata | Transaction fee based | ~2.9% + $0.30 per successful charge (region-dependent) |
 | Firebase (API keys + service accounts implied) | VoraPrep, LeaderReps metadata | Usage-based (Auth, Firestore, Functions, Storage) | $0 to $500+/month typical startup band; can exceed with heavy usage |
-| Cloudflare Pages/Workers & Render | CBR Labs, BorderSage metadata | Hosting/request based | $0 to $50+/month for small projects; higher at scale |
+| Cloudflare Pages/Workers & Render | CBR Labs, BorderSage, FoundInAnswers metadata | Hosting/request based | $0 to $50+/month for small projects; higher at scale |
 | Telnyx (API key implied) | VoraPrep, LeaderReps markdown metadata | Per SMS/MMS/minute | Usually cents per message; ~$10 to $500+/month volume-dependent |
 
 ## Protection standards checklist

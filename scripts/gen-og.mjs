@@ -12,7 +12,7 @@ const accent = '#b45309';
 const rule = '#e7e5e4';
 
 // Portfolio accent dots (matches src/content/portfolio/*.md accent values)
-const dots = ['#0f766e', '#1e3a8a', '#7c3aed', '#0284c7', '#d97706', '#16a34a'];
+const dots = ['#0f766e', '#1e3a8a', '#7c3aed', '#0284c7', '#c85a32', '#d97706', '#16a34a'];
 
 const svg = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
