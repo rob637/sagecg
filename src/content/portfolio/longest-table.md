@@ -26,9 +26,9 @@ A "longest table" is exactly what it sounds like: one long table down a closed s
 
 ## What we provide
 
-- Organizer playbooks (permits, food safety, sponsorships)
-- A signup and seating engine that intentionally mixes guests
-- Templates for sponsors, churches, schools, and city programs
+- **Intentional guest-mixing seating engine** that keeps registered groups together while assigning one Table Captain per 14-seat table
+- **Town-wide RSVP, waitlist, and Table Captain portal** (powering *The Longest Table Vienna* on Mill Street SE, with 100% of net proceeds benefiting Rustic Love Vienna 501(c)(3))
+- **Organizer playbooks & sponsor workflows** covering permits, food safety, sponsorships, and `.ics` calendar check-in
 
 ## Why it matters
 

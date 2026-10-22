@@ -15,24 +15,33 @@ Live at: https://www.sagecg.com
 
 ```
 src/
-├── components/         Reusable Astro components (Header, Footer, PortfolioCard)
+├── components/         Reusable Astro components (Header, Footer, PortfolioCard, StudioLink)
 ├── content/
-│   └── portfolio/      One markdown file per portfolio company
+│   └── portfolio/      One markdown file per portfolio company (5 commercial + 2 hobby)
+├── data/
+│   └── matrix/         Side-by-side technical inventory per portfolio company
 ├── layouts/
-│   └── Layout.astro    Base layout with SEO meta, OpenGraph, JSON-LD
+│   └── Layout.astro    Base layout with SEO/AEO meta, OpenGraph, JSON-LD entity graph
 ├── pages/
 │   ├── index.astro     Studio home page
-│   ├── about.astro
-│   ├── contact.astro
+│   ├── studio.astro    Operating model & shared spine
+│   ├── about.astro     Studio story & The Sage Stack
+│   ├── contact.astro   Contact & founder bio
+│   ├── admin/
+│   │   └── index.astro Build-gated internal tech matrix
 │   └── portfolio/
-│       ├── index.astro Portfolio index
-│       └── [slug].astro Dynamic page per company
+│       ├── index.astro Portfolio index with filter tabs
+│       └── [slug].astro Dynamic case study page per company
 ├── styles/
-│   └── global.css      Tailwind v4 theme + base styles
+│   └── global.css      Tailwind v4 theme + light/dark mode tokens
 └── content.config.ts   Content collection schema
 public/
 ├── favicon.svg
-└── robots.txt
+├── llms.txt            Machine-readable AI Answer Engine summary
+├── llms-full.txt       Complete portfolio & technical corpus for LLMs
+├── _headers            Security & cache-control headers
+├── _redirects          Canonical apex, /sitemap.xml, and slug redirects
+└── robots.txt          Open search & AI crawler permissions
 ```
 
 ## Local development

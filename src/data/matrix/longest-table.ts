@@ -3,15 +3,15 @@ import type { CompanyData } from './_rows';
 
 const data: CompanyData = {
   // Identity
-  'id.product':         'Longest Table',
+  'id.product':         'The Longest Table',
   'id.legal':           '(none — under SageCG)',
-  'id.type':            'Flask web app — community-dinner table assignment tool',
-  'id.status':          'In development / internal use',
-  'id.stage':           'Working prototype (containerized for Cloud Run)',
-  'id.sector':          'Community / event ops',
-  'id.domain':          'longest-table-403607223387.us-central1.run.app',
-  'id.apex':            'Cloud Run default URL only',
-  'id.tagline':         'One captain per table; keep groups together; 14 per table.',
+  'id.type':            'Civic-tech community dinner RSVP, Table Captain & seating engine',
+  'id.status':          'Live community project',
+  'id.stage':           'Production (powering The Longest Table Vienna on Mill Street SE)',
+  'id.sector':          'Community / Civic Tech',
+  'id.domain':          'longest-table-vienna-403607223387.us-east4.run.app',
+  'id.apex':            'Cloud Run regional URL (us-east4)',
+  'id.tagline':         'Bring the neighborhood back to the table.',
   'id.founder':         'Rob Pfleghardt (rob637)',
 
   // Repo & Source

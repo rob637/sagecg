@@ -2,7 +2,7 @@
 name: "CBR Labs LLC"
 legalName: "CBR Labs LLC"
 tagline: "SCIF-Compliant Hardware Redaction for Government Tablets."
-summary: "CBR Labs provides permanent hardware redaction (physical removal of cameras/mics) for iPads and Android tablets. NIST 800-171 compliant devices with serial-numbered certificates for US agencies, military SCIFs, and gov-contractors."
+summary: "CBR Labs provides permanent board-level hardware redaction (physical removal of cameras, microphones, speakers, Wi-Fi, Bluetooth, and RF antennas) for iPads and Android tablets. NIST 800-171 compliant devices with serial-numbered certificates for US agencies, military SCIFs, courtrooms, hospitals, and gov-contractors."
 status: "active"
 sector: "GovTech · Secure Hardware Services"
 stage: "Active production"

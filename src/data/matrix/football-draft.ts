@@ -137,7 +137,7 @@ const data: CompanyData = {
   // Misc
   'misc.editorial':     'Lightweight / fast / functional',
   'misc.conventions':   'Offline-first via service worker',
-  'misc.todos':         'Update player data for 2025 season; Migrate to Tailwind',
+  'misc.todos':         'Update player & team projections each preseason; expand keeper/dynasty archive tools',
 };
 
 export default data;

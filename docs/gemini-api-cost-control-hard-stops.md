@@ -82,10 +82,10 @@ Go to: https://console.cloud.google.com/billing/budgets/alerts?project=<project-
 
 | App | Monthly Gemini budget | Quota (requests/day) | Alert owner |
 |---|---|---|---|
-| VoraPrep | $50 | 500,000 | TBD |
-| LeaderReps | $30 | 300,000 | TBD |
-| ToothHound | $20 | 200,000 | TBD |
-| KindKudos | $10 | 100,000 | TBD |
+| VoraPrep | $50 | 500,000 | rob@sagecg.com |
+| LeaderReps | $30 | 300,000 | rob@sagecg.com |
+| FoundInAnswers | $25 | 250,000 | rob@sagecg.com |
+| BorderSage | $20 | 200,000 | rob@sagecg.com |
 
 Start conservative, monitor for 2–4 weeks, then adjust upward if needed.
 
@@ -106,8 +106,8 @@ Replace `<project-id>` and fill in your actual GCP project IDs:
 - VoraPrep Billing budgets: `https://console.cloud.google.com/billing/budgets?project=<voraprep-project-id>`
 - LeaderReps Gemini quotas: `https://console.cloud.google.com/apis/api/generativelanguage.googleapis.com/quotas?project=<leaderreps-project-id>`
 - LeaderReps Billing budgets: `https://console.cloud.google.com/billing/budgets?project=<leaderreps-project-id>`
-- ToothHound Gemini quotas: `https://console.cloud.google.com/apis/api/generativelanguage.googleapis.com/quotas?project=<toothhound-project-id>`
-- ToothHound Billing budgets: `https://console.cloud.google.com/billing/budgets?project=<toothhound-project-id>`
+- FoundInAnswers Gemini quotas: `https://console.cloud.google.com/apis/api/generativelanguage.googleapis.com/quotas?project=<foundinanswers-project-id>`
+- FoundInAnswers Billing budgets: `https://console.cloud.google.com/billing/budgets?project=<foundinanswers-project-id>`
 
 ## Testing your hard stop
 

@@ -1,0 +1,114 @@
+# SageCG Venture Studio — Complete Portfolio & Technical Reference Corpus (llms-full.txt)
+
+> Canonical Domain: https://www.sagecg.com
+> Parent Entity: Sage Consulting Group, Inc. (Est. 1998)
+> Founder & Operator: Rob Pfleghardt (rob@sagecg.com)
+> Headquarters & Presence: Dual anchors in Vienna, Virginia (504 Mashie Drive, Vienna, VA 22180) and South Carolina.
+
+---
+
+## 1. Studio Thesis & Operating Model
+
+SageCG is an operator-led software venture studio. Unlike accelerators that pick winners or holding companies that acquire them, SageCG starts, architects, builds, and operates every company in its portfolio from the inside on a shared engineering and back-office spine.
+
+### Four Operating Principles
+1. **Operator-first:** Every company in the portfolio is one we run ourselves. We do not ship ideas we wouldn't show up to on a Monday.
+2. **Built to last:** Profitable, durable, useful. Optimized for compounding cash flow over fundraising, with 100% independent ownership and zero outside capital.
+3. **Shared spine:** One studio, one back office (entity formation, legal, Stripe billing, compliance), and one modern edge engineering stack so new ventures ship in days.
+4. **Independent brands:** Each commercial venture stands on its own domain, brand identity, customer base, and unit economics.
+
+### Four Bars Every Commercial Venture Clears
+- **01 Real pain:** A specific operator or customer is losing time or money to a broken workflow and will pay to make it stop.
+- **02 Fair market:** Big enough to build a durable business, specialized enough that legacy incumbents move too slowly.
+- **03 Operator edge:** Deep domain expertise, proprietary statutory synthesis, or technical leverage provides an unfair head start.
+- **04 Durable shape:** High gross margins and a direct path to profitable, compounding cash flow without external venture dilution.
+
+---
+
+## 2. In Market Commercial Ventures (5 Operating Companies)
+
+### 2.1 LeaderReps LLC
+- **Case Study:** https://www.sagecg.com/portfolio/leaderreps/
+- **Primary Domain:** https://www.leaderreps.com
+- **Application PWA:** https://arena.leaderreps.com
+- **Sector:** B2B SaaS · Leadership Development (HR Tech)
+- **Founded:** 2023 | **Status:** In Market
+- **Tagline:** Leadership conditioning for managers — built through reps, not slide decks.
+- **Problem Solved:** 82% of managers are promoted without formal training, and one-day workshops fail to change daily behavior.
+- **What Ships:**
+  - **Foundation Cohort Program:** Structured leadership conditioning across *Lead Yourself, Lead Others, Lead the Work*.
+  - **Real Reps:** Deliberate practice exercises integrated directly into a manager's actual workday.
+  - **The Arena PWA:** Dedicated conditioning app (`arena.leaderreps.com`) for tracking progress, tools, and daily reps.
+  - **AI Coaching & Evaluation:** ~170 Firebase Cloud Functions running Google Gemini 2.5 (with Anthropic Claude fallback) for rep scoring and coaching, plus Telnyx SMS workflows and lead-magnet diagnostic calculators.
+
+### 2.2 CBR Labs LLC
+- **Case Study:** https://www.sagecg.com/portfolio/cbr-labs/
+- **Primary Domain:** https://www.cbr-labs.com
+- **Admin & Custody App:** https://www.cbr-labs.com/admin
+- **Sector:** GovTech · Secure Hardware Services
+- **Founded:** 2025 | **Status:** In Market
+- **Tagline:** SCIF-Compliant Hardware Redaction for Government Tablets.
+- **Problem Solved:** SCIFs, courtrooms, operating rooms, and correctional facilities prohibit recording/transmitting devices, and MDM software locks or tape fail physical security audits.
+- **What Ships:**
+  - **Permanent Board-Level Redaction:** Physical removal of cameras, microphones, speakers, Wi-Fi, Bluetooth, and RF antennas from iPad and Android tablets.
+  - **NIST 800-171 Compliance & Chain of Custody:** Append-only custody event log backed by Cloudflare D1 and R2 photo evidence.
+  - **Cryptographic Certificate of Redaction:** Serial-numbered PDF certificates paired with a public verification endpoint for CSOs and contracting officers.
+
+### 2.3 VoraPrep LLC
+- **Case Study:** https://www.sagecg.com/portfolio/voraprep/
+- **Primary Domain:** https://voraprep.com
+- **Sector:** Consumer EdTech · Professional Certification Prep
+- **Founded:** 2026 | **Status:** In Market
+- **Tagline:** Master 30 professional certifications with active recall, statutory depth, and 1:1 exam simulation.
+- **Problem Solved:** Candidates juggle 100–400 study hours around full-time jobs while legacy review providers charge $2,000–$3,000 for passive video lectures and static PDFs.
+- **What Ships:**
+  - **30 Full-Curriculum Certification Courses across 5 Kingdoms:**
+    - *Accounting & Tax:* CPA, EA, CMA, CFE, CPP, CGFM
+    - *Securities & Wealth:* CFP, SIE, FINRA Series 7, 63, 65, 66, 6, 24, 57, 79, 99, CFA Level 1, FRM Part 1
+    - *Audit, Cyber & Privacy:* CISA, CIA, CRISC, CISM, CISSP, CCSP, CompTIA Security+, CIPP/US
+    - *HR Leadership:* SHRM-CP, PHR
+    - *Federal Regulatory:* U.S. Customs Broker License Exam (CBLE)
+  - **Scale & Depth:** 71,700+ verified MCQs with option-by-option rationales, 2,790+ textbook-grade interactive lessons, 13,800+ FSRS-4.5 spaced-repetition flashcards, and printable 12-week Study Plan PDFs.
+  - **1:1 Exam Simulators & Vory AI Tutor:** Authentic Prometric, Pearson VUE, and PSI test-center simulators, GreenLight pass-probability predictor, Vory 24/7 Socratic AI tutor (Google Gemini), and Web + iOS/Android apps via Capacitor.
+
+### 2.4 BorderSage
+- **Case Study:** https://www.sagecg.com/portfolio/bordersage/
+- **Primary Domain:** https://bordersage.com
+- **Landed-Cost Calculator:** https://bordersage.com/calculator.html
+- **Sector:** Global Trade · Customs & Tariff Intelligence
+- **Founded:** 2026 | **Status:** In Market
+- **Tagline:** Clear global customs with mathematical certainty.
+- **Problem Solved:** Cross-border shippers rely on stale tariff PDFs and black-box broker estimates, discovering PGA holds, suspended *de minimis* thresholds, or missed 0% FTA exemptions only after freight is detained.
+- **What Ships:**
+  - **50-Country Sovereign Customs Blueprints (133 Dedicated Hub Pages):** Covers ~91% of global merchandise trade (US, UK, EU-27, Canada, Iceland, Norway, Switzerland, Mexico, Japan, South Korea, Australia, China, Singapore, New Zealand, GCC-6, Taiwan, Vietnam, India, Brazil).
+  - **7-Layer Regulatory Synthesis:** Tariff Schedules & Rulings, Import VAT/GST & *De Minimis*, PGA Trigger Maps, FTAs & Duty Drawback, Export Controls & Sanctions, Valuation & Customs FX, and Official Filing Schemas.
+  - **Active Interrogation HS Classifier & 4-Form Packets:** Deterministic HS classification, CIF/FOB landed-cost calculator, SHA-256 cryptographic statutory receipts, SKU Master Vault, and Enterprise REST API (`/api/v1/calculate`).
+
+### 2.5 FoundInAnswers
+- **Case Study:** https://www.sagecg.com/portfolio/foundinanswers/
+- **Primary Domain:** https://foundinanswers.com
+- **Customer Console:** https://foundinanswers.com/console
+- **Sector:** B2B SaaS · Search & AI Answer Engine Optimization (AEO)
+- **Founded:** 2026 | **Status:** In Market
+- **Tagline:** Get found across search engines & AI assistants — with zero AI slop.
+- **Problem Solved:** Lean product websites (<10 pages) and mobile apps suffer from Soft-404 `/sitemap.xml` and `/llms.txt` traps, brand-only titles, and invisible App Store listings across Google, Bing, ChatGPT, Perplexity, Gemini, and Claude.
+- **What Ships:**
+  - **Step 1 Free Live Edge Audit & Custom Showroom:** Real-time 6-stage HTTP inspection of DOM metadata, XML sitemaps, `/robots.txt` AI crawler permissions, `/llms.txt`, JSON-LD schema, and Apple App Store / Google Play ASO metadata.
+  - **100% Honest Audit Guarantee ($0/mo Verdict):** Sites that already pass technical SEO and AEO checks receive a 90–100/100 score and a **$0/mo (No Plan Needed)** recommendation.
+  - **Two-Gate Founder Governance & Technical Bridge:** Gate 1 customizes the 6-Hub, 24-Spoke blueprint and voice guardrails before drafting; Gate 2 provides a full WYSIWYG Review & Approval Queue with a strict zero-em-dash human editorial policy, automated Tue/Thu drip publishing, and instant Microsoft Bing IndexNow pings.
+
+---
+
+## 3. After Hours · Hobby & Community Projects (2 Live Builds)
+
+### 3.1 The Longest Table
+- **Case Study:** https://www.sagecg.com/portfolio/longest-table/
+- **Live URL:** https://longest-table-vienna-403607223387.us-east4.run.app/
+- **Sector:** Community · Civic Tech | **Founded:** 2024
+- **Summary:** Civic-tech platform for neighborhood long-table community dinners (powering The Longest Table Vienna on Mill Street SE), featuring an intentional guest-mixing seating engine, Table Captain portal, sponsor workflows, and town-wide RSVP check-in.
+
+### 3.2 NFL Fantasy Auction Draft
+- **Case Study:** https://www.sagecg.com/portfolio/football-draft/
+- **Live URL:** https://annual-auction-nfl-draft-608a4.web.app/
+- **Sector:** Consumer · Sports Analytics | **Founded:** 2023
+- **Summary:** Real-time auction draft room for fantasy football leagues that auction all 32 NFL teams, featuring live ESPN FPI bid valuation, league budget-pressure modeling, Bargain/Fair/Overpay indicators, and a multi-season archive.

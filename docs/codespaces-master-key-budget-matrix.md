@@ -1,6 +1,6 @@
 # Master Key and Budget Matrix (Portable Across Codespaces)
 
-Last updated: 2026-06-16
+Last updated: 2026-10-22
 Source of truth used: SageCG matrix metadata and portfolio markdown in this repo.
 
 How to use this file:

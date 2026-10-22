@@ -5,13 +5,13 @@ const data: CompanyData = {
   // Identity
   'id.product':         'VoraPrep',
   'id.legal':           'VoraPrep LLC',
-  'id.type':            'EdTech SaaS — AI-powered professional exam prep',
+  'id.type':            'EdTech SaaS — Full-curriculum professional certification exam prep',
   'id.status':          'Live in production',
-  'id.stage':           'Production (dev / staging / prod environments)',
+  'id.stage':           'Production (30 live certification exams across 5 Kingdoms)',
   'id.sector':          'EdTech / Professional Certification Exam Prep',
   'id.domain':          'voraprep.com',
-  'id.apex':            'apex + www both served (Firebase Hosting)',
-  'id.tagline':         'AI-powered exam prep that gets you to 75+',
+  'id.apex':            'voraprep.com canonical (www redirects to apex)',
+  'id.tagline':         'Master 30 professional certifications with active recall, statutory depth, and 1:1 exam simulation.',
   'id.founder':         'Rob Pfleghardt (rob637)',
 
   // Repo & Source
@@ -83,15 +83,15 @@ const data: CompanyData = {
   // Analytics
   'an.web':             'Firebase Analytics + Google Analytics 4 + Google Ads tag',
   'an.product':         'Firebase Analytics events + custom Firestore activity logs',
-  'an.sitemap':         'Dynamic — Cloud Function dynamicSitemap serves /sitemap.xml',
-  'an.robots':          'Public marketing pages allowed; auth routes noindex, follow',
-  'an.jsonld':          'Per-page in blog (Astro); SPA meta in index.html',
+  'an.sitemap':         'Dynamic — Cloud Function dynamicSitemap serves /sitemap.xml + /llms.txt',
+  'an.robots':          'Public marketing & 30 exam hubs allowed; auth routes noindex, follow',
+  'an.jsonld':          'SoftwareApplication, Course, Organization & FAQPage JSON-LD',
   'an.og':              'Per-course/per-page OG images',
-  'an.meta':            'Meta in index.html + blog sub-site',
+  'an.meta':            'Per-exam title, description, canonical + /llms.txt curriculum manifest',
   'an.gsc':             'Submitted',
 
   // AI
-  'ai.features':        'AI Tutor, adaptive question recommendation, score predictor, why-wrong explanations',
+  'ai.features':        'Vory 24/7 Socratic AI Tutor, adaptive question recommendation, GreenLight score predictor, option-by-option rationales',
   'ai.models':          'Google Gemini (primary)',
   'ai.vector':          'None',
 

@@ -1,0 +1,58 @@
+# SageCG Venture Studio (https://www.sagecg.com)
+
+> Operating since 1998 with dual anchors in Virginia and South Carolina, SageCG (Sage Consulting Group, Inc.) is an independent, operator-led boutique venture studio. We start, engineer, and operate our own portfolio of commercial software companies across Global Trade, GovTech, EdTech, HR Tech, and Search/AI Answer Engine Optimization (AEO), alongside after-hours community and sports hobby builds.
+
+## Studio Overview
+- **Legal Entity:** Sage Consulting Group, Inc. (DBA SageCG Venture Studio)
+- **Founded:** 1998 (Vienna, Virginia)
+- **Operating Footprint:** National — Virginia & South Carolina (504 Mashie Drive, Vienna, VA 22180)
+- **Founder & Operator:** Rob Pfleghardt (https://www.sagecg.com/contact#founder | rob@sagecg.com)
+- **Capital Structure:** 100% independent and founder-owned (zero outside institutional capital)
+- **Portfolio Composition:** 5 commercial ventures live in market + 2 active hobby & community projects + 3 prior enterprise/DoD Oracle EBS alumni companies
+- **Shared Engineering Spine:** Astro 5, React 18, Next.js 14, TypeScript, Tailwind CSS, Capacitor (iOS/Android), Cloudflare Pages/Workers/D1/R2/Access, Firebase Gen 2 & Firestore, Google Cloud Run, Python 3.12, Stripe Billing, Bi-Temporal Statutory JSON Vaults, and deterministic rules engines paired with Google Gemini & Anthropic Claude.
+
+## In Market · Commercial Ventures (5 Operating Companies)
+
+1. **[LeaderReps](https://www.sagecg.com/portfolio/leaderreps/)** — *B2B SaaS · Leadership Development (HR Tech)*
+   - **Live URL:** https://www.leaderreps.com | **App PWA:** https://arena.leaderreps.com
+   - **Summary:** Leadership conditioning for managers built through daily deliberate practice ("Real Reps"), live cohort coaching (**Foundation**), and **The Arena** conditioning PWA across three pillars: *Lead Yourself, Lead Others, Lead the Work*. Backed by 170+ Firebase Cloud Functions and Google Gemini + Anthropic Claude coaching.
+
+2. **[CBR Labs](https://www.sagecg.com/portfolio/cbr-labs/)** — *GovTech · Secure Hardware Services*
+   - **Live URL:** https://www.cbr-labs.com
+   - **Summary:** SCIF-compliant, permanent board-level hardware redaction (physical removal of cameras, microphones, speakers, Wi-Fi, Bluetooth, and RF antennas) for iPad and Android tablets. Delivers NIST 800-171 compliant devices with an append-only chain-of-custody log and serial-numbered cryptographic Certificates of Redaction with a public verifier for US defense, intelligence, court, healthcare, and correctional facilities.
+
+3. **[VoraPrep](https://www.sagecg.com/portfolio/voraprep/)** — *Consumer EdTech · Professional Certification Prep*
+   - **Live URL:** https://voraprep.com
+   - **Summary:** Full-curriculum adaptive exam preparation across **30 professional licensure and certification exams** spanning 5 Kingdoms: Accounting & Tax (CPA, EA, CMA, CFE, CPP, CGFM), Securities & Wealth (CFP, SIE, FINRA Series 7/63/65/66/6/24/57/79/99, CFA Level 1, FRM Part 1), Audit, Cyber & Privacy (CISA, CIA, CRISC, CISM, CISSP, CCSP, CompTIA Security+, CIPP/US), HR Leadership (SHRM-CP, PHR), and Federal Regulatory (U.S. Customs Broker CBLE). Includes 71,700+ verified MCQs, 2,790+ interactive lessons, 13,800+ FSRS-4.5 flashcards, 1:1 Prometric/Pearson VUE/PSI exam simulators, GreenLight readiness scoring, and Vory (24/7 Socratic AI tutor).
+
+4. **[BorderSage](https://www.sagecg.com/portfolio/bordersage/)** — *Global Trade · Customs & Tariff Intelligence*
+   - **Live URL:** https://bordersage.com | **Calculator:** https://bordersage.com/calculator.html
+   - **Summary:** Deterministic global customs, tariff, and landed-cost engine covering **50 countries (~91% of global merchandise trade)** across **133 dedicated Country Hub pages**. Synthesizes primary sovereign customs legislation across 7 regulatory layers into searchable Country Blueprints, Active Interrogation HS classification, FTA duty-savings calculations, and ready-to-file 4-form official customs clearance packets with SHA-256 statutory receipts.
+
+5. **[FoundInAnswers](https://www.sagecg.com/portfolio/foundinanswers/)** — *B2B SaaS · Search & AI Answer Engine Optimization (AEO)*
+   - **Live URL:** https://foundinanswers.com | **Customer Console:** https://foundinanswers.com/console
+   - **Summary:** Two-step SEO and AI Answer Engine Optimization (AEO) platform that helps lean software products, mobile apps, and B2B brands get indexed and cited across Google, Microsoft Bing IndexNow, ChatGPT Search, Perplexity, Google AI Overviews (Gemini), and Claude. Pairs a free 6-stage live Cloudflare edge audit (with a 100% honest $0/mo verdict if a site already passes) with a Two-Gate Founder Approval workflow, Mobile App ASO-to-Web bridge, and WYSIWYG review portal.
+
+## After Hours · Hobby & Community Projects (2 Live Builds)
+
+1. **[The Longest Table](https://www.sagecg.com/portfolio/longest-table/)** — *Community · Civic Tech*
+   - **Live URL:** https://longest-table-vienna-403607223387.us-east4.run.app/
+   - **Summary:** Civic-tech platform powering neighborhood long-table community dinners (including The Longest Table Vienna on Mill Street SE) with an intentional guest-mixing seating engine, Table Captain portal, town-wide RSVP coordination, and organizer playbooks.
+
+2. **[NFL Fantasy Auction Draft](https://www.sagecg.com/portfolio/football-draft/)** — *Consumer · Sports Analytics*
+   - **Live URL:** https://annual-auction-nfl-draft-608a4.web.app/
+   - **Summary:** Real-time auction draft room for fantasy leagues that draft full 32 NFL team franchises, featuring live ESPN FPI bid valuation, budget pressure modeling, Bargain/Fair/Overpay tags, and a multi-season league archive.
+
+## Studio Heritage & Prior Chapters (1998–Present)
+- **Sage Consulting Group, Inc.:** Started in 1998 with commercial Oracle E-Business Suite implementations, expanded into federal/DoD DAI Oracle implementations, and evolved into the SageCG Venture Studio.
+- **OraTemps LLC:** Specialized staff augmentation placing senior Oracle E-Business Suite functional leads and module specialists into federal and commercial ERP programs (wound down).
+- **OneTeam Consulting, LLC:** Tier-1 through Tier-3 help-desk and application support for the DoD Defense Agencies Initiative (DAI) Oracle E-Business Suite ERP footprint (wound down).
+
+## Canonical Pages & Machine-Readable Feeds
+- [Home — SageCG Venture Studio](https://www.sagecg.com/)
+- [Portfolio Index — All 7 Ventures & Builds](https://www.sagecg.com/portfolio/)
+- [The Studio — Operating Model & Shared Spine](https://www.sagecg.com/studio/)
+- [About SageCG & The Sage Stack](https://www.sagecg.com/about/)
+- [Contact & Founder Bio (Rob Pfleghardt)](https://www.sagecg.com/contact/)
+- [Full Machine-Readable Portfolio Corpus](/llms-full.txt)
+- [XML Sitemap Index](/sitemap-index.xml)

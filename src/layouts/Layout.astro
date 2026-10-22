@@ -35,6 +35,7 @@ if (nofollow) robots.push('nofollow');
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="text/plain" title="LLM Summary Index" href="https://www.sagecg.com/llms.txt" />
     {robots.length > 0 && <meta name="robots" content={robots.join(', ')} />}
 
     <!-- Zero-flash theme initialization -->
@@ -125,6 +126,38 @@ if (nofollow) robots.push('nofollow');
         contactType: 'careers',
         email: 'careers@sagecg.com',
       }],
+      subOrganization: [
+        {
+          '@type': 'Organization',
+          name: 'LeaderReps LLC',
+          url: 'https://www.leaderreps.com',
+          description: 'Leadership conditioning cohort programs and The Arena practice PWA for managers.',
+        },
+        {
+          '@type': 'Organization',
+          name: 'CBR Labs LLC',
+          url: 'https://www.cbr-labs.com',
+          description: 'SCIF-compliant permanent board-level hardware redaction for iPad and Android tablets.',
+        },
+        {
+          '@type': 'Organization',
+          name: 'VoraPrep LLC',
+          url: 'https://voraprep.com',
+          description: 'Full-curriculum adaptive exam preparation across 30 professional certifications and 5 Kingdoms.',
+        },
+        {
+          '@type': 'Organization',
+          name: 'BorderSage',
+          url: 'https://bordersage.com',
+          description: 'Deterministic global customs, tariff, and landed-cost engine covering 50 countries (~91% of global trade).',
+        },
+        {
+          '@type': 'Organization',
+          name: 'FoundInAnswers',
+          url: 'https://foundinanswers.com',
+          description: 'Two-step SEO and AI Answer Engine Optimization (AEO) platform with live edge audits and two-gate founder governance.',
+        },
+      ],
       sameAs: ['https://github.com/rob637'],
     })}></script>
     <script type="application/ld+json" set:html={JSON.stringify({
