@@ -84,7 +84,7 @@ const data: CompanyData = {
   'an.web':             'Google Analytics 4 (G-4J0FWODC6W)',
   'an.product':         'N/A',
   'an.sitemap':         '@astrojs/sitemap → /sitemap-index.xml (+ /sitemap.xml 301 redirect & /llms.txt)',
-  'an.robots':          'public/robots.txt (explicit Allow for GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot, Google-Extended; Disallow /admin)',
+  'an.robots':          'public/robots.txt (explicit Allow for GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot, Google-Extended; Disallow /admin, /cdn-cgi/)',
   'an.jsonld':          'JSON-LD: Organization (with 5-company subOrganization graph), WebSite, WebPage, ItemList, SoftwareApplication, BreadcrumbList',
   'an.og':              '/og.png (generated via scripts/gen-og.mjs)',
   'an.meta':            'title + description + canonical + /llms.txt alternate link + OG + Twitter wired through Layout.astro',

@@ -2,38 +2,47 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 User-agent: GPTBot
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 User-agent: Googlebot
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 User-agent: bingbot
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 User-agent: Applebot
 Allow: /
 Disallow: /admin
+Disallow: /cdn-cgi/
 
 Sitemap: https://www.sagecg.com/sitemap-index.xml
 

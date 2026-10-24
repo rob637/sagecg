@@ -18,6 +18,7 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="mx-auto max-w-4xl px-6 pt-12 pb-16">
     <div class="grid sm:grid-cols-2 gap-5">
+      <Fragment set:html={'<!--email_off-->'} />
       <a
         href="mailto:hello@sagecg.com"
         class="studio-card group block rounded-2xl p-6"
@@ -34,6 +35,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="mt-2 font-display text-2xl tracking-tight group-hover:text-[var(--color-accent)] transition-colors">careers@sagecg.com</p>
         <p class="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">Roles across the portfolio companies.</p>
       </a>
+      <Fragment set:html={'<!--/email_off-->'} />
     </div>
 
     <div id="founder" class="mt-16 border-t border-[var(--color-rule)] pt-12 scroll-mt-24">
@@ -64,12 +66,14 @@ import Layout from '../layouts/Layout.astro';
           </p>
 
           <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+            <Fragment set:html={'<!--email_off-->'} />
             <a
               class="text-[var(--color-ink)]/80 hover:text-[var(--color-accent)] underline underline-offset-4 decoration-[var(--color-rule)] hover:decoration-[var(--color-accent)] transition-colors"
               href="mailto:rob@sagecg.com"
             >
               rob@sagecg.com
             </a>
+            <Fragment set:html={'<!--/email_off-->'} />
             <a
               class="text-[var(--color-ink)]/80 hover:text-[var(--color-accent)] underline underline-offset-4 decoration-[var(--color-rule)] hover:decoration-[var(--color-accent)] transition-colors"
               href="https://github.com/rob637"
